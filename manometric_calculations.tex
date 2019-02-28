@@ -1,0 +1,142 @@
+%\documentclass[twocolumn]{article}
+\documentclass[]{article}
+\usepackage[version=3]{mhchem}
+\usepackage{sectsty}
+\usepackage{amsmath}
+\usepackage[flushleft]{threeparttablex} % For table notes
+%%% NTS: screws up bib, won't compile
+%%%%\usepackage{natbib}
+\usepackage{rotating} % For brian's table
+\usepackage{longtable}
+\usepackage{hyperref}
+% For decimal alignment in tables
+\usepackage{dcolumn}
+
+% For dcolumn
+\newcolumntype{.}{D{.}{.}{3}}
+
+\sectionfont{\large}
+
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\title {Calculation of methane production from manometric measurements}
+\author{Sasha D. Hafner and Sergi Astals\\
+\\
+\texttt{sasha@hafnerconsulting.com} (S. D. Hafner)\\
+\texttt{sastals@ub.edu} (S. Astals)
+} 
+
+\begin{document}
+\maketitle
+
+\section*{Description}
+This document describes calculations for manometric measurment of biogas.
+Two methods are commonly used and both are described here: one based on normalized \ce{CH4} concentrations (method 1) and one that explicitly includes estimation of \ce{CH4} in the bottle headspace (method 2).
+Expected results from the two methods are identical; differences are due only to error in measurement of biogas composition or headspace volume.
+Both methods are available through the \texttt{cumBg()} function in the biogas package \cite{softwarex} and through the web application OBA (\url{https://biotransformers.shinyapps.io/oba1/}) and can be easily added to, e.g., a spreadsheet template.
+
+\section{Standardization of measured gas volume}
+Both methods use the same approach for standardization of gas volume.
+Dry biogas volume in a bottle's headspace before and after venting is calculated by correcting for water vapor, temperature, and pressure.
+First the volume of headspace gas is converted to dry conditions at standard pressure:
+
+\begin{equation}
+  \label{eq:h2ocorrection}
+  V_{dry} = V_{headspace}(P_{meas} - P_{H_2O})/101.325 \unit{kPa}
+\end{equation}
+
+where $P_{meas}$ is the measured headspace pressure and $P_{H_2O}$ the water vapor partial pressure.
+Eq. (\ref{eq:h2ocorrection}) is an expression of Boyle's law.
+The value of $P_{H_2O}$ is assumed to be the saturation vapor pressure prior to venting, and can be calculated using, e.g., the Magnus-form equation given below (Eq. 21 in \cite{magnus}):
+
+\begin{equation}
+\label{eq:magnus}
+   P_{H_2O} = 610.94 e^{(17.625 T/(243.04 + T))}
+\end{equation}
+
+where T is temperature in $^\circ$C.
+After venting, when water vapor has been lost and water evaporation has not yet attained equilibrium, relative humidity is taken as the ratio of post- to pre-venting absolute pressure. 
+Volume is then further standardized to 273.15 K by application of Charles's law:
+
+\begin{equation}
+  \label{eq:bgstd}
+  V_{std} = V_{dry} 273.15 \unit{K}/T_{meas}
+\end{equation}
+
+where $V_{std}$ is the standardized volume of gas within a bottle's headspace at the time of pressure measurement.
+
+Interval biogas production is calculated as:
+
+\begin{equation}
+  \label{eq:bgint}
+  V_{biogas, i} = V_{std, pre, i} - V_{std, post, i - 1}
+\end{equation}
+
+where all $V$ is standardized gas volume in a bottle's headspace, $pre$ and $post$ refer to before and after venting, respectively, $i$ indicates the current interval and $i-1$ the previous one.
+
+\section{Calculation of \ce{CH4} production}
+\subsection{Method 1}
+In the first method, biogas is assumed to consist of only \ce{CH4} and \ce{CO2} at the time of production (i.e., as produced by the microbial community) and \ce{CH4} production is calculated from vented (removed) biogas only.
+This method is described in \cite{brian1991}.
+Coupled with the assumption that all gas production is biogas (Eq. \ref{eq:bgint}), this provides the simplest approach for calculating \ce{CH4} production.
+
+First, concentrations of \ce{CH4} and \ce{CO2} are adjusted so they sum to 1.0:
+\begin{equation}
+  x_{CH_4, n} = x_{CH_4}/(x_{CH_4} + x_{CO_2})
+\end{equation}
+where $x_{CH_4}$ and $x_{CO_2}$ are the measured \ce{CH4} and \ce{CO2} concentrations as volume (mole) fraction (possibly including a correction for water vapor--this has no effect here) and $x_{CH_4, n}$ is the normalized \ce{CH4} volume fraction.
+
+Methane production in an interval $i$ was then calculated as
+\begin{equation}
+  V_{CH_4, i} = x_{CH_4, n} V_{biogas, i}
+\end{equation}
+
+Cumulative production was taken as the cumulative sum of interval values. 
+
+\subsection{Method 2}
+Method 2 relies on fewer assumptions, but requires the true concentration of \ce{CH4} (volume fraction) of \ce{CH4} within the bottle headspace, with correction only for water vapor.
+Here, \ce{CH4} production in an interval has two components: a vented part that is naturally interval, and a residual headspace part, that is naturally cumulative:
+\begin{equation}
+  V_{CH_4, i} = V_{CH_4, v, i} + ( V_{CH_4, HSR, i} - V_{CH_4, HSR, i-1} )
+\end{equation}
+where the subscript $v$ indicates vented volume and $HSR$ = residual headspace volume (post-venting).
+
+Vented \ce{CH4} is calculated from:
+\begin{equation}
+  V_{CH_4, v, i} = x_{CH_4, n, i} V_{biogas, i}
+\end{equation}
+
+Headspace \ce{CH4} is calculated from:
+\begin{equation}
+  V_{CH_4, HSR, i} = x_{CH_4, n, i} V_{post, i}
+\end{equation}
+
+Cumulative production was taken as the cumulative sum of interval values. 
+
+\newpage
+\begin{thebibliography}{1}
+
+\bibitem{softwarex}
+Hafner, S.D., Koch, K., Carrere, H., Astals, S., Weinrich, S., Rennuit, C.
+    \newblock{2018}
+    \newblock{Software for biogas research: Tools for measurement and prediction of methane production}. 
+    \newblock{SoftwareX} 7: 205-210
+
+\bibitem{magnus}
+Alduchov, O.A., Eskridge, R.E.    
+    \newblock{1996}
+    \newblock{Improved Magnus form approximation of saturation vapor pressure}. 
+    \newblock{Journal of Applied Meteorology} 35: 601-609
+
+\bibitem{brian1991}
+Richards, B.K., Cummings, R.J., White, T.E., Jewell, W.J.    
+    \newblock{1991}
+    \newblock{Methods for kinetic-analysis of methane fermentation in high solids biomass digesters}. 
+    \newblock{Biomass and Bioenergy} 1: 65-73
+
+\end{thebibliography}
+
+\bibliographystyle{plain}
+%\bibliography{gbib}
+
+\end{document}
