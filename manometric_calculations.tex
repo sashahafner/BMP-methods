@@ -44,7 +44,6 @@ First the volume of headspace gas is converted to dry conditions at standard pre
   \label{eq:h2ocorrection}
   V_{dry} = V_{headspace}(P_{meas} - P_{H_2O})/101.325 \unit{kPa}
 \end{equation}
-
 where $P_{meas}$ is the measured headspace pressure and $P_{H_2O}$ the water vapor partial pressure (both in kPa).
 Eq. (\ref{eq:h2ocorrection}) is an expression of Boyle's law.
 The value of $P_{H_2O}$ is assumed to be the saturation vapor pressure prior to venting, and can be calculated using, e.g., the Magnus-form equation given below (Eq. 21 in \cite{magnus}):
@@ -53,16 +52,15 @@ The value of $P_{H_2O}$ is assumed to be the saturation vapor pressure prior to 
 \label{eq:magnus}
    P_{H_2O} = 0.61094 e^{(17.625 T/(243.04 + T))}
 \end{equation}
-
 where T is temperature in $^\circ$C.
-After venting, when water vapor has been lost and water evaporation has not yet attained equilibrium, relative humidity is taken as the ratio of post- to pre-venting absolute pressure. 
+Immediately after venting, when water vapor has been lost through venting but water evaporation has not yet led to equilibrium, it is reasonable to assume that the mixing ratio of water is the same as it was prior to venting.
+Assuming saturation prior to venting and an insignificant change in temperature, this is equivalent to taking relative humidity as the ratio of post- to pre-venting absolute pressure (always $<1.0$). 
 Volume is then further standardized to 273.15 K by application of Charles's law:
 
 \begin{equation}
   \label{eq:bgstd}
   V_{std} = V_{dry} 273.15 \unit{K}/T_{meas}
 \end{equation}
-
 where $V_{std}$ is the standardized volume of gas within a bottle's headspace at the time of pressure measurement.
 
 Interval biogas production is calculated as:
@@ -71,7 +69,6 @@ Interval biogas production is calculated as:
   \label{eq:bgint}
   V_{biogas, i} = V_{std, pre, i} - V_{std, post, i - 1}
 \end{equation}
-
 where all $V$ is standardized gas volume in a bottle's headspace, $pre$ and $post$ refer to before and after venting, respectively, $i$ indicates the current interval and $i-1$ the previous one.
 
 \section{Calculation of \ce{CH4} production}
