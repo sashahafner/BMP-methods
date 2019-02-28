@@ -1,0 +1,3 @@
+# LaTeX intermediates
+*.log
+*.aux
