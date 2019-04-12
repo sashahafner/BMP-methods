@@ -1,0 +1,86 @@
+%\documentclass[twocolumn]{article}
+\documentclass[]{article}
+\usepackage[version=3]{mhchem}
+\usepackage{sectsty}
+\usepackage{amsmath}
+\usepackage[flushleft]{threeparttablex} % For table notes
+\usepackage{rotating} 
+\usepackage{longtable}
+\usepackage{hyperref}
+% For decimal alignment in tables
+\usepackage{dcolumn}
+
+% For dcolumn
+\newcolumntype{.}{D{.}{.}{3}}
+
+\sectionfont{\large}
+
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\title {Calculation of biochemical methane potential (BMP)}
+\author{Sasha D. Hafner\\
+\\
+\texttt{sasha@hafnerconsulting.com} (S. D. Hafner)
+} 
+
+\begin{document}
+\maketitle
+
+\section{BMP-methods}
+File version 1.0. 
+This file is from the GitHub repository BMP-methods.
+For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
+
+\section{Description}
+This document describes how to calculate biochemical methane potential (also called biomethane potential) from laboratory measurements.
+The calculations are based on standardized \ce{CH4} volume produced in bottles with 1) inoculum only and 2) with substrate and inoculum, along with the quantity of inoculum and substrate added to each bottle.
+
+\section{Selection of a BMP duration}
+The time at which to evaluation BMP, i.e., the length of the incubation is not standardized among groups.
+It may be fixed prior starting a BMP trials (e.g., 30 d) or may be calculated after (or as the trial is running) based on the rate of \ce{CH4} production.
+Regardless, it is important that the time is identical for both inoculum-only and inoculum + substrate bottles when carrying out calculation of BMP.
+This does not mean it cannot vary among substrates from within the same BMP trial.
+
+\section{Calculation of BMP}
+
+These calculations require the following variables.
+Units may differ, but typical units are listed below.
+\begin{itemize}
+  \item $V_{CH_4, S, i}$, the standardized volume of \ce{CH4} produced in bottle $i$ with inoculum and substrate at time $t$ (mL)
+  \item $V_{CH_4, I, j}$, the standardized volume of \ce{CH4} produced in bottle $j$ with inoculum only at time $t$
+  \item $m_{I, i}$, the mass of inoculum (typically as-measured (fresh) mass) originally added to bottle $i$
+  \item $m_{VS, S, i}$, the mass of substrate volatile solids (VS) originally added to bottle $i$
+\end{itemize}
+
+Productivity of inoculum is calculated separately for each inoculum-only bottle by Eq. (1).
+\begin{equation}
+  \label{eq:inoc_production}
+  v_{CH_4, I, j} = V_{CH_4, I, j} / m_{I, j} 
+\end{equation}
+And from these, a mean value is calculated as 
+\begin{equation}
+  \label{eq:inoc_productivity}
+  \bar{v}_{CH_4, I} = \sum_1 ^k v_{CH_4, I, i} / k
+\end{equation}
+where $k$ = the number of inoculum-only bottles.
+
+Net \ce{CH4} production from inoculum + substrate bottles, i.e., an estimate of \ce{CH4} production derived from substrate only\footnote{This calculation is based on the assumption of additivity for \ce{CH4} production, i.e., production of \ce{CH4} from inoculum is not affected by the presence of substrate. This is almost certainly incorrect, but similar results even when varying the inoculum-to-substrate ratio suggest it is not a large source of error.} is calculated as given in Eq. (3).
+\begin{equation}
+  \label{eq:net_CH4}
+  V_{CH_4, S, i, net} = V_{CH_4, S, i} - \bar{v}_{CH_4, I} \cdot m_{I, i}
+\end{equation}
+Note that the units on inoculum mass are completely irrelevant and have no effect of results, as long as they are sufficiently precise.
+Fresh (wet) mass is recommended, although dry or VS mass could be used.\footnote{Any error in determination of inoculum dry matter or VS here is exactly canceled by the combination of Eqs. (1) and (3), so has no effect.}
+
+Bottle yield is calculated by normalizing net \ce{CH4} production by substrate VS mass.
+\begin{equation}
+  \label{eq:yield}
+  B_{i} = V_{CH_4, S, i, net} / m_{VS, S, i}
+\end{equation}
+Finally, BMP for a particular substrate is taken as the mean of these values.
+\begin{equation}
+  \label{eq:BMP}
+  \bar{B} = \sum_1 ^n B_{i} / n
+\end{equation}
+
+\end{document}
