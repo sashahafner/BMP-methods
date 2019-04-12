@@ -27,7 +27,7 @@
 \maketitle
 
 \section{BMP-methods}
-File version 1.0. 
+File version 1.1. 
 This file is from the GitHub repository BMP-methods.
 For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
 
@@ -50,9 +50,11 @@ Units may differ, but typical units are listed below.
   \item $V_{CH_4, I, j}$, the standardized volume of \ce{CH4} produced in bottle $j$ with inoculum only at time $t$
   \item $m_{I, i}$, the mass of inoculum (typically as-measured (fresh) mass) originally added to bottle $i$
   \item $m_{VS, S, i}$, the mass of substrate volatile solids (VS) originally added to bottle $i$
+  \item $n$, the number of replicate bottles with inoculum + substrate
+  \item $k$, the number of replicate bottles with inoculum only
 \end{itemize}
 
-Productivity of inoculum is calculated separately for each inoculum-only bottle by Eq. (1).
+Productivity of inoculum is calculated separately for each inoculum-only bottle by Eq. (\ref{eq:inoc_production}).
 \begin{equation}
   \label{eq:inoc_production}
   v_{CH_4, I, j} = V_{CH_4, I, j} / m_{I, j} 
@@ -64,15 +66,15 @@ And from these, a mean value is calculated as
 \end{equation}
 where $k$ = the number of inoculum-only bottles.
 
-Net \ce{CH4} production from inoculum + substrate bottles, i.e., an estimate of \ce{CH4} production derived from substrate only\footnote{This calculation is based on the assumption of additivity for \ce{CH4} production, i.e., production of \ce{CH4} from inoculum is not affected by the presence of substrate. This is almost certainly incorrect, but similar results even when varying the inoculum-to-substrate ratio suggest it is not a large source of error.} is calculated as given in Eq. (3).
+Net \ce{CH4} production from inoculum + substrate bottles, i.e., an estimate of \ce{CH4} production derived from substrate only\footnote{This calculation is based on the assumption of additivity for \ce{CH4} production, i.e., production of \ce{CH4} from inoculum is not affected by the presence of substrate. This is almost certainly incorrect, but similar results even when varying the inoculum-to-substrate ratio suggest it is not a large source of error.} is calculated as given in Eq. (\ref{eq:net_CH4}).
 \begin{equation}
   \label{eq:net_CH4}
   V_{CH_4, S, i, net} = V_{CH_4, S, i} - \bar{v}_{CH_4, I} \cdot m_{I, i}
 \end{equation}
 Note that the units on inoculum mass are completely irrelevant and have no effect of results, as long as they are sufficiently precise.
-Fresh (wet) mass is recommended, although dry or VS mass could be used.\footnote{Any error in determination of inoculum dry matter or VS here is exactly canceled by the combination of Eqs. (1) and (3), so has no effect.}
+Fresh (wet) mass is recommended, although dry or VS mass could be used.\footnote{Any error in determination of inoculum dry matter or VS here is exactly canceled by the combination of Eqs. (\ref{eq:inoc_production}) and (\ref{eq:net_CH4}), so has no effect.}
 
-Bottle yield is calculated by normalizing net \ce{CH4} production by substrate VS mass.
+Bottle yield is calculated by normalizing net \ce{CH4} production by substrate VS mass:
 \begin{equation}
   \label{eq:yield}
   B_{i} = V_{CH_4, S, i, net} / m_{VS, S, i}
@@ -82,5 +84,65 @@ Finally, BMP for a particular substrate is taken as the mean of these values.
   \label{eq:BMP}
   \bar{B} = \sum_1 ^n B_{i} / n
 \end{equation}
+where $n$ is the number of replicate bottles.
+
+\section{Calculation of random error}
+Random error in BMP estimates includes three significant sources: variation in apparent yield among substrate bottles, variation in apparent inoculum yield in inoculum-only bottles, and uncertainty in determination of substrate VS. 
+Here, these all are quantified using standard error and will be referred to as $s_{\bar{x},1}$, $s_{\bar{x},2}$, and $s_{\bar{x},3}$. 
+Note that $s_{\bar{x},1}$ and $s_{\bar{x},2}$ may include many sources of error that collectively contribute to the observed value. 
+Other sources of random error are assumed to be small: determination of inoculum and substrate mass in particular. 
+Systematic error, which may be more important in some cases, is not included here. 
+
+Units on all three standard errors are the units of the final BMP estimates, e.g., standardized \ce{CH4} volume from substrate in mL per g substrate VS. 
+They can be added together to provide a total estimate with:
+\begin{equation}
+  \label{eq:se_sum}
+  s_{\bar{x},BMP} = \sqrt{\sum_{i=1} ^3 s_{\bar{x},i}^2}
+\end{equation}
+Given $s_{\bar{x},BMP}$, standard deviation $s_{BMP}$ can be calculated by multiplying by $\sqrt{n}$.
+Although this approach seems to be preferred in the literature, the interpretation is a bit ambiguous. 
+
+The value of $s_{\bar{x},1}$ is calculated from yield values calculated for individual bottles: 
+\begin{equation}
+  \label{eq:se1_calc}
+  s_{\bar{x},1} = \sqrt{\sum_{i=1} ^n \frac{(B_i - \bar{B})^2} {n -1} }
+\end{equation}
+
+To calculate $s_{\bar{x},1}$ the standard error of normalized inoculum-only \ce{CH4} production (e.g., volume of \ce{CH4} in mL per g inoculum mass) is first calculated from individual values determined from each individual inoculum-only bottle. 
+\begin{equation}
+  \label{eq:seI_calc}
+  s_{\bar{x},I} = \sqrt{\sum_{j=1} ^k \frac{(v_{CH_4, I, j} - \bar{v}_{CH_4, I})^2} {k -1} }
+\end{equation}
+
+For each individual substrate bottle an estimate of $s_{\bar{x},1}$ is made as:
+\begin{equation}
+  \label{eq:se2i_calc}
+  s_{\bar{x},2,i} = s_{\bar{x},I} \cdot m_{I, i} 
+\end{equation}
+
+Equation (\ref{eq:se2i_calc}) includes an assumption that error in inoculum mass determination is negligible compared to error in inoculum \ce{CH4} yield, which is reasonable. 
+Given these values, $s_{\bar{x},2}$ is then calculated with:
+\begin{equation}
+  \label{eq:se2_calc}
+  s_{\bar{x},2} = \sqrt{\frac{\sum_{i=1} ^n s_{\bar{x},2,i}^2} {n}}
+\end{equation}
+
+The third source of random error is determined from $s_{\bar{x},VS,i}$, which is the standard error in substrate VS mass addition, calculated as the product of substrate (fresh) mass (assumed to include only negligible random error) and substrate VS concentration standard error, which is assumed to be the only significant source of random error for $s_{\bar{x},3}$. 
+Resulting units for $s_{\bar{x},VS,i}$ are the same as the substrate VS mass units. 
+Given this value, an estimate of $s_{\bar{x},3}$ can be made for each bottle with:
+\begin{equation}
+  \label{eq:se3i_calc}
+  s_{\bar{x},3,i} = \frac{s_{\bar{x},VS,i}} {m_{VS,i}} \cdot B_{i}
+\end{equation}
+
+Equation (\ref{eq:se3i_calc}) differs from Eq. (\ref{eq:se2i_calc}) because for $s_{\bar{x},3}$ error is propagated through division and not subtraction. 
+(Note that standard error of substrate VS concentration could be used directly in Eq. (\ref{eq:se3i_calc}).) 
+Given these values for individual bottles, $s_{\bar{x},3}$ is calculated from Eq. (\ref{eq:se3_calc}).
+\begin{equation}
+  \label{eq:se3_calc}
+  s_{\bar{x},3} = \sqrt{\frac{\sum_{i=1} ^n s_{\bar{x},3,i}^2} {n}}
+\end{equation}
+
+
 
 \end{document}
