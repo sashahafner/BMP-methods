@@ -28,7 +28,7 @@
 \maketitle
 
 \section{BMP-methods}
-File version 2.0. 
+File version 2.1. 
 This file is from the GitHub repository BMP-methods.
 For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
 
@@ -101,7 +101,7 @@ Here, \ce{CH4} production in an interval is determined from the change in bottle
   V_{CH_4, i} = x_{CH_4, i} \cdot V_{std, pre, i} - x_{CH_4, i - 1} \cdot V_{std, post, i - 1}
 \end{equation}
 Cumulative production is taken as the cumulative sum of interval values. 
-Note that Eq. (\ref{eq:ch4m2}) reduces to Eq. (\ref{eq:ch4m1}) when $x_{CH_4, n} = x_{CH_4}$, i.e., if all flusing gas has been removed from the bottle headspace and biogas production is indeed only \ce{CH4} and \ce{CO2}.
+Note that Eq. (\ref{eq:ch4m2}) reduces to Eq. (\ref{eq:ch4m1}) when $x_{CH_4, n} = x_{CH_4}$ and $x_{CH_4, i} = x_{CH_4, i - 1}$ , i.e., if all flusing gas has been removed from the bottle headspace, biogas production is indeed only \ce{CH4} and \ce{CO2}, and biogas composition has not changed during an interval.
 
 \begin{thebibliography}{1}
 
