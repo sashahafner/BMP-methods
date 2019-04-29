@@ -28,7 +28,7 @@
 \maketitle
 
 \section{BMP-methods}
-File version 1.1. 
+File version 2.0. 
 This file is from the GitHub repository BMP-methods.
 For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
 
@@ -88,31 +88,21 @@ where $x_{CH_4}$ and $x_{CO_2}$ are the measured \ce{CH4} and \ce{CO2} concentra
 
 Methane production in an interval $i$ is then calculated as
 \begin{equation}
+  \label{eq:ch4m1}
   V_{CH_4, i} = x_{CH_4, n} V_{biogas, i}
 \end{equation}
 Cumulative production is taken as the cumulative sum of interval values. 
 
 \subsection{Method 2}
 Method 2 relies on fewer assumptions, but requires the true concentration of \ce{CH4} (volume fraction) of \ce{CH4} within the bottle headspace, with correction only for water vapor.
-Here, \ce{CH4} production in an interval has two components: a vented part that is naturally interval, and a residual headspace part, that is naturally cumulative:
+Here, \ce{CH4} production in an interval is determined from the change in bottle \ce{CH4} content during an incubation interval.
 \begin{equation}
-  V_{CH_4, i} = V_{CH_4, v, i} + ( V_{CH_4, HSR, i} - V_{CH_4, HSR, i-1} )
+  \label{eq:ch4m2}
+  V_{CH_4, i} = x_{CH_4, i} \cdot V_{std, pre, i} - x_{CH_4, i - 1} \cdot V_{std, post, i - 1}
 \end{equation}
-where the subscript $v$ indicates vented volume and $HSR$ = residual headspace volume (post-venting).
-
-Vented \ce{CH4} is calculated from:
-\begin{equation}
-  V_{CH_4, v, i} = x_{CH_4, n, i} V_{biogas, i}
-\end{equation}
-
-Headspace \ce{CH4} is calculated from:
-\begin{equation}
-  V_{CH_4, HSR, i} = x_{CH_4, n, i} V_{post, i}
-\end{equation}
-
 Cumulative production is taken as the cumulative sum of interval values. 
+Note that Eq. (\ref{eq:ch4m2}) reduces to Eq. (\ref{eq:ch4m1}) when $x_{CH_4, n} = x_{CH_4}$, i.e., if all flusing gas has been removed from the bottle headspace and biogas production is indeed only \ce{CH4} and \ce{CO2}.
 
-\newpage
 \begin{thebibliography}{1}
 
 \bibitem{softwarex}
