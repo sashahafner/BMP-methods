@@ -1,0 +1,85 @@
+\documentclass[]{article}
+\usepackage[version=3]{mhchem}
+\usepackage{sectsty}
+\usepackage{amsmath}
+\usepackage[flushleft]{threeparttablex} % For table notes
+\usepackage{rotating} 
+\usepackage{longtable}
+\usepackage{hyperref}
+% For decimal alignment in tables
+\usepackage{dcolumn}
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+\subsubsectionfont{\color{gray!}}
+
+% For dcolumn
+\newcolumntype{.}{D{.}{.}{3}}
+
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\title {Gas density-based (GD) BMP measurement}
+\author{Sasha D. Hafner, Jacob R. Mortensen\\
+} 
+
+\begin{document}
+
+\maketitle
+
+\section{BMP-methods}
+File version 1.1. 
+This file is from the GitHub repository BMP-methods.
+For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
+
+\section{Overview}
+
+Gravimetric biogas measurement is based on mass loss from BMP bottles (you can find details on the method \href{https://www.sciencedirect.com/science/article/pii/S0961953415301148}{\textit{here}} and \href{https://iwaponline.com/wpt/article-abstract/13/1/52/38679/Quantification-of-leakage-in-batch-biogas-assays?redirectedFrom=PDF}{\textit{here}}). Combined with gas chromatography (GC) measurement of gas composition, it has clearly been shown to be comparable and, in some ways, better than conventional volumetric or manometric methods. Recent work has shown that biogas density can be used to determine biogas composition, eliminating the need for GC analysis (thus the nickname SYGC for “sell your GC”). The basic approach is to combine a biogas volume method (volumetric or manometric) with the gravimetric method. Gas density and then biogas composition are determined from combining the datasets. The "biogas" package in R is a strong tool to estimate the biogas composition from data. The package can be found \href{https://cran.r-project.org/web/packages/biogas/index.html}{\textit{here}}. It is good practice to check for leaks by checking for mass loss during incubation intervals (details below). Otherwise leakage will result in biases BMP estimates.
+
+\section{Protocol}
+
+\subsection{Required equipment and supplies}
+
+\begin{itemize}
+    \item Digital scale with a readability of 0.01 g (10 mg) or better (0.1 g could be used if it is the only option).
+    \item Other equipment needed for biogas volume measurement (e.g., syringes, a needle, manometer)
+    \item Other typical BMP supplies (bottles, good septa, etc.)
+\end{itemize}
+\newline
+\subsection{Setup}
+
+\subsubsection*{General information}
+
+At setup, inoculum and substrate are added to bottles, and the headspace of each bottle is flushed to remove O$_2$ and ensure anaerobic conditions. For gravimetric measurements, pure N$_2$ is preferred for flushing over mixtures containing CO$_2$. Use of N$_2$ results in a (generally small) error because its density may differ from produced biogas density (although the density of N$_2$ is identical to a $\frac{CH_4}{CO_2}$ mixture with 58\% CH$_4$) but this can be corrected in calculations. Bottles are then weighed and placed in an incubator.
+
+\subsubsection*{Step-by-step instructions}
+\begin{enumerate}
+    \item Check the accuracy of the scale with a weight set. It is particularly important that the actual accuracy is close to reported accuracy when weighing an object with a mass close to the total mass of a BMP bottle and its contents. For a scale with a reported accuracy of  50 mg, for example, this could be checked by taring the scale with a full bottle or equivalent mass, adding a 50 mg weight, removing it, and adding a 100 mg weight.  
+    \item Add the required mass of inoculum, substrate, and other additions (such as a trace element solution) to each labeled bottle and seal with a septum and cover. Determination of the quantity of material added by mass difference is the recommended approach: Tare scale with bottle, add approximately the desired quantity, wipe any material from near the mouth of the bottle, and finally determine the actual quantity from the scale reading. Note that the scale used here does not need to be the same scale used for determining mass loss (see “Incubation and sampling”, below).
+    \item Flush the bottle headspace to remove O$_2$. A simple approach is to use a needle attached to a flow meter (e.g., a rotameter), a pressure regulator (to ensure low pressure), and a gas cylinder (generally N$_2$) with plastic tubing, along with a separate needle for venting. Minimize CO$_2$ removal by flushing for only 3 to 4 headspace volume exchanges. Ensure that the flushing gas does not bubble through the liquid in the bottle (needle should not be submerged). Allow the pressure in each bottle’s headspace to equilibrate with atmospheric pressure before removing the venting needle.
+    \item Make 1 to 3 "water control" bottles that contains only water. They should be the same size and weigh about as much as the other BMP bottles. These bottles should never be vented; they are used to check the stability of the scale and it is essential that they do not lose any mass.
+    \item Weigh each bottle and record as “initial mass”. Repeat this initial weighing in order to minimize the chance of a recording error, because calculations of cumulative CH$_4$ production at all timepoints require an accurate initial mass measurement. If there is a discrepancy between these two initial measurements, weigh again to determine the correct mass.
+    \item Place bottles in incubator set at the test temperature.
+\end{enumerate}
+
+\subsection{Incubation and sampling}
+
+\subsubsection*{General information}
+
+Bottles are removed from the incubator occasionally to vent, weigh, and take a biogas sample for analysis, in what is here referred to as a “sampling event”. Biogas temperature affects water vapor loss and consequently the relationship between mass loss and standardized biogas volume (although less so than in volumetric and manometric methods). As such, the time that bottles spend outside the incubator should be short, and the same procedure and timing should be followed for each sampling event. (Ideally, venting and weighing should be done inside a temperature-controlled room, so bottles are always at the incubation temperature. However, the effects of headspace temperature on accuracy are small, so this is not required.)
+
+The accuracy of the gravimetric method is not affected by headspace pressure or leakage of biogas. However, for safety (to avoid exploding bottles) and to minimize possible effects of high CO$_2$ dissolution, total headspace pressure (absolute) should be kept below 3 bar. Bottle pressures can be estimated from headspace volume and calculated biogas production after measuring mass loss.
+
+\subsubsection*{Step-by-step instructions}
+
+\begin{enumerate}
+    \item Remove all (1-3) water control bottles from the incubator and weigh them to confirm scale consistency. If the results are the same as the initial masses (within the expected accuracy) proceed, otherwise, identify and address problem with the scale or replace the scale if necessary.
+    \item Remove a single set of replicates from the incubator (e.g., the three replicates for cellulose).
+    \item Always starting with the same replicate (e.g., “1” or “a”) gently swirl the bottle for at least 10 s to mix the contents and encourage CO$_2$ equilibration between solution and headspace. During swirling, avoid contact between the liquid and the septum. 
+    \item \textit{Optional but recommended!} To quantify leakage during incubation weigh the bottle and record the mass.
+    \item Carry out the steps used to measure biogas volume, e.g., measure headspace pressure. 
+    \item Vent the bottle by puncturing the septum with a needle. Allow biogas to escape until headspace pressure has equilibrated with atmospheric pressure. This can be done by attaching a short length of plastic tubing to the venting needle, and briefly submerging it in a few mm of water during venting. Pressures are approximately equal once bubbling has ceased. Or, if a manometer is available, the final headspace pressure can be measured and recorded for use in data processing.
+    \item Weigh the bottle after venting, and record the mass and time. For the final weighing at the end of the experiment, weigh bottles twice and record both masses. In case of a discrepancy, weigh again to determine the correct final mass.
+    \item Proceed to the next replicate (e.g., “2” or “b”) and repeat steps 3 - 6.
+    \item After all replicates have been sampled, vented, and weighed, place the bottles back in the incubator.
+    \item Proceed to the next set of replicates (e.g., the three replicates for substrate “food waste A”) and repeat steps 2 - 9.
+\end{enumerate}
+
+\end{document}
