@@ -2,4 +2,4 @@
 *.log
 *.aux
 *.out
-*.gz
+*.synctex.gz
