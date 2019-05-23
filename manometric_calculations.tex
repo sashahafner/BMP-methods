@@ -18,17 +18,17 @@
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
 \title {Calculation of methane production from manometric measurements}
-\author{Sasha D. Hafner and Sergi Astals\\
+\author{Sasha D. Hafner, Sergi Astals, and Pierre Buffiere\\
 \\
 \texttt{sasha@hafnerconsulting.com} (S. D. Hafner)\\
-\texttt{sastals@ub.edu} (S. Astals)
+\texttt{sastals@ub.edu} (S. Astals)\\
 } 
 
 \begin{document}
 \maketitle
 
 \section{BMP-methods}
-File version 2.1. 
+File version 2.2. 
 This file is from the GitHub repository BMP-methods.
 For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
 
@@ -56,8 +56,11 @@ The value of $P_{H_2O}$ is assumed to be the saturation vapor pressure prior to 
    P_{H_2O} = 0.61094 e^{(17.625 T/(243.04 + T))}
 \end{equation}
 where T is temperature in $^\circ$C.
-Immediately after venting, when water vapor has been lost through venting but water evaporation has not yet led to equilibrium, it is reasonable to assume that the mixing ratio of water is the same as it was prior to venting.
+Immediately after venting, when water vapor has been lost through venting but water evaporation has not yet led to equilibrium, it may be reasonable to assume that the mixing ratio of water is the same as it was prior to venting.
 Assuming saturation prior to venting and an insignificant change in temperature, this is equivalent to taking relative humidity as the ratio of post- to pre-venting absolute pressure (always $<1.0$). 
+Alternatively, it may be no less accurate to assume 100\% relative humidity after venting as well, especially if more than a few minutes pass between venting and measurement of residual pressure.
+Althought the difference in resulting BMP estimates is not large (perhaps a few \%), it is prudent to state which of these two assumptions was made when reporting BMP results.
+
 Volume is then further standardized to 273.15 K by application of Charles's law:
 
 \begin{equation}
