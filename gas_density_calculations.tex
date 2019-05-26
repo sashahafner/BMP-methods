@@ -10,6 +10,7 @@
 \usepackage{gensymb}
 % For decimal alignment in tables
 \usepackage{dcolumn}
+\usepackage{siunitx}
 
 % For dcolumn
 \newcolumntype{.}{D{.}{.}{3}}
@@ -28,14 +29,14 @@
 \maketitle
 
 \section{BMP-methods}
-File version 1.2 - \textbf{DRAFT}. 
+File version 1.3 - \textbf{DRAFT}. 
 This file is from the GitHub repository BMP-methods.
 For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
 
 \section{Description}
-In the GD-BMP method, bottle mass loss and vented biogas volume from one or more time intervals are used to determine biogas density, and from that, composition. 
-With this information, CH$_4$ production can then be determined from either biogas volume or bottle mass loss.
-This document describes calculations for the gas density BMP method (GD-BMP) (Section \ref{s_equations}) and provides an example calculation (Section \ref{s_example}).
+In the gas density BMP (GD-BMP) method, bottle mass loss and vented biogas volume from one or more time intervals are used to determine biogas density, and from that, composition. 
+With this information, CH$_4$ production can be calculated from either biogas volume or bottle mass loss.
+This document describes calculations for the GD-BMP method (Section \ref{s_equations}) and provides an example calculation (Section \ref{s_example}).
 
 \section{Calculation of CH$_4$ production} \label{s_equations}
 Biogas density ($d_b$, g/mL) is calculated from  mass loss ($\Delta m_b$, g) and standardized biogas volume ($V_b$, mL), with a correction for water vapor content ($m_{H_2O}$, g/mL), using Eq. (\ref{eq:1}). 
@@ -43,79 +44,63 @@ Biogas density ($d_b$, g/mL) is calculated from  mass loss ($\Delta m_b$, g) and
   \label{eq:1}
   d_b=\frac{\Delta m_b}{V_b}-m_{H_2O}
 \end{equation}
-Standardized biogas volume is determined from the measured vented volume by correcting for moisture, temperature, and pressure, as described in the BMP-methods document on volumetric calculations (Hafner, 2019).
-Water vapor pressure ($P_{H_2O}$, kPa) is calculated using a Magnus-form equation for saturated vapor pressure (Alduchov and Eskridge, 1996).
+Standardized biogas volume is determined from measured vented biogas volume by correcting for moisture, temperature, and pressure, as described in the BMP-methods document on volumetric calculations (Hafner, 2019).
+Water vapor pressure ($P_{H_2O}$, kPa) is assumed to be at saturation, and can be calculated using a Magnus-form equation from Alduchov and Eskridge (1996)\footnote{
+  Other options exist, and will provide nearly identical values}.
 \begin{equation}
 \label{eq:2_magnus}
-   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625\ \cdot \ T}{243.04\ + \ T}}
+   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 T}{243.04 + T}}
 \end{equation}
 In Eq. \ref{eq:2_magnus}, $T_{hs}$ is the bottle headspace temperature at the time of venting (\degree C). 
-The mass of water present in vented biogas is then calculated from this value, water molar mass ($M_{H_2O}$ = 18.02 g/mol), pressure of biogas in the bottle headspace just prior to venting ($P_{hs}$, kPa), and the molar volume of biogas at standard conditions.
+The mass of water present in vented biogas is then calculated from this partial pressure, water molar mass ($M_{H_2O}$ = 18.02 g/mol), pressure of biogas in the bottle headspace just prior to venting ($P_{hs}$, kPa), and the molar volume of biogas at standard conditions (here, 101.325 kPa and 0\degree C).
 \begin{equation}
   \label{eq:3}
   m_{H_2O}=M_{H_2O} \cdot \frac{P_{H_2O}}{P_{hs}-P_{H_2O}} \cdot \frac{1}{v_b}
 \end{equation}
+The molar volume of biogas ($v_b$) at standard conditions is approximated as 22300 mL/mol (Hafner et al., 2015) and the biogas pressure just prior to venting was assumed to be 150 kPa.
 
 The molar mass of biogas ($M_b$, g/mol) is then obtained from the density and molar volume of the biogas.
 \begin{equation}
   \label{eq:4}
   M_b=d_b \cdot v_b
 \end{equation}
-Finally, the mole fraction of \ce{CH4} ($x_{CH_4}$, dimensionless) normalized for \ce{CH4} and \ce{CO2} ($x_{CH_4}$ + $x_{CO_2}$ = unity) is calculated from the normalized difference in molar mass of \ce{CO2} and biogas.
-
+Finally, the mole fraction of \ce{CH4} in biogas ($x_{CH_4}$, dimensionless) normalized for \ce{CH4} and \ce{CO2} ($x_{CH_4}$ + $x_{CO_2}$ = unity) is calculated from the normalized difference in molar mass of \ce{CO2} and biogas.
 \begin{equation}
   \label{eq:5}
   x_{CH_4}=\frac{M_{CO_2}-M_b}{M_{CO_2}-M_{CH_4}}
 \end{equation}
-
 From Eq. \ref{eq:5}, the content of \ce{CH4} in the biogas is known and can be used for calculation of BMP as with gravimetric or volumetric methods (Hafner et al., 2015). 
 Eq. \ref{eq:5} is based on the assumption that biogas contains only \ce{CH4} and \ce{CO2}.
 %Flushing gas will affect the results, but could be accounted for in calculations (Hafner et al., 2015).
 
-\section{Example of calculation} \label{s_example}
-<<<<<<< HEAD
-The following is an example of application of the GD-BMP method to find the CH$_4$ composistion in the biogas produced in a BMP assay. The calculation is done on a cellulose bottle (bottle L1) after 27 days from the experiment carried out at University of Queensland in Brisbane, Australia in late 2018. It is refereed to in the main paper at experiment 2.
-The GD-BMP method (options: total average, final mass and gravimetric method, GD03 algorithm) was applied to experiment 2 having no leakage.
-=======
-The following is an example of application of the GD-BMP method to determine \ce{CH4} production in biogas produced in a batch BMP test. 
->>>>>>> Update GD calcs, version 1.2
+\section{Example calculation} \label{s_example}
+In the following example, \ce{CH4} production is calculated from measurements made on a single bottle in a BMP trial.
+For a complete BMP trial, the standardized biogas volume was 779.2 mL, and the complete total mass loss was 1.070 g.
 
-To find the biogas density ($d_b$) with equation \ref{eq:1}, the water vapor content should first be found. 
-The initial step to this would be to use the Magnus-form equation (eq. \ref{eq:2_magnus}) to find the water vapor pressure. 
-The temperature for volumetric measurement (\textit{T}$_{vol}$) was 20\degree C, and is used as $T$ in eq. \ref{eq:2_magnus}.
-
+To find the biogas density ($d_b$) with equation \ref{eq:1}, water vapor partial pressure is first calculated using Eq. (\ref{eq:2_magnus}). 
+The bottle headspace temperature (\textit{T}$_{hs}$) was assumed to be 30\degree C.
 \begin{equation*}
-\centering
-   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625\ \cdot\ 20 \degree C}{243.04\ +\ 20 \degree C}} = 4.237\ kPa
+   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 \cdot 30 \degree C}{243.04 + 30 \degree C}} = 4.237\ kPa
 \end{equation*}
-Following equation \ref{eq:3}, the mass of the water vapor ($m_{H_2O}$, [g/mL dry standardized biogas]) is calculated from molar mass ($M_{H_2O}$ = 18.02 g/mol), water vapor pressure at measuring temperature ($P_{H_2O}$, [kPa]), pressure of biogas ($P_b$, [kPa]) and the molar volume of biogas at standard conditions. 
-The molar volume of biogas ($v_b$) at standard conditions of 273.15 \degree K and 101.325 kPa is approximated as 22300 mL/mol (Hafner et al., 2015) and the biogas pressure just prior to venting was assumed to be 150 kPa.
-
+Then, following equation \ref{eq:3}, the mass of the water vapor ($m_{H_2O}$) is calculated.
 \begin{equation*}
-\centering
-  m_{H_2O} = 18.016\ \frac{g}{mol} \cdot \frac{4.237\ kPa}{150\ kPa\ -\ 4.237\ kPa} \cdot \frac{1}{22300\ \frac{mL}{mol}} = 2.348 \cdot 10^{-5} \frac{g}{mL}
+  m_{H_2O} = \SI{18.016} {g/mol} \cdot \frac{\SI{4.237}{kPa}}{\SI{150}{kPa} - \SI{4.237}{kPa}} \cdot \frac{\SI{1}{mol}}{\SI{22300}{mL}} = \SI{2.348e-5}{mg/mL}
 \end{equation*}
 
-To find the biogas density now only mass loss ($\Delta$m$_b$) and standardized biogas volume (V$_b$) is required. Mass loss is the difference between initial mass at time i (step 2, Section 2.1.1, main article) and final mass at time i – 1 (step 4, Section 2.1.1, main article) when using total mass loss. Standardized biogas volume is determined from the vented volume in step 3, Section 2.1.1, main article.
-In this example a measured, standardized, cumulative volume of 779.19 mL (V$_b$) (dry, 273.15 \degree K, 101.325 kPa) was measured for the bottle, with a cumulative, total mass loss ($\Delta$m$_b$) was 1.070 g. From this the biogas density can be calculated using eq. \ref{eq:1}.
-
+With $m_{H_2O}$ and measured biogas volume and bottle mass loss, biogas density can be calculated from Eq. (\ref{eq:1}).
 \begin{equation*}
-  \centering
-  d_b=\frac{1.070\ g}{779.19\ mL} - 2.348 \cdot 10^{-5} \frac{g}{mL} = 1.35 \cdot 10^{-3} \frac{g}{mL}
+  d_b=\frac{1.070\ g}{779.2\ mL} - 2.348 \cdot 10^{-5} \frac{g}{mL} = 1.35 \cdot 10^{-3} \frac{g}{mL}
 \end{equation*}
-
-\noindent Molar mass of biogas (M$_b$, [g/mol]) is obtained from the density and molar volume of the biogas (eq. \ref{eq:4}).
+The molar mass of biogas (M$_b$, [g/mol]) is obtained from the density and molar volume of the biogas (eq. \ref{eq:4}).
 
 \begin{equation*}
   \centering
   M_b= 1.35 \cdot 10^{-3} \frac{g}{mL} \cdot 22300\ \frac{mL}{mol} = 30.11\ \frac{g}{mol}
 \end{equation*}
-
-\noindent The mole fraction of CH$_4$ (x$_{CH_4}$, dimensionless) normalized for CH$_4$ and CO$_2$ (x$_{CH_4}$ + x$_{CO_2}$ = unity) is calculated from the molar masses of the biogas components. Hence, the content of CH$_4$ present in the biogas is known and can be used for estimation of BMP as with gravimetric or volumetric methods (Hafner et al., 2015). Here the composistion is found using excatly eq. \ref{eq:5}.
+The mole fraction of CH$_4$ (x$_{CH_4}$, dimensionless) is calculated from the molar masses of the biogas components using Eq. (\ref{eq:5}). 
 
 \begin{equation*}
-  \centering
-  x_{CH_4}=\frac{44.01\ \frac{g}{mol}-30.11\ \frac{g}{mol}}{44.01\ \frac{g}{mol}-16.042\ \frac{g}{mol}} = 0.497\ \frac{mol\ CH_4}{mol\ biogas}
+  x_{CH_4}=\frac{44.01\ \frac{g}{mol}-30.11\ \frac{g}{mol}}{44.01\ \frac{g}{mol}-16.042\ \frac{g}{mol}} = 0.497
 \end{equation*}
 
 
