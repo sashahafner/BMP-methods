@@ -29,7 +29,7 @@
 \maketitle
 
 \section{BMP-methods}
-File version 1.3 - \textbf{DRAFT}. 
+File version 1.4 - \textbf{DRAFT}. 
 This file is from the GitHub repository BMP-methods.
 For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
 
@@ -39,7 +39,7 @@ With this information, CH$_4$ production can be calculated from either biogas vo
 This document describes calculations for the GD-BMP method (Section \ref{s_equations}) and provides an example calculation (Section \ref{s_example}).
 
 \section{Calculation of CH$_4$ production} \label{s_equations}
-Biogas density ($d_b$, g/mL) is calculated from  mass loss ($\Delta m_b$, g) and standardized biogas volume ($V_b$, mL), with a correction for water vapor content ($m_{H_2O}$, g/mL), using Eq. (\ref{eq:1}). 
+Using Eq. (\ref{eq:1}), biogas density ($d_b$, g/mL) is determined by mass loss ($\Delta m_b$, g) and standardized biogas volume ($V_b$, mL), corrected for water vapor content ($m_{H_2O}$, g/mL) in the gas. 
 \begin{equation}
   \label{eq:1}
   d_b=\frac{\Delta m_b}{V_b}-m_{H_2O}
@@ -51,8 +51,8 @@ Water vapor pressure ($P_{H_2O}$, kPa) is assumed to be at saturation, and can b
 \label{eq:2_magnus}
    P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 T}{243.04 + T}}
 \end{equation}
-In Eq. \ref{eq:2_magnus}, $T_{hs}$ is the bottle headspace temperature at the time of venting (\degree C). 
-The mass of water present in vented biogas is then calculated from this partial pressure, water molar mass ($M_{H_2O}$ = 18.02 g/mol), pressure of biogas in the bottle headspace just prior to venting ($P_{hs}$, kPa), and the molar volume of biogas at standard conditions (here, 101.325 kPa and 0\degree C).
+$T_{hs}$ in Eq. \ref{eq:2_magnus} indicates the bottle headspace temperature at the time of venting (\degree C). 
+The mass of the water vapor present in the vented biogas ($m_{H_2O}$) is then calculated from the molar mass of water ($M_{H_2O}$ = 18.02 g/mol), the partial pressure ($P_{H_2O}$, kPa), the pressure of biogas in the bottle headspace just prior to venting ($P_{hs}$, kPa), and the molar volume of biogas at standard conditions (here, 101.325 kPa and 0\degree C).
 \begin{equation}
   \label{eq:3}
   m_{H_2O}=M_{H_2O} \cdot \frac{P_{H_2O}}{P_{hs}-P_{H_2O}} \cdot \frac{1}{v_b}
