@@ -7,6 +7,7 @@ Files are names by method (e.g., manometric) and task (e.g., calculations). To s
 * [Calculation of BMP](https://github.com/sashahafner/BMP-methods/blob/master/BMP_calculations.pdf)
 * [Calculation of CH4 production from manometric measurements](https://github.com/sashahafner/BMP-methods/blob/master/manometric_calculations.pdf)
 * [Calculation of CH4 production from volumetric measurements](https://github.com/sashahafner/BMP-methods/blob/master/volumetric_calculations.pdf)
+* [Calculation of CH4 production from gas density measurements](https://github.com/sashahafner/BMP-methods/blob/master/gas_density_calculations.pdf)
 * [Measurement of CH4 production based on gas density](https://github.com/sashahafner/BMP-methods/blob/master/gas_density_measurements.pdf)
 
 ## Contribute
