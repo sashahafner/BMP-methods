@@ -9,6 +9,7 @@
 \usepackage{hyperref}
 % For decimal alignment in tables
 \usepackage{dcolumn}
+\usepackage{gensymb}
 
 % For dcolumn
 \newcolumntype{.}{D{.}{.}{3}}
@@ -93,12 +94,12 @@ where the subscript $v$ indicates vented volume and $HSR$ = residual headspace v
 
 Vented \ce{CH4} is calculated from:
 \begin{equation}
-  V_{CH_4, v, i} = x_{CH_4, n, i} V_{biogas, i}
+  V_{CH_4, v, i} = x_{CH_4, i} V_{biogas, i}
 \end{equation}
 
 Headspace \ce{CH4} is calculated from:
 \begin{equation}
-  V_{CH_4, HSR, i} = x_{CH_4, n, i} V_{post, i}
+  V_{CH_4, HSR, i} = x_{CH_4, i} V_{post, i}
 \end{equation}
 where $V_{post}$ is the post-venting standardized volume of gas in the bottle headspace.
 
