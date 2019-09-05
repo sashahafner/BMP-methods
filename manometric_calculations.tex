@@ -9,6 +9,7 @@
 \usepackage{hyperref}
 % For decimal alignment in tables
 \usepackage{dcolumn}
+\usepackage{gensymb}
 
 % For dcolumn
 \newcolumntype{.}{D{.}{.}{3}}
@@ -110,10 +111,10 @@ Note that Eq. (\ref{eq:ch4m2}) reduces to Eq. (\ref{eq:ch4m1}) when $x_{CH_4, n}
 In the following example, \ce{CH4} production is calculated from a single interval measurement made on a single bottle in a BMP trial. Calculations are made using both manometric calculation method 1 and 2. 
 
 For both methods standardized gas volume is calculated before and after venting from Eq. (\ref{eq:bgstd}) by correcting for water vapor, temperature, and pressure, in order to determine interval biogas production ($V_{biogas,i}$). 
-Bottle headspace volume ($V_{headspace}$) was 639 mL and bottle headspace temperature ($T_{meas}$) and pressure ($P_{meas}$) was assumed to be 30 \degree C and 198.1 kPa, respectively. 
+Bottle headspace volume ($V_{headspace}$) was 639 mL and bottle headspace temperature ($T_{meas}$) and pressure ($P_{meas}$) was assumed to be 30\degree C and 198.1 kPa, respectively. 
 First water vapor is calculated at the measured headspace temperature
 \begin{equation*}
-    P_{H_{2}O} = 0.61094 \cdot e^\frac{17.625 \cdot 30}{243.04 \cdot 30} = 4.237\unit{kPa}
+    P_{H_{2}O} = 0.61094 \cdot e^\frac{17.625 \cdot 30\degree C}{243.04 \cdot 30\degree C} = 4.237\unit{kPa}
 \end{equation*}
 Secondly, headspace volume is converted to dry conditions at standard pressure pre- and post-venting using Eq. (\ref{eq:h2ocorrection}). 
 \begin{equation*}
