@@ -107,69 +107,63 @@ Cumulative production is taken as the cumulative sum of interval values.
 
 \section{Example Calculations}
 In the following example, \ce{CH4} production is calculated from a single interval measurement made on a single bottle in a BMP trial. Calculations are made using both volumetric method 1 and 2. 
+For both methods standardized gas volume is calculated from Eq. (\ref{eq:bgstd}) by correcting for water vapor, temperature, and pressure.
 
-For both methods standardized gas volume is calculated from Eq. (\ref{eq:bgstd}) by correcting for water vapor, temperature, and pressure. Measured biogas volume ($V_{biogas,i}$) was 618 mL at a temperature ($T_{meas}$) of 20\degree C and atmospheric pressure ($P_{meas}$) of 198.425 kPa.  
+Measured biogas volume ($V_{biogas,i}$) was 73.63 mL at a temperature ($T_{meas}$) of 30\degree C. Measured headspace pressure ($P_{meas}$) prior to venting was 101.8 kPa (gauge, or 203.1 kPa absolute)
+
+Ambient pressure was 101.325 kPa. Measured biogas composition $x_{CH_4}$ for the given interval was 0.656, and $x_{CO_2}$ was 0.289. For the previous interval, $x_{CH_4}$ was 0.587.
 First water vapor pressure is calculated at the measured headspace temperature using Eq (\ref{eq:magnus}).
 \begin{equation*}
-   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 \cdot 20\degree C}{243.04 + 20\degree C}} = 2.333\unit{kPa}
+   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 \cdot 30\degree C}{243.04 + 30\degree C}} = 4.237\unit{kPa}
 \end{equation*}
 Secondly, the measured volume is converted to dry conditions at standard pressure using Eq. (\ref{eq:h2ocorrection}).
 \begin{equation*}
-   V_{dry} = \frac{618\unit{mL} \cdot (198.325\unit{kPa} - 2.333\unit{kPa})}{101.325\unit{kPa}} = 1184\unit{mL}  
+   V_{dry} = \frac{73.63\unit{mL} \cdot (203.1\unit{kPa} - 4.237\unit{kPa})}{101.325\unit{kPa}} = 144.5\unit{mL}  
 \end{equation*}
 Then, volume is further standardized following Eq. (\ref{eq:bgstd}).
 \begin{equation*}
-    V_{std} = \frac{1184\unit{mL} \cdot 273.15\unit{K}}{293.15\unit{K}} = 1104\unit{mL}  
+    V_{std} = \frac{144.5\unit{mL} \cdot 273.15\unit{K}}{303.15\unit{K}} = 130.2\unit{mL}  
 \end{equation*}
 $V_{biogas,i}$ is taken as this $V_{std}$. Cumulative production is taken as the cumulative sum of interval values.
 
-For method 2 additional calculations of standardized gas volume post venting both in the current (\textit{i}) and previous (\textit{i-1}) interval, are required in order to determine interval biogas production. Post-venting pressure in the current ($P_{post_{i}}$) and the previous ($P_{post_{i-1}}$) interval were assumed to be 101.325 kPa and 100.325 kPa, respectively.
+For method 2 additional calculation of standardized gas volume post venting is required in order to determine interval biogas production. Post-venting pressure in the current ($P_{post_{i}}$) was assumed to be constant atmospheric pressure of 101.325 kPa.  
 \begin{equation*}
-   V_{dry,post,i} = \frac{618\unit{mL} \cdot (101.325\unit{kPa} - 2.333\unit{kPa})}{101.325\unit{kPa}} = 592.2\unit{mL}  
+   V_{dry,post,i} = \frac{73.63\unit{mL} \cdot (101.325\unit{kPa} - 4.237\unit{kPa})}{101.325\unit{kPa}} = 70.53\unit{mL}  
 \end{equation*}
+Then, following Eq. (\ref{eq:bgstd}) post-venting standardized gas volume is calculated.
 \begin{equation*}
-   V_{dry,post,i-1} = \frac{618\unit{mL} \cdot (100.325\unit{kPa} - 2.333\unit{kPa})}{101.325\unit{kPa}} = 586.0\unit{mL}  
-\end{equation*}
-Then, volumes are further standardized following Eq. (\ref{eq:bgstd}).
-\begin{equation*}
-    V_{post,i} = \frac{586.0\unit{mL} \cdot 273.15\unit{K}}{293.15\unit{K}} = 546.0\unit{mL}  
-\end{equation*}
-\begin{equation*}
-    V_{post,i-1} = \frac{592.2\unit{mL} \cdot 273.15\unit{K}}{293.15\unit{K}} = 551.8\unit{mL}  
+    V_{post,i} = \frac{70.53\unit{mL} \cdot 273.15\unit{K}}{303.15\unit{K}} = 63.55\unit{mL}  
 \end{equation*}
 
 \subsection{Method 1}
-The mole fraction of $CH_{4}$ ($x_{CH_4}$, dimensionless) normalized for $CH_{4}$ and $CO_{2}$ can be calculated according Eq. (4). The measured $CH_{4}$ and $CH_{2}$ concentrations (volume fraction) were 0.627 and 0.25, respectively.
+The mole fraction of $CH_{4}$ ($x_{CH_4}$, dimensionless) normalized for $CH_{4}$ and $CO_{2}$ can be calculated according Eq. (4).
 \begin{equation*}
-    x_{CH{4},n} = \frac{0.627}{0.627 + 0.25} = 0.715
+    x_{CH{4},n} = \frac{0.656}{0.656 + 0.289} = 0.694
 \end{equation*}
 
-Then, following Eq. (5), $CH_{4}$ production in the interval is calculated from interval biogas production.
+Then, following Eq. (5), $CH_{4}$ production in the interval is calculated.
 \begin{equation*}
-  V_{CH_4, i} = 0.715 \cdot 1104\unit{mL}  = 789.0\unit{mL} 
+  V_{CH_4, i} = 0.694 \cdot 130.2\unit{mL}  = 90.39\unit{mL} 
 \end{equation*}
 
 \subsection{Method 2}
-$CH_{4}$  production in the interval is calculated following Eq. (6) using the true concentration of $CH_{4}$ within the bottle headspace.
-\begin{equation*}
-    x_{CH{4},i} = 0.627
-\end{equation*}
-
+$CH_{4}$ production in the interval is calculated following Eq. (6) using the true concentration of $CH_{4}$ within the bottle headspace.
 First vented $CH_{4}$ volume ($V_{CH_4, v,i}$) is obtained from the interval biogas production and the mole fraction of $CH_{4}$ using Eq. (7).
 \begin{equation*}
-  V_{CH_4, v, i} = 0.627 \cdot 1104\unit{mL}  = 789.0\unit{mL} 
+  V_{CH_4, v, i} = 0.656 \cdot 130.2\unit{mL}  = 85.42\unit{mL} 
 \end{equation*}
-Secondly, residual headspace pressure post venting in the current and previous interval are calculated following Eq. (8).
+Secondly, post-venting residual headspace pressure in the current and previous interval are calculated following Eq. (8).
 \begin{equation*}
-  V_{CH_4, HSR, i} = 0.627 \cdot 551.8\unit{mL}  = 330.5\unit{mL} 
+  V_{CH_4, HSR, i} = 0.656 \cdot 63.55\unit{mL}  = 41.69\unit{mL} 
 \end{equation*}
 \begin{equation*}
-  V_{CH_4, HSR, i-1} = 0.627 \cdot 546.0\unit{mL}  = 327.1\unit{mL} 
+  V_{CH_4, HSR, i-1} = 0.587 \cdot 63.55\unit{mL}  = 37.31\unit{mL} 
 \end{equation*}
-Then, following Eq. (6), $CH_{4}$ production in the interval can be calculated.
+Then, following Eq. (6), $CH_{4}$ production in the interval is calculated.
 \begin{equation*}
-  V_{CH_{4},i} = 789.0\unit{mL} \cdot (330.5\unit{mL} - 327.1\unit{mL})  = 327.1\unit{mL} 
+  V_{CH_{4},i} = 85.42\unit{mL} + (41.69\unit{mL} - 37.31\unit{mL})  = 89.80\unit{mL} 
 \end{equation*}
+
 
 \begin{thebibliography}{1}
 
