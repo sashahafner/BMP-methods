@@ -29,19 +29,19 @@
 \maketitle
 
 \section{BMP-methods}
-File version 0.1 - \textbf{DRAFT}. 
-This file is from the GitHub repository BMP-methods.
-For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
+File version 0.2. 
+This document is from the GitHub repository BMP-methods.
+For the latest version and other documents, browse to \url{https://sashahafner.github.io/BMP-methods/} or \url{https://github.com/sashahafner/BMP-methods}.
 
 \section{Description}
-In the gravimetric BMP method, bottles are weighed after removing biogas for composition analysis \cite{validation}.
+In the gravimetric BMP method, bottles are weighed after venting biogas that accumulated during each measurement interval, and a subsample is analyzed for composition \cite{validation}.
 With mass loss and biogas composition, \ce{CH4} production can accurately be determined.
 The standardised volume of \ce{CH4} produced and released by venting is calculated separately for each bottle and for each incubation interval, based on the observed mass loss and an estimate of biogas density and water vapour content. 
-Biogas density is calculated from composition, using two possible approaches, called method 1 and method 2 here.
+Biogas density is calculated from composition, using one of two possible approaches, called ``method 1'' and ``method 2'' here.
 In method 1, vented biogas is assumed to consist of only \ce{CH4} and \ce{CO2}. 
-When flushing gas density differs from biogas density, this assumption introduces systematic error (generally small), but the resulting small error can be corrected as long as virtually all of the initial headspace gas is removed from the bottle by the end of the test. 
-Alternatively, method 2 assumes vented biogas is a mixture of \ce{CH4}, \ce{CO2}, and \ce{N2}, to account for common flushing gases (or mixtures, e.g., \ce{N2}, or a mix of \ce{N2} and \ce{CO2}).
-Here, produced \ce{CH4} is includes two components: \ce{CH4} in vented biogas, and \ce{CH4} remaining in the bottle headspace.
+When flushing gas density differs from biogas density, this assumption introduces systematic error (generally small), but a correction can be applied as long as virtually all of the initial headspace gas is removed from the bottle by the end of the test. 
+Alternatively, method 2 assumes vented biogas is a mixture of \ce{CH4}, \ce{CO2}, and \ce{N2}, to account for common flushing gases (or mixtures, e.g., pure \ce{N2} or a mix of \ce{N2} and \ce{CO2}).
+Here, two components must be considered in order to account for total \ce{CH4} production: 1) \ce{CH4} removed in vented biogas, and 2) \ce{CH4} remaining in the bottle headspace.
 This method is expected to be more accurate.
 In the original publication describing the gravimetric method \cite{validation} only method 1 was presented.
 
@@ -49,99 +49,97 @@ In the original publication describing the gravimetric method \cite{validation} 
 
 \subsection{Method 1}
 
-The mole fraction of CH$_{4}$ ($x_{CH_4}$, dimensionless) normalized for CH$_{4}$ and CO$_{2}$ can be calculated according Eq. (1). 
+The mole fraction of CH$_{4}$ normalized for CH$_{4}$ and CO$_{2}$ can be calculated according Eq. (1). 
 
 \begin{equation}
-    x_{CH{4},n} = \frac{0.656}{0.656 + 0.289} = 0.694
+  \label{eq:xch4n}
+    x_{CH{4},n} = \frac{x_{CH_4}}{x_{CH_4} + x_{CO_2}}
 \end{equation}
 
-Biogas molar mass is calculated from this value.
+Biogas density (g mL$^{-1}$) at standard conditions (dry at 101.325 kPa, 0$^\circ$C) is calculated from this value, assuming that biogas (as produced) contains only \ce{CH4} and \ce{CO2}.
 
 \begin{equation}
-  M_b = 16.04 x_{CH_4,n} + 44.01 (1 - x_{CH_4,n})
+  \label{eq:dens1}
+  \rho_b = \rho_{CH_4,n} x_{CH_4,n} + \rho_{CO_2} (1 - x_{CH_4,n})
 \end{equation}
 
-And from molar mass and an assumption of 2300 mL mol$^{-1}$ for molar volume $V_b$ \cite{validation}, dry biogas density at 101.325 kPa, 0$^\circ$C, and dry conditions can be calculated.
+In Eq. (1) $d_{CH_4}$ and $d_{CO_2}$ are pure gas densities at standard conditions, which are 0.0007174 and 0.001977 g mL$^{-1}$ for \ce{CH4} and \ce{CO2}, respectively.
+This value of $\rho_b$ can be used to calculate biogas volume from mass loss, but a small correction for water vapor is needed.
+Water vapor pressure ($p_{H_2O}$, kPa) is assumed to be at saturation, and can be calculated using a Magnus-form equation from Alduchov and Eskridge (1996) as with other BMP methods \cite{bmpmethods}.
 
 \begin{equation}
-  d_b=\frac{M_b}{V_b}
+\label{eq:magnus}
+   p_{H_2O} = 0.61094 \cdot e^{\frac{17.625 T}{243.04 + T}}
 \end{equation}
 
-This value of $d_b$ can be used to calculate biogas volume from mass loss, but a correction for water vapor is needed.
-Water vapor pressure ($P_{H_2O}$, kPa) is assumed to be at saturation, and can be calculated using a Magnus-form equation from Alduchov and Eskridge (1996)\footnote{
-  Other options exist, and most will provide nearly identical values}.
+From this value the water concentration in biogas (g mL$^{-1}$) can be calculated.
 
 \begin{equation}
-\label{eq:2_magnus}
-   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 T}{243.04 + T}}
+  \label{eq:ch2o}
+  c_{H_2O}=M_{H_2O} \cdot \frac{p_{H_2O}}{p_{hs} - p_{H_2O}} \cdot \frac{1}{v_b}
 \end{equation}
+
+Here, $M_{H_2O}$ is the molar mass of water (18.02 g mol$^{-1}$) and $v_b$ is biogas molar volume, which varies slightly with composition (ca. 0.3\%) but can be taken as 22300 mL g$^{-1}$ \cite{validation}.
+The standardized volume of vented biogas (assumed to equal produced biogas volume) is given by the following equation.
 
 \begin{equation}
-  \label{eq:5}
-  m_{H_2O}=M_{H_2O} \cdot \frac{P_{H_2O}}{P_{hs}-P_{H_2O}} \cdot \frac{1}{v_b}
+  \label{eq:vb1}
+  V_b = \frac{\Delta m_b}{\rho_b - c_{H_2O}}
 \end{equation}
 
-The standardized volume of vented biogas (assumed to equal the produced biogas) is given by the following equation.
-
-\begin{equation}
-  \label{eq:7}
-  V_b = \frac{\Delta m_b}{d_b-m_{H_2O}}
-\end{equation}
-
+Here, $\Delta m_b$ is the measured mass loss over a measurement interval (g).
 Finally, the volume of \ce{CH4} produced is given by:
 
 \begin{equation}
-  \label{eq:ch4m1}
+  \label{eq:vch41}
   V_{CH_4} = x_{CH_4, n} V_b
 \end{equation}
 
 Cumulative production is taken as the cumulative sum of interval values. 
 
 \subsection{Method 2}
-The second method requires the dry standardized biogas volume within the bottle headspace after venting.
-First the volume of headspace gas is converted to dry conditions at standard pressure:
+As in method 1, vented \ce{CH4} is the product of vented volume and \ce{CH4} mole fraction.
+But biogas density is calculated from the mole fraction of all significant biogas components.
 
 \begin{equation}
-  \label{eq:h2ocorrection}
-  V_{dry} = V_{headspace}(P_{meas} - P_{H_2O})/101.325 \unit{kPa}
-\end{equation}
-where $P_{meas}$ is the measured headspace pressure (may be assumed to be ambient) and $P_{H_2O}$ the water vapor partial pressure (both in kPa).
-Eq. (\ref{eq:h2ocorrection}) is an expression of Boyle's law.
-The value of $P_{H_2O}$ is assumed to be the saturation vapor pressure prior to venting, and can be calculated using the equation above.
-
-Volume is then further standardized to 273.15 K by application of Charles's law:
-
-\begin{equation}
-  \label{eq:bgstd}
-  V_{std} = V_{dry} 273.15 \unit{K}/T_{meas}
-\end{equation}
-where $V_{std}$ is the standardized volume of gas within a bottle's headspace after venting.
-With this value, \ce{CH4} within the bottle headspace can be calculated using the following equation.
-
-\begin{equation}
-  V_{CH_4} = x_{CH_4} V_{std}
+  \label{eq:dens2}
+  \rho_b = \rho_{CH_4} x_{CH_4} + \rho_{CO_2} x_{CO_2} + \rho_{N_2} x_{N_2}
 \end{equation}
 
-This is one component of \ce{CH4}.
-The other is vented \ce{CH4}.
-
-Biogas molar mass is calculated from the mole fraction of all significant biogas components.
-
-\begin{equation}
-  M_b = 16.04 x_{CH_4} + 44.01 x_{CO_2} + 28.01 x_{N_2}
-\end{equation}
-
-This estimate of $M_b$ is used as in Method 1 to calculate biogas volume.
-And the volume of vented \ce{CH4} in a single interval is given by:
+Density of \ce{N2} under standard conditions is 0.001250 g mL$^{-1}$.
+This estimate of $\rho_b$ is used in Eq. (\ref{eq:vb1}), as in method 1, to calculate vented biogas volume.
+And the volume of vented \ce{CH4} in a single interval is then given by:
 
 \begin{equation}
-  \label{eq:ch4m1}
-  V_{CH_4} = x_{CH_4} V_b
+  \label{eq:vvch42}
+  V_{CH_4,vt} = x_{CH_4} V_b
 \end{equation}
 
 Cumulative vented \ce{CH4} is taken as the cumulative sum of interval values. 
-Total cumulative \ce{CH4} production is the sum of this venting sum and headspace \ce{CH4}.
+Total cumulative \ce{CH4} production is the sum of vented \ce{CH4} and \ce{CH4} in the bottle headspace.
+The latter is calculated from the dry standardized biogas volume within the bottle headspace after venting, which is determined from headspace volume as shown below (as with other BMP methods \cite{bmpmethods}).
 
+\begin{equation}
+  \label{eq:vhs2}
+  V_{hs,std} = ( V_{hs}(p_{hs} - p_{H_2O})/101.325 \unit{kPa} ) \cdot 273.15 \unit{K}/T_{hs}
+\end{equation}
+Here $T_{hs}$ is headspace temperature, $p_{hs}$ is the measured (total) headspace pressure, and $p_{H_2O}$ the water vapor partial pressure (both in kPa).
+Eq. (\ref{eq:vhs2}) is based on Boyle's and Charles' laws.
+The value of $p_{H_2O}$ is assumed to be the saturation vapor pressure, and can be calculated using Eq. (\ref{eq:magnus}).
+Residual headspace pressure is not typically measured in the gravimetric method, but if venting is done carefully, it is identical to ambient pressure.
+With this value of standardized headspace volume, \ce{CH4} within the bottle headspace can be calculated using the following equation.
+
+\begin{equation}
+  \label{eq:vch4hs2}
+  V_{CH_4,hs} = x_{CH_4} V_{hs,std}
+\end{equation}
+
+Total \ce{CH4} production at measurement interval $i$ is the sum of vented \ce{CH4} (Eq. (\ref{eq:vvch42})) for all previous intervals and \ce{CH4} in the bottle headspace (Eq. (\ref{eq:vch4hs2})) at the end of the interval, as shown below.
+
+\begin{equation}
+  \label{eq:vch4tot2}
+  V_{CH_4,c,tot,i} = V_{CH_4,hs,i} + \sum_{j = 1}^{j = i} {V_{CH_4,vt,i}}
+\end{equation}
 
 \begin{thebibliography}{1}
 
