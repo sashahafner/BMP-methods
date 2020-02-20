@@ -1,0 +1,106 @@
+%\documentclass[twocolumn]{article}
+\documentclass[]{article}
+\usepackage[version=3]{mhchem}
+\usepackage{sectsty}
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{enumitem}
+\usepackage[flushleft]{threeparttablex} % For table notes
+\usepackage{rotating} 
+\usepackage{longtable}
+\usepackage{hyperref}
+% For decimal alignment in tables
+\usepackage{dcolumn}
+
+% For dcolumn
+\newcolumntype{.}{D{.}{.}{3}}
+
+\sectionfont{\large}
+
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\title {General protocol for measurement of biochemical methane potential (BMP)}
+\author{Christof Holliger, . . .  } 
+
+\begin{document}
+\maketitle
+
+\section{BMP-methods}
+File version 0.1. 
+This file is from the GitHub repository BMP-methods.
+For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
+
+\section{Description}
+This document describes general requirements for measurement of biochemical methane potential (also called biomethane potential) in batch tests.
+
+\section{BMP test overview}
+To measure the BMP of a substrate, it is mixed with an anaerobic inoculum, added to sealed bottles, incubated, and methane \ce{CH4} production is measured over time.
+Production of \ce{CH4} from the inoculum is estimated by making similar measurements on bottles with only inoculum (``blanks'').
+
+\section{Protocol}
+\subsection{Inoculum}
+\begin{enumerate}
+    %[$\square$]
+  \item Origin. Must be taken from mesophilic digester (35-40$^\circ$C). Highly diverse methanogenic microbial community has to be present.
+  \item Treatment. Generally avoid. Sieving or other pre-treatment (grinding, dilution) acceptable if needed.
+  \item Analysis.
+    \begin{enumerate}
+      \item Total solids (TS) by drying for at least 24 hours at 105$^\circ$C in triplicate
+      \item Volatile solids (VS) by combusting at 550$^\circ$C for at least 2 hours in triplicate.
+    \end{enumerate}
+  \item Quality check before use.\\
+    Required:
+    \begin{enumerate}
+      \item pH between 7.0 and 8.5.
+      \item Alkalinity $\ge$ 3 g L$^{-1}$ as \ce{CaCO3}.
+    \end{enumerate}
+
+    Optional:
+    \begin{enumerate}
+      \item Total ammonical nitrogen (TAN) $<$ 2.5 g L$^{-1}$ as N
+      \item Total volatile fatty acids (VFAs) $<$ 1.0 g L$^{-1}$ as acetic acid
+    \end{enumerate}
+  \item Storage. Storage time between collection and setting up BMP tests $\le$ 5 days at ambient (20-25$^\circ$C) or mesophilic test temperature.
+  \item Methane production of the blank should be less than 40\% of the methane production of cellulose. 
+\end{enumerate}
+
+\subsection{Test setup}
+\begin{enumerate}
+  \item Replication. All conditions in triplicate: at least 3 batches/bottles each for blanks (inoculum-only), cellulose (positive control), and each substrate. 
+  \item Bottle size. Large enough to accept $\ge$ 1.0 g of substrate VS.
+  \item Inoculum-to-substrate ratio (ISR). On a VS basis, generally 2, as low as 1 for slowly degradable substrates, and as high as 4 for easily degradable substrates.
+  \item Amendments. 
+    \begin{enumerate}
+      \item Trace element and vitamin amendment\footnote{
+          Trace element solution (concentration in g L$^{-1}$): 2 \ce{FeCl2\cdot4H2O}, 0.05 \ce{H3BO3}, 0.05 \ce{ZnCl2}, 0.038 \ce{CuCl2\cdot2H2O}, 0.05 \ce{MnCl2\cdot4H2O}, 
+          0.05 \ce{(NH4)6Mo7O24\cdot4H2O}, 0.05 \ce{AlCl3}, 0.05 \ce{CoCl2\cdot6H2O}, 0.092 \ce{NiCl2\cdot6H2O}, 0.5 ethylenediaminetetraacetate, 1 mL concentrated HCl, 
+          0.1 \ce{Na2SeO3\cdot5H2O}.
+          \newline
+          Vitamin mixture (concentration in mg L$^{-1}$): 2 Biotin, 2 folic acid, 10 pyridoxine acid, 5 riboflavin, 5 thiamine hydrochloride, 0.1 cyanocobalamine, 
+          5 nicotinic acid, 5 P-aminobenzoic acid, 5 lipoic acid, X???? DL-pantothenic acid.
+          \newline
+          Add between 1 and 5 mL of each solution per 1 L of final slurry volume (typically 1 mL each per bottle).
+        }.
+      \item If alkalinity is too low, add \ce{NaHCO3} to meet requirement.
+    \end{enumerate}
+  \item Headspace flushing. Flush headspace prior to incubation to remove \ce{O2}. 
+    Use a mixture of \ce{N2} and \ce{CO2} (20-40\% \ce{CO2}) or 100\% \ce{N2}. Do not flush liquid phase with pure \ce{N2}. 
+    It is recommended to measure gas flow rate and to replace at least 3 headspace volumes.
+  \item Incubation.
+    \begin{enumerate}
+      \item Temperature controlled environment at mesophilic temperature (35-40$^\circ$C) with $\le$ 2$^\circ$C variation during incubation. 
+        The temperature should match the temperature of the digester that was the source of inoculum.
+      \item Mixing is compulsory, if manually at least once a day.
+    \end{enumerate}
+  \item Methane production measurement.
+    \begin{enumerate}
+      \item No restrictions on which system to use
+      \item If gas composition has to be analyzed, it has to be analyzed at each measuring point and for every single batch (bottle).
+      \item At each measuring point, ambient pressure and temperature has to be measured and recorded for use in gas volume standardization
+    \end{enumerate}
+  \item Duration. Terminate test as late as possible but not before daily \ce{CH4} production during 3 consecutive days is $<$ 0.5\% of the net accumulated volume of methane from the substrate (substrate minus average of blanks). 
+    If different substrates are tested, each substrate can be terminated when the slowest batch (bottle) has reached the termination criterion.
+    Blanks must be continued as long as any bottles with substrate.
+\end{enumerate}
+
+\end{document}
