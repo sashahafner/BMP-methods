@@ -16,33 +16,44 @@ File version 1.3.
 This document is from the DBFZ BMP methods collection.
 For more information, visit the site at \url{https://www.dbfz.de/en/BMP}.
 
-\section{Description}
-This document describes how to calculate biochemical methane potential (also called biomethane potential) from laboratory measurements.
-The calculations are based on standardized \ce{CH4} volume produced in bottles with 1) inoculum only and 2) with substrate and inoculum, along with the quantity of inoculum and substrate added to each bottle.
+\section{Background}
+This document describes how to calculate biochemical methane potential (also called biomethane potential) (BMP) from measurements made in a batch BMP test.
+The calculations are based on standardized \ce{CH4} volume produced in bottles with 1) inoculum only and 2) with substrate and inoculum, along with the quantity of inoculum and substrate volatile solids (VS) added to each bottle.
+For details on calculating \ce{CH4} production, see method-specific documents from the DBFZ BMP methods collection\footnote{
+  Available methods are: volumetric (document 201), manometric (document 202), gravimetric (document 203), and gas density (document 204), all of which can be downloaded from \url{https://www.dbfz.de/en/BMP}.
+}.
 
-\section{Selection of a BMP duration}
-The time at which to evaluation BMP, i.e., the length of the incubation is not standardized among groups.
-It may be fixed prior starting a BMP test (e.g., 30 d) or may be calculated after (or as the test is running) based on the rate of \ce{CH4} production.
+\subsection{Selection of a BMP duration}
+The time at which to evaluation BMP, i.e., the length of the incubation, should be at least as long as the 1\% net duration\footnote{
+  For a detailed description, see document 100 from \url{https://www.dbfz.de/en/BMP}.
+}.
 Regardless, it is important that the time is identical for both inoculum-only and inoculum + substrate bottles when carrying out calculation of BMP.
 This does not mean it cannot vary among substrates from within the same BMP test.
 
-\section{Calculation of BMP}
+\subsection{SMP and BMP}
+The term specific methane production (SMP) refers to \ce{CH4} yield from a particular substrate, in the same units as BMP\footnote{
+standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa, referred to as ``normal'' volume) per unit mass of substrate VS added (often written as NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}).
+}.
+BMP is in fact simply SMP at a single suitable duration.
+SMP curves, or SMP for all measurement intervals, show the development of SMP over time, reflecting kinetics of a particular test, and are commonly included in BMP reports.
+The calculations described below are used for both SMP and BMP.
 
+\section{Calculation of SMP and BMP}
 These calculations require the following variables.
 Units may differ, but typical units are listed below.
 \begin{itemize}
-  \item $V_{CH_4, S, i}$, the standardized volume of \ce{CH4} produced in bottle $i$ with inoculum and substrate at time $t$ (mL)
-  \item $V_{CH_4, I, j}$, the standardized volume of \ce{CH4} produced in bottle $j$ with inoculum only at time $t$
+  \item $V$\textsubscript{{CH$_4$, $S, i, t$}}, the standardized volume of \ce{CH4} produced in bottle $i$ with inoculum and substrate at time $t$ (mL)
+  \item $V$\textsubscript{{CH$_4$, $I, j, t$}}, the standardized volume of \ce{CH4} produced in bottle $j$ with inoculum only at time $t$
   \item $m_{I, i}$, the mass of inoculum (typically as-measured (fresh) mass) originally added to bottle $i$
   \item $m_{VS, S, i}$, the mass of substrate volatile solids (VS) originally added to bottle $i$
-  \item $n$, the number of replicate bottles with inoculum + substrate
-  \item $k$, the number of replicate bottles with inoculum only
+  \item $n$, the number of replicate bottles with inoculum + substrate (typically 3, the minimum)
+  \item $k$, the number of replicate bottles with inoculum only (typically 3, the minimum)
 \end{itemize}
 
 Productivity of inoculum is calculated separately for each inoculum-only bottle by Eq. (\ref{eq:inoc_production}).
 \begin{equation}
   \label{eq:inoc_production}
-  v_{CH_4, I, j} = V_{CH_4, I, j} / m_{I, j} 
+  v_{CH_4, I, j, t} = V_{CH_4, I, j, t} / m_{I, j} 
 \end{equation}
 And from these, a mean value is calculated as 
 \begin{equation}
@@ -72,8 +83,9 @@ Finally, BMP for a particular substrate is taken as the mean of these values.
 where $n$ is the number of replicate bottles.
 
 \section{Calculation of random error}
-Random error in BMP estimates includes three significant sources: variation in apparent yield among substrate bottles, variation in apparent inoculum yield in inoculum-only bottles, and uncertainty in determination of substrate VS. 
-Here, these all are quantified using standard error and will be referred to as $s_{\bar{x},1}$, $s_{\bar{x},2}$, and $s_{\bar{x},3}$. 
+Calculation of random error in BMP estimates must include two significant sources: variation in apparent yield among substrate bottles, and variation in apparent inoculum yield in inoculum-only bottles.
+Uncertainty in determination of substrate VS may sometimes be a significant source of error, and, while not required, its inclusion is recommended. 
+Here, these all are quantified using standard error and will be referred to as $s_{\bar{x},1}$ (substrate yield), $s_{\bar{x},2}$ (inoculum yield), and $s_{\bar{x},3}$ (substrate VS). 
 Note that $s_{\bar{x},1}$ and $s_{\bar{x},2}$ may include many sources of error that collectively contribute to the observed value. 
 Other sources of random error are assumed to be small: determination of inoculum and substrate mass in particular. 
 Systematic error, which may be more important in some cases, is not included here. 
