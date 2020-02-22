@@ -1,0 +1,108 @@
+
+
+To measure the BMP of a substrate, a small sample is mixed with an anaerobic inoculum in bottles, which are then sealed and incubated. 
+Methane \ce{CH4} production is measured over time.
+Production of \ce{CH4} from the inoculum is estimated by making similar measurements on bottles with only inoculum (``blanks'').
+For more details on the basic approach, see Owen et al. \cite{owen1979}.
+
+\subsection{Inoculum}
+\begin{enumerate}
+  \item Origin. 
+    A highly diverse methanogenic microbial community should be present.
+    May be taken from mesophilic (35-40$^\circ$C) or thermophilic ($> 40^\circ$C) digesters. 
+    Recommended sources are digestate samples from sludge digesters at wastewater treatment plants or digesters treating mixed agricultural waste.
+    Mixing samples from multiple sources is acceptable.
+  \item Treatment. 
+    Sieving or other pre-treatment (grinding, dilution) are acceptable if needed (sieving to remove very coarse materials (any dimension $> 10$ mm), dilution if total solids (TS) $> 10\%$), but generally should be avoided.
+  \item Analysis.
+    \begin{enumerate}
+      \item Total solids (TS) by drying for at least 24 hours at 105$^\circ$C in triplicate.
+      \item Volatile solids (VS) by combusting at 550$^\circ$C for at least 2 hours in triplicate.
+    \end{enumerate}
+  \item Quality check before use.\\
+    Required checks:
+    \begin{enumerate}
+      \item pH must be between 7.0 and 8.5.
+    \end{enumerate}
+
+    Recommended checks:
+    \begin{enumerate}
+      \item Alkalinity should be $\ge$ 3 g L$^{-1}$ as \ce{CaCO3}.
+      \item Total ammonical nitrogen (TAN) should be $<$ 2.5 g L$^{-1}$ as N
+      \item Total volatile fatty acids (VFAs) should be $<$ 1.0 g L$^{-1}$ as acetic acid
+    \end{enumerate}
+  \item Storage. Storage time between collection and setting up BMP tests $\le$ 5 days at ambient (20-25$^\circ$C) or test temperature.
+  \item Methane productivity.
+    It is recommended that inoculum should contribute $<$ 40\% of the gross methane production of the positive control. 
+    A recommended rule-of-thumb is that initial \ce{CH4} production from inoculum is $< 20$ mL g$^{-1}$ d$^{-1}$ (VS basis).
+    More active inoculum can be stored at test temperature for up to 5 days to reduce activity.
+
+\end{enumerate}
+
+
+  \item Substrate quantity and bottle size. 
+    At least 1.0 g of substrate VS must be added to each bottle. 
+    This affects bottle size, and care should be taken to avoid high pressure in manual methods (due to leaks or bottle breakage). 
+    Recommended maximum headspace pressure is 2 bar (gauge). 
+    A recommended rule-of-thumb is 3-10 g substrate VS per L headspace volume, as long as daily sampling is possible at the start. 
+    Total bottle volume is recommended to be 500 - 1000 mL.
+  \item Inoculum-to-substrate ratio (ISR). On a VS basis, ISR should generally be 2, but may be as low as 1 for slowly degradable substrates, and as high as 4 for easily degradable substrates.
+  \item Amendments. 
+    \begin{enumerate}
+      \item Trace element and vitamin amendment is required.\footnote{
+          Trace element solution (concentration in g L$^{-1}$): 2 \ce{FeCl2\cdot4H2O}, 0.05 \ce{H3BO3}, 0.05 \ce{ZnCl2}, 0.038 \ce{CuCl2\cdot2H2O}, 0.05 \ce{MnCl2\cdot4H2O}, 
+          0.05 \ce{(NH4)6Mo7O24\cdot4H2O}, 0.05 \ce{AlCl3}, 0.05 \ce{CoCl2\cdot6H2O}, 0.092 \ce{NiCl2\cdot6H2O}, 0.5 ethylenediaminetetraacetate, 1 mL concentrated HCl, 
+          0.1 \ce{Na2SeO3\cdot5H2O}.
+          \newline
+          Vitamin mixture (concentration in mg L$^{-1}$): 2 Biotin, 2 folic acid, 10 pyridoxine acid, 5 riboflavin, 5 thiamine hydrochloride, 0.1 cyanocobalamine, 
+          5 nicotinic acid, 5 P-aminobenzoic acid, 5 lipoic acid, X???? DL-pantothenic acid.
+          \newline
+          Add between 1 and 5 mL of each solution per 1 L of final slurry volume (typically 1 mL each per bottle).
+        }.
+      \item If alkalinity is too low, add \ce{NaHCO3} to meet requirement.
+    \end{enumerate}
+  \item Headspace flushing. Flush headspace prior to incubation to remove \ce{O2}. 
+    Use a mixture of \ce{N2} and \ce{CO2} (20-40\% \ce{CO2}) or 100\% \ce{N2}. Do not flush liquid phase with pure \ce{N2}. 
+    It is recommended to measure gas flow rate and to replace at least 3 headspace volumes.
+  \item Incubation.
+    \begin{enumerate}
+      \item Temperature controlled environment at mesophilic temperature (35-40$^\circ$C) with $\le$ 2$^\circ$C variation during incubation. 
+        The temperature should match the temperature of the digester that was the source of inoculum.
+      \item Mixing is compulsory, if manually at least once a day.
+    \end{enumerate}
+
+  \item Methane production measurement.
+    \begin{enumerate}
+      \item No restrictions on which system to use.
+      \item The system should be designed to be gas-tight and should be tested for leakage. 
+        Measurement of leakage during BMP tests is recommended if at all possible.
+        The approach described by Hafner et al. \cite{leaks2018} is compatible with most manual BMP methods.
+        Detection of major leakage, defined here as $> 20\%$ of total biogas volume for any single bottle, is not acceptable, and in that case results should be discarded.
+        Smaller leaks can be corrected if quantified \cite{leaks2018}.
+        Results should be discarded if leakage is detected but not quantified.
+      \item If gas composition has to be analyzed, it has to be analyzed at each measuring point and for every single batch (bottle).
+      \item At each measuring point, ambient pressure and temperature has to be measured and recorded for use in gas volume standardization.
+    \end{enumerate}
+
+
+
+\bibitem{bmpprotocol}
+Holliger, C., . . .
+    \newblock{2020},
+    \newblock{General protocol for measurement of biochemical methane potential (BMP)},
+    \newblock{\url{https://github.com/sashahafner/BMP-methods}}
+
+
+\bibitem{owen1979}
+Owen, W. F., Stuckey, D. C., Healy Jr, J. B., Young, L. Y., McCarty, P. L.
+\newblock{1979},
+\newblock{Bioassay for monitoring biochemical methane potential and anaerobic toxicity}
+\newblock{Water Research} 13: 485-492.
+
+\bibitem{leaks2018}
+Hafner, S.D., Rennuit, C., Olsen, P.J., Pedersen, J.M.
+\newblock{2018},
+\newblock{Quantification of leakage in batch biogas assays} 
+\newblock{Water Practice and Technology} 13, 52–61
+    \newblock{\url{https://doi.org/10.2166/wpt.2018.012}}
+

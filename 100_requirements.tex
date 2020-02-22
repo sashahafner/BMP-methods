@@ -1,0 +1,109 @@
+\documentclass[]{article}
+\usepackage[version=3]{mhchem}
+\usepackage{hyperref}
+
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\title {Requirements for measurement of biochemical methane potential (BMP)}
+\author{Christof Holliger, Madalena Alves, Diana Andrade, \\
+Irini Angelidaki,
+Sergi Astals, Urs Baier, \\
+Claire Bougrier, Pierre Buffi{\`e}re, Marta Carballa,\\
+Vinnie de Wilde, Florian Ebertseder, Bel{\'e}n Fern{\'a}ndez, \\
+Elena Ficara, Ioannis Fotidis, Jean-Claude Frigon, \\
+H{\'e}l{\`e}ne Fruteau de Laclos, Dara S. M. Ghasimi, Gabrielle Hack, \\
+Sasha D. Hafner, Mathias Hartel, Joern Heerenklage, \\
+Ilona Sarvari Horvath, Pavel Jenicek, Konrad Koch, \\ 
+Judith Krautwald, Javier Lizasoain, Jing Liu, \\
+Lona Mosberger, Mihaela Nistor, Hans Oechsner, \\
+Jo{\~a}o V{\'i}tor Oliveira, Mark Paterson, Andr{\'e} Pauss, \\
+S{\'e}bastien Pommier, Isabella Porqueddu, Francisco Raposo, \\
+Thierry Ribeiro, Florian R{\"u}sch Pfund, Sten Str{\"o}mberg, \\
+Michel Torrijos, Miriam van Eekert, Jules van Lier, \\
+Harald Wedwitschka, S{\"o}ren Weinrich, Isabella Wierinck} 
+
+\begin{document}
+\maketitle
+
+\section{DBFZ BMP methods collection}
+Document number 100.
+File version 1.0. 
+This document is from the DBFZ BMP methods collection.
+For more information, visit the site at \url{https://www.dbfz.de/en/BMP}.
+
+\section{Introduction}
+This document presents the minimal requirements for measurement of biochemical methane potential (also called biomethane potential) (BMP) in batch tests, based on the consensus of more than 40 biogas researchers.
+The list of requirements is based on Holliger et al. \cite{iis2016}, with some modifications of validation criteria \cite{iis2020} and additional details on calculation standardization.
+For details and many additional recommendations, see these papers \cite{iis2016,iis2020}.
+
+\section{Requirements for BMP measurement}
+\subsection{Analysis of substrate and inoculum}
+  \begin{enumerate}
+    \item Total solids (TS). Measure for the inoculum and all substrates, by drying for at least 24 hours at 105$^\circ$C in triplicate.
+    \item Volatile solids (VS). Measure for the inoculum and all substrates by combusting at 550$^\circ$C for at least 2 hours in triplicate.
+  \end{enumerate}
+
+\subsection{Test setup and duration}
+\begin{enumerate}
+  \item Samples. 
+    All BMP trials must include three types of samples: batches (bottles) with only inoculum (``blanks''), with microcrystaline cellulose as a positive control, and with substrate.
+    Bottles with substrate (including positive controls) must contain inoculum.
+  \item Replication. 
+    All tests must include at least 3 batches (bottles) for each condition.
+    The minimum number of batches (bottles) used in a BMP test with one substrate is therefore 9 (3 blanks, 3 cellulose, 3 substrate).
+  \item Duration. 
+    Terminate BMP tests only after daily \ce{CH4} production during 3 consecutive days is $<$ 1.0\% of the net accumulated volume of methane from the substrate (substrate minus average of blanks). 
+    For manual or other methods where measurements are not made every day, termination can take place at the end of the first measurement interval of at least 3 days where average daily rates of production drops below the 1\% maximum (or two intervals that sum to at least 3 days, both with average rates below the 1\% maximum).
+    If different substrates are tested, each substrate can be terminated when the slowest of the 3 batches (bottles) has reached the termination criterion.
+    Blanks must be continued as long as the slowest (latest) batch (bottle) with substrate.
+    Continuing tests beyond this 1\% net duration is acceptable and can help ensure that validation criteria are met (Section \ref{sec:crit}).
+\end{enumerate}
+
+\subsection{Calculations}
+\begin{enumerate}
+  \item Data processing.
+    Standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa) are calculated from laboratory data using standardized methods, if available.\footnote{
+      Detailed descriptions of calculations are available for the following measurement methods in the DBFZ BMP methods collection (\url{https://www.dbfz.de/en/BMP}): volumetric (document 201), manometric (document 202), gravimetric (document 203), and gas density (document 204).
+    }
+  \item BMP units.
+    BMP should be expressed in standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa, referred to as ``normal'' volume) per unit mass of substrate VS added (often written as NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}). 
+  \item Calculation of BMP.
+    BMP of all substrates (including cellulose) is calculated by subtracting inoculum \ce{CH4} production (determined from blanks) from gross (total) \ce{CH4} production from substrate with inoculum, and normalizing by substrate VS mass.
+    Calculations must follow a standardized approach\footnote{
+      Calculation of BMP is described in detail in document 200 from the DBFZ BMP methods collection (\url{https://www.dbfz.de/en/BMP}).
+    }.
+  \item Calculation of BMP standard deviation.
+    The standard deviation associated with each mean ($n = 3$) BMP value must include variability from at least both blanks and batches (bottles) with substrate and inoculum\footnote{
+      See document 200. 
+      Inclusion of variability from substrate VS determination is optional.
+    }.
+\end{enumerate}
+
+\subsection{Validation criteria}
+\label{sec:crit}
+BMP results that meet \textit{all} the following criteria can be described as ``validated''.
+Otherwise, results are not validated, and tests should be repeated if possible, and otherwise, the lack of validation should be made clear in any reporting of the results.
+
+\begin{enumerate}
+  \item All required components of the BMP measurement protocol listed above are met.
+  \item Mean cellulose BMP is between 340 and 395 NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}.
+  \item Cellulose relative standard deviation (including variability in both blanks and substrate bottles) is no more than 6\%.
+\end{enumerate}
+
+\begin{thebibliography}{1}
+
+\bibitem{iis2016}
+Holliger, C., Alves, M., Andrade, D., Angelidaki, I., Astals, S., Baier, U., Bougrier, C., Buffi{\`e}re, P., Carballa, M., de Wilde, V., Ebertseder, F., Fern{\'a}ndez, B., Ficara, E., Fotidis, I., Frigon, J.-C., Fruteau de Laclos, H., S. M. Ghasimi, D., Hack, G., Hartel, M., Heerenklage, J., Sarvari Horvath, I., Jenicek, P., Koch, K., Krautwald, J., Lizasoain, J., Liu, J., Mosberger, L., Nistor, M., Oechsner, H., Oliveira, J. V., Paterson, M., Pauss, A., Pommier, S., Porqueddu, I., Raposo, F., Ribeiro, T., R{\"u}sch Pfund, F., Str{\"o}mberg, S., Torrijos, M., van Eekert, M., van Lier, J., Wedwitschka, H., Wierinck, I.
+\newblock{2016},
+    \newblock{\textit{Towards a standardization of biomethane potential tests.}}
+\newblock{Water Science and Technology} 74: 2515-2522
+
+\bibitem{iis2020}
+  Hafner, S.D., Fruteau de Laclos, H., Koch, K., Holliger, C.
+\newblock{2020},
+    \newblock{\textit{Improving inter-laboratory reproducibility in measurement of biochemical methane potential (BMP).}}
+\newblock{Water}
+
+\end{thebibliography}
+
+\end{document}
