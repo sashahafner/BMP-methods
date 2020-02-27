@@ -5,29 +5,66 @@
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
 \title {Requirements for measurement of biochemical methane potential (BMP)}
-\author{Christof Holliger, Madalena Alves, Diana Andrade, \\
+\author{
+Christof Holliger, 
+H{\'e}l{\`e}ne Fruteau de Laclos,
+Sasha D. Hafner,\\
+Konrad Koch,
+Madalena Alves, 
+Diana Andrade,\\
 Irini Angelidaki,
-Sergi Astals, Urs Baier, \\
-Claire Bougrier, Pierre Buffi{\`e}re, Marta Carballa,\\
-Vinnie de Wilde, Florian Ebertseder, Bel{\'e}n Fern{\'a}ndez, \\
-Elena Ficara, Ioannis Fotidis, Jean-Claude Frigon, \\
-H{\'e}l{\`e}ne Fruteau de Laclos, Dara S. M. Ghasimi, Gabrielle Hack, \\
-Sasha D. Hafner, Mathias Hartel, Joern Heerenklage, \\
-Ilona Sarvari Horvath, Pavel Jenicek, Konrad Koch, \\ 
-Judith Krautwald, Javier Lizasoain, Jing Liu, \\
-Lona Mosberger, Mihaela Nistor, Hans Oechsner, \\
-Jo{\~a}o V{\'i}tor Oliveira, Mark Paterson, Andr{\'e} Pauss, \\
-S{\'e}bastien Pommier, Isabella Porqueddu, Francisco Raposo, \\
-Thierry Ribeiro, Florian R{\"u}sch Pfund, Sten Str{\"o}mberg, \\
-Michel Torrijos, Miriam van Eekert, Jules van Lier, \\
-Harald Wedwitschka, S{\"o}ren Weinrich, Isabella Wierinck} 
+Lise Appels,
+Sergi Astals, \\
+Samet Azman,
+Urs Baier,
+Yadira Bajon Fernandez,\\
+Jan Bartacek,
+Federico Battista,
+David Bolzonella,\\
+Claire Bougrier,
+Camilla Braguglia,
+Pierre Buffi{\`e}re, \\
+Marta Carballa,
+Arianna Catenacci,
+Vasilis Dandikas,\\
+Fabian de Wilde,
+Sylvanus Ekwe,
+Elena Ficara,\\
+Ioannis Fotidis,
+Jean-Claude Frigon, 
+Joern Heerenklage,\\
+Pavel Jenicek,
+Judith Krautwald,
+Ralph Lindeboom,\\
+Jing Liu,
+Javier Lizasoain,
+Rosa Marchetti,\\
+Florian Moulan,
+Mihaela Nistor,
+Hans Oechsner,\\
+Jo{\~a}o V{\'i}tor Oliveira,
+Andr{\'e} Pauss,
+S{\'e}bastien Pommier,\\
+Francisco Raposo,
+Thierry Ribeiro,
+Christian Schaum,\\
+Els Schuman,
+Sebastian Schwede,
+Mariangela Soldano,\\
+Anton Taboada,
+Michel Torrijos, 
+Miriam van Eekert, \\
+Jules van Lier,
+S{\"o}ren Weinrich, 
+Isabella Wierinck
+} 
 
 \begin{document}
 \maketitle
 
 \section{DBFZ BMP methods collection}
 Document number 100.
-File version 1.0. 
+File version 1.1. 
 This document is from the DBFZ BMP methods collection.
 For more information, visit the site at \url{https://www.dbfz.de/en/BMP}.
 
@@ -38,28 +75,38 @@ For details and many additional recommendations, see these papers \cite{iis2016,
 
 \section{Requirements for BMP measurement}
 \subsection{Analysis of substrate and inoculum}
+\label{sec:analysis}
+  Volatile solids (VS) content of inoculum and substrate is needed to determine quantities for a selected inoculum-to-substrate ratio (ISR) and for calculation of BMP.
   \begin{enumerate}
     \item Total solids (TS). Measure for the inoculum and all substrates, by drying for at least 24 hours at 105$^\circ$C in triplicate.
-    \item Volatile solids (VS). Measure for the inoculum and all substrates by combusting at 550$^\circ$C for at least 2 hours in triplicate.
+    \item Volatile solids (VS). Measure for the inoculum and all substrates by combusting the dried sample at 550$^\circ$C for at least 2 hours in triplicate.
   \end{enumerate}
 
 \subsection{Test setup and duration}
+\label{sec:setup}
 \begin{enumerate}
   \item Samples. 
-    All BMP trials must include three types of samples: batches (bottles) with only inoculum (``blanks''), with microcrystaline cellulose as a positive control, and with substrate.
+    All BMP trials must include three types of samples: batches (bottles) with only inoculum (``blanks''), with microcrystaline cellulose as a positive control\footnote{
+      Other positive control substrates could be used in the future, but only cellulose has had extensive testing that was used to develop the validation criteria described below \cite{iis2020}.
+    }, and with substrate.
     Bottles with substrate (including positive controls) must contain inoculum.
   \item Replication. 
-    All tests must include at least 3 batches (bottles) for each condition.
+    All tests must include at least 3 batches (bottles) for each condition\footnote{
+      If a bottle is lost through, e.g., breakage, resulting in $n=2$ for any condition, results cannot be validated.
+      Therefore it is prudent to include 4 blanks.
+      Outliers can be eliminated if there is good reason to suspect there was an error in measurement (e.g., leakage) but the remaining number of replicates must be 3.
+    }.
     The minimum number of batches (bottles) used in a BMP test with one substrate is therefore 9 (3 blanks, 3 cellulose, 3 substrate).
   \item Duration. 
-    Terminate BMP tests only after daily \ce{CH4} production during 3 consecutive days is $<$ 1.0\% of the net accumulated volume of methane from the substrate (substrate minus average of blanks). 
-    For manual or other methods where measurements are not made every day, termination can take place at the end of the first measurement interval of at least 3 days where average daily rates of production drops below the 1\% maximum (or two intervals that sum to at least 3 days, both with average rates below the 1\% maximum).
-    If different substrates are tested, each substrate can be terminated when the slowest of the 3 batches (bottles) has reached the termination criterion.
+    Terminate BMP tests only after daily \ce{CH4} production from individual batches (bottles) during 3 consecutive days is $<$ 1.0\% of the net accumulated volume of methane from the substrate (substrate minus average of blanks). 
+    For manual or other methods where measurements are not made every day, termination can take place at the end of the first measurement interval of at least 3 days where the rate of production drops below the 1\% maximum (or two or more intervals that sum to at least 3 days, all with rates below the 1\% maximum).
+    If different substrates are tested, each substrate can be terminated when the slowest of the 3 replicate batches (bottles) has reached the termination criterion.
     Blanks must be continued as long as the slowest (latest) batch (bottle) with substrate.
     Continuing tests beyond this 1\% net duration is acceptable and can help ensure that validation criteria are met (Section \ref{sec:crit}).
 \end{enumerate}
 
 \subsection{Calculations}
+\label{sec:calculations}
 \begin{enumerate}
   \item Data processing.
     Standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa) are calculated from laboratory data using standardized methods, if available.\footnote{
@@ -85,7 +132,7 @@ BMP results that meet \textit{all} the following criteria can be described as ``
 Otherwise, results are not validated, and tests should be repeated if possible, and otherwise, the lack of validation should be made clear in any reporting of the results.
 
 \begin{enumerate}
-  \item All required components of the BMP measurement protocol listed above are met.
+  \item All required components of the BMP measurement protocol listed above (Sections \ref{sec:analysis} through \ref{sec:calculations}) are met.
   \item Mean cellulose BMP is between 340 and 395 NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}.
   \item Cellulose relative standard deviation (including variability in both blanks and substrate bottles) is no more than 6\%.
 \end{enumerate}
@@ -100,7 +147,7 @@ Holliger, C., Alves, M., Andrade, D., Angelidaki, I., Astals, S., Baier, U., Bou
 
 \bibitem{iis2020}
   Hafner, S.D., Fruteau de Laclos, H., Koch, K., Holliger, C.
-\newblock{2020},
+    \newblock{In preparation},
     \newblock{\textit{Improving inter-laboratory reproducibility in measurement of biochemical methane potential (BMP).}}
 \newblock{Water}
 
