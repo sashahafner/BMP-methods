@@ -1,5 +1,8 @@
-Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Alves, M.; Andrade, D.; Angelidaki, I.; Appels, L.; Astals, S.; Azman, S.; et al. Requirements for measurement of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.2. Available online: https://www.dbfz.de/en/BMP (accessed on Feb 28, 2020).
-
 Hafner, S.D.; Astals, S.; Buffiere, P.; Løjborg, N. Calculation of Methane Production from Manometric Measurements. Standard BMP Methods document 202, version 2.4. Available online: https://www.dbfz.de/en/BMP (accessed on Feb 28, 2020).
 
 Hafner, S.D.; Løjborg, N. Calculation of Methane Production from Volumetric Measurements. Standard BMP Methods document 201, version 1.4. Available online: https://www.dbfz.de/en/BMP (accessed on Feb 28, 2020).
+
+Hafner, S.D.; Richards, B.K.; Astals Calculation of Methane Production from Gravimetric Measurements. Standard BMP Methods document 203, version 0.3.; 2020;
+
+Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Alves, M.; Andrade, D.; Angelidaki, I.; Appels, L.; Astals, S.; Azman, S.; et al. Requirements for measurement of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.2. Available online: https://www.dbfz.de/en/BMP (accessed on Feb 28, 2020).
+
