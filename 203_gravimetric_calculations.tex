@@ -1,37 +1,35 @@
-%\documentclass[twocolumn]{article}
 \documentclass[]{article}
 \usepackage[version=3]{mhchem}
-\usepackage{sectsty}
-\usepackage{amsmath}
-\usepackage[flushleft]{threeparttablex} % For table notes
-\usepackage{rotating} 
-\usepackage{longtable}
 \usepackage{hyperref}
-\usepackage{gensymb}
-% For decimal alignment in tables
-\usepackage{dcolumn}
-\usepackage{siunitx}
-
-% For dcolumn
-\newcolumntype{.}{D{.}{.}{3}}
-
-\sectionfont{\large}
 
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
-\title {Calculation of methane production from gravimetric measurements}
-\author{Sasha D. Hafner
+\title {Calculation of Methane Production from Gravimetric Measurements\footnote{
+  Recommended citation: 
+Hafner, S.D.; Richards, B.K.; Astals, S. Calculation of Methane Production from Gravimetric Measurements. Standard BMP Methods document 203, version 0.4. Available online: https://www.dbfz.de/en/BMP (accessed on Feb 28, 2020).
+  \newline
+  Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
+}}
+
+\author{Sasha D. Hafner, Brian K. Richards, Sergi Astals\\
 \\
-\texttt{sasha.hafner@eng.au.dk} (S. D. Hafner)\\
+\texttt{sasha.hafner@eng.au.dk}
 }
+
+\date{\today \\
+\bigskip
+\textit{
+  Document number 203.
+  File version 0.4. 
+  This document is from the Standard BMP Methods collection.
+    \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
+    For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
+}
+}
+
 
 \begin{document}
 \maketitle
-
-\section{BMP-methods}
-File version 0.2. 
-This document is from the GitHub repository BMP-methods.
-For the latest version and other documents, browse to \url{https://sashahafner.github.io/BMP-methods/} or \url{https://github.com/sashahafner/BMP-methods}.
 
 \section{Description}
 In the gravimetric BMP method, bottles are weighed after venting biogas that accumulated during each measurement interval, and a subsample is analyzed for composition \cite{validation}.
