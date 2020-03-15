@@ -29,9 +29,9 @@ Hafner, S.D. Calculation of Biochemical Methane Potential (BMP). Standard BMP Me
 \maketitle
 
 \section{Background}
-This document describes how to calculate biochemical methane potential (also called biomethane potential) (BMP) from measurements made in a batch BMP test.
-The calculations are based on standardized \ce{CH4} volume produced in bottles with 1) inoculum only and 2) with substrate and inoculum, along with the quantity of inoculum and substrate volatile solids (VS) added to each bottle.
-For details on calculating \ce{CH4} production, see method-specific documents from the DBFZ BMP methods collection\footnote{
+This document describes how to calculate biochemical methane potential (also called biomethane potential) (BMP) from laboratory measurements made in a batch BMP test.
+The calculations are based on standardized \ce{CH4} volume produced in bottles with: 1) inoculum only and 2) with substrate and inoculum, along with information on the quantity of inoculum and substrate volatile solids (VS) added to each bottle.
+For details on calculating \ce{CH4} production, see method-specific documents from the Standard BMP Methods collection\footnote{
   Available methods are: volumetric (document 201), manometric (document 202), gravimetric (document 203), and gas density (document 204), all of which can be downloaded from \url{https://www.dbfz.de/en/BMP}.
 }.
 
@@ -43,8 +43,8 @@ Regardless, it is important that the time is identical for both inoculum-only an
 This does not mean it cannot vary among substrates from within the same BMP test.
 
 \subsection{SMP and BMP}
-The term specific methane production (SMP) refers to \ce{CH4} yield from a particular substrate, in the same units as BMP\footnote{
-standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa, referred to as ``normal'' volume) per unit mass of substrate VS added (often written as NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}).
+The term specific methane production (SMP) is used to refer to \ce{CH4} yield from a particular substrate, in the same units as BMP\footnote{
+Standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa, referred to as ``normal'' volume) per unit mass of substrate VS added (often written as NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}).
 }.
 BMP is in fact simply SMP at a single suitable duration.
 SMP curves, or SMP for all measurement intervals, show the development of SMP over time, reflecting kinetics of a particular test, and are commonly included in BMP reports.
@@ -54,15 +54,15 @@ The calculations described below are used for both SMP and BMP.
 These calculations require the following variables.
 Units may differ, but typical units are listed below.
 \begin{itemize}
-  \item $V$\textsubscript{{CH$_4$, $S, i, t$}}, the standardized volume of \ce{CH4} produced in bottle $i$ with inoculum and substrate at time $t$ (mL)
-  \item $V$\textsubscript{{CH$_4$, $I, j, t$}}, the standardized volume of \ce{CH4} produced in bottle $j$ with inoculum only at time $t$
+  \item $V$\textsubscript{{CH$_4$, $S, i, t$}}, the standardized volume of \ce{CH4} produced in bottle $i$ containing inoculum and substrate at time $t$ (mL)
+  \item $V$\textsubscript{{CH$_4$, $I, j, t$}}, the standardized volume of \ce{CH4} produced in bottle $j$ with inoculum only (``blank'' bottle) at time $t$
   \item $m_{I, i}$, the mass of inoculum (typically as-measured (fresh) mass) originally added to bottle $i$
   \item $m_{VS, S, i}$, the mass of substrate volatile solids (VS) originally added to bottle $i$
   \item $n$, the number of replicate bottles with inoculum + substrate (typically 3, the minimum)
-  \item $k$, the number of replicate bottles with inoculum only (typically 3, the minimum)
+  \item $k$, the number of replicate bottles with inoculum only (``blanks'', typically 3, the minimum)
 \end{itemize}
 
-Productivity of inoculum is calculated separately for each inoculum-only bottle by Eq. (\ref{eq:inoc_production}).
+Methane productivity of inoculum is calculated separately for each inoculum-only bottle at each measurement time using Eq. (\ref{eq:inoc_production}).
 \begin{equation}
   \label{eq:inoc_production}
   v_{CH_4, I, j, t} = V_{CH_4, I, j, t} / m_{I, j} 
@@ -70,7 +70,7 @@ Productivity of inoculum is calculated separately for each inoculum-only bottle 
 And from these, a mean value is calculated as 
 \begin{equation}
   \label{eq:inoc_productivity}
-  \bar{v}_{CH_4, I} = \sum_1 ^k v_{CH_4, I, i} / k
+  \bar{v}_{CH_4, I, t} = \sum_{j = 1} ^k v_{CH_4, I, j, t} / k
 \end{equation}
 where $k$ = the number of inoculum-only bottles.
 
@@ -81,6 +81,7 @@ Net \ce{CH4} production from inoculum + substrate bottles, i.e., an estimate of 
 \end{equation}
 Note that the units on inoculum mass are completely irrelevant and have no effect of results, as long as they are sufficiently precise.
 Fresh (wet) mass is recommended, although dry or VS mass could be used.\footnote{Any error in determination of inoculum dry matter or VS here is exactly canceled by the combination of Eqs. (\ref{eq:inoc_production}) and (\ref{eq:net_CH4}), so has no effect.}
+Equation (\ref{eq:net_CH4}) may be simplified 
 
 Bottle yield is calculated by normalizing net \ce{CH4} production by substrate VS mass:
 \begin{equation}
