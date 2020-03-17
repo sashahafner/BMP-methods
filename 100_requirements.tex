@@ -4,7 +4,7 @@
 
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
-\title {Requirements for measurement of biochemical methane potential (BMP)\footnote{
+\title {Requirements for measurement of and validation biochemical methane potential (BMP)\footnote{
   Recommended citation: 
 Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Alves, M.; Andrade, D.; Angelidaki, I.; Appels, L.; Astals, S.; Azman, S.; et al. Requirements for measurement of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.2. Available online: https://www.dbfz.de/en/BMP (accessed on Feb 28, 2020).
 \newline
@@ -81,7 +81,7 @@ Isabella Wierinck\\
 \maketitle
 
 \section{Introduction}
-This document presents the minimal requirements for measurement of biochemical methane potential (also called biomethane potential) (BMP) in batch tests, based on the consensus of more than 40 biogas researchers.
+This document presents the minimal requirements for measurement and validation of biochemical methane potential (also called biomethane potential) (BMP) in batch tests, based on the consensus of more than 40 biogas researchers.
 The list of requirements is based on Holliger et al. \cite{iis2016}, with some recent modifications of validation criteria as described in Hafner et al. \cite{iis2020} and additional details on calculation standardization.
 For details and many additional recommendations, see these papers \cite{iis2016,iis2020}.
 
@@ -98,22 +98,21 @@ For details and many additional recommendations, see these papers \cite{iis2016,
 \label{sec:setup}
 \begin{enumerate}
   \item Samples. 
-    All BMP trials must include three types of samples: batches (bottles) with only inoculum (``blanks''), with microcrystaline cellulose as a positive control\footnote{
+    All BMP trials must include three types of samples: batches with only inoculum (``blanks''), with inoculum and microcrystaline cellulose as a positive control\footnote{
       Other positive control substrates could be used in the future, but only cellulose has had extensive testing that was used to develop the validation criteria described below \cite{iis2020}.
-    }, and with substrate.
-    Bottles with substrate (including positive controls) must contain inoculum.
-  \item Replication. 
+    }, and with inoculum and substrate.
+    \item Replication. 
     All tests must include at least 3 batches (bottles) for each condition\footnote{
       If a bottle is lost through, e.g., breakage, resulting in $n=2$ for any condition, results cannot be validated.
       Therefore it is prudent to include 4 blanks.
       Outliers can be eliminated if there is good reason to suspect there was an error in measurement (e.g., leakage) but the remaining number of replicates must be 3.
     }.
-    The minimum number of batches (bottles) used in a BMP test with one substrate is therefore 9 (3 blanks, 3 cellulose, 3 substrate).
+    The minimum number of batches used in a BMP test with one substrate is therefore 9 (3 blanks, 3 cellulose, 3 substrate).
   \item Duration. 
-    Terminate BMP tests only after daily \ce{CH4} production from individual batches (bottles) during 3 consecutive days is $<$ 1.0\% of the net accumulated volume of methane from the substrate (substrate minus average of blanks). 
+    Terminate BMP tests only after daily \ce{CH4} production from individual batches during 3 consecutive days is $<$ 1.0\% of the net accumulated volume of methane from the substrate (substrate batch minus average of blanks). 
     For manual or other methods where measurements are not made every day, termination can take place at the end of the first measurement interval of at least 3 days where the rate of production drops below the 1\% maximum (or two or more intervals that sum to at least 3 days, all with rates below the 1\% maximum).
-    If different substrates are tested, each substrate can be terminated when the slowest of the 3 replicate batches (bottles) has reached the termination criterion.
-    Blanks must be continued as long as the slowest (latest) batch (bottle) with substrate.
+    If different substrates are tested, each substrate can be terminated when the slowest of the 3 replicate batches has reached the termination criterion.
+    Blanks must be continued as long as the slowest (latest) batch with substrate.
     Continuing tests beyond this 1\% net duration is acceptable and can help ensure that validation criteria are met (Section \ref{sec:crit}).
 \end{enumerate}
 
@@ -122,14 +121,14 @@ For details and many additional recommendations, see these papers \cite{iis2016,
 \begin{enumerate}
   \item Data processing.
     Standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa) are calculated from laboratory data using standardized methods, if available.\footnote{
-      Detailed descriptions of calculations are available for the following measurement methods in the DBFZ BMP methods collection (\url{https://www.dbfz.de/en/BMP}): volumetric (document 201), manometric (document 202), gravimetric (document 203), and gas density (document 204).
+      Detailed descriptions of calculations are available for the following measurement methods in the Standard BMP methods collection (\url{https://www.dbfz.de/en/BMP}): volumetric (document 201), manometric (document 202), gravimetric (document 203), and gas density (document 204).
     }
   \item BMP units.
     BMP should be expressed in standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa, referred to as ``normal'' volume) per unit mass of substrate VS added (often written as NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}). 
   \item Calculation of BMP.
     BMP of all substrates (including cellulose) is calculated by subtracting inoculum \ce{CH4} production (determined from blanks) from gross (total) \ce{CH4} production from substrate with inoculum, and normalizing by substrate VS mass.
     Calculations must follow a standardized approach\footnote{
-      Calculation of BMP is described in detail in document 200 from the DBFZ BMP methods collection (\url{https://www.dbfz.de/en/BMP}).
+      Calculation of BMP is described in detail in document 200 from the Standard BMP methods collection (\url{https://www.dbfz.de/en/BMP}).
     }.
   \item Calculation of BMP standard deviation.
     The standard deviation associated with each mean ($n = 3$) BMP value must include variability from at least both blanks and batches (bottles) with substrate and inoculum\footnote{
