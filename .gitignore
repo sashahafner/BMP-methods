@@ -1,4 +1,6 @@
 # LaTeX intermediates
+*.blg
+*.bbl
 *.log
 *.aux
 *.out
