@@ -6,11 +6,11 @@
 
 \title {Calculation of Biochemical Methane Potential (BMP)\footnote{
   Recommended citation: 
-Hafner, S.D. Calculation of Biochemical Methane Potential (BMP). Standard BMP Methods document 201, version 1.4. Available online: https://www.dbfz.de/en/BMP (accessed on Feb 28, 2020).
+Hafner, S.D. Calculation of Biochemical Methane Potential (BMP). Standard BMP Methods document 201, version 1.5. Available online: https://www.dbfz.de/en/BMP (accessed on Feb 28, 2020).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }}
-\author{Sasha D. Hafner\\
+\author{Sasha D. Hafner, Konrad Koch\\
 \texttt{sasha.hafner@eng.au.dk}
 }
 
@@ -18,7 +18,7 @@ Hafner, S.D. Calculation of Biochemical Methane Potential (BMP). Standard BMP Me
 \bigskip
 \textit{
   Document number 200.
-  File version 1.4. 
+  File version 1.5. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -30,7 +30,7 @@ Hafner, S.D. Calculation of Biochemical Methane Potential (BMP). Standard BMP Me
 
 \section{Background}
 This document describes how to calculate biochemical methane potential (also called biomethane potential) (BMP) from laboratory measurements made in a batch BMP test.
-The calculations are based on standardized \ce{CH4} volume produced in bottles with: 1) inoculum only and 2) with substrate and inoculum, along with information on the quantity of inoculum and substrate volatile solids (VS) added to each bottle.
+The calculations are based on standardized \ce{CH4} volume produced in bottles with: 1) inoculum only and 2) with substrate and inoculum, along with information on the quantity of inoculum and substrate organic matter (typically as volatile solids, VS, although chemical oxygen deman, COD, is also used) added to each bottle.
 For details on calculating \ce{CH4} production, see method-specific documents from the Standard BMP Methods collection\footnote{
   Available methods are: volumetric (document 201), manometric (document 202), gravimetric (document 203), and gas density (document 204), all of which can be downloaded from \url{https://www.dbfz.de/en/BMP}.
 }.
@@ -45,7 +45,7 @@ Different substrates degrade at different rates, and therefore some will require
 
 \subsection{SMP and BMP}
 The term specific methane production (SMP) is used to refer to \ce{CH4} yield from a particular substrate, in the same units as BMP\footnote{
-Standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa, referred to as ``normal'' volume) per unit mass of substrate VS added (often written as NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}).
+  Standardized \ce{CH4} volume (dry, 0$^\circ$C, 101.325 kPa, referred to as ``normal'' volume) per unit mass of substrate VS added (e.g., mL g$^{-1}$, often written as NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}).
 }.
 BMP is in fact simply SMP at a single suitable duration.
 SMP curves, i.e., SMP values for all measurement intervals, show the development of SMP over time, reflecting kinetics of a particular test, and are commonly included in BMP reports.
@@ -56,14 +56,14 @@ These calculations require the following variables.
 Units may differ, but typical units are listed below.
 \begin{itemize}
   \item $V$\textsubscript{{CH$_4$, $S, i, t$}}, the standardized volume of \ce{CH4} produced in bottle $i$ containing inoculum and substrate at time $t$ (mL)
-  \item $V$\textsubscript{{CH$_4$, $I, j, t$}}, the standardized volume of \ce{CH4} produced in bottle $j$ with inoculum only (``blank'' bottle) at time $t$
-  \item $m_{I, i}$, the mass of inoculum (typically as-measured (fresh) mass) originally added to bottle $i$
-  \item $m_{VS, S, i}$, the mass of substrate volatile solids (VS) originally added to bottle $i$
+  \item $V$\textsubscript{{CH$_4$, $I, j, t$}}, the standardized volume of \ce{CH4} produced in bottle $j$ with inoculum only (``blank'' bottle) at time $t$ (mL)
+  \item $m_{I, i}$, the mass of inoculum (typically as-measured (fresh) mass) originally added to bottle $i$ (g)
+  \item $m_{VS, S, i}$, the mass of substrate volatile solids (VS) originally added to bottle $i$ (g)
   \item $n$, the number of replicate bottles with inoculum + substrate (typically 3, the minimum)
   \item $k$, the number of replicate bottles with inoculum only (``blanks'', typically 3, the minimum)
 \end{itemize}
 
-Methane productivity of inoculum is calculated separately for each inoculum-only bottle at each measurement time using Eq. (\ref{eq:inoc_production}).
+Methane productivity of inoculum (mL g$^{-1}$) is calculated separately for each inoculum-only bottle at each measurement time using Eq. (\ref{eq:inoc_production}).
 \begin{equation}
   \label{eq:inoc_production}
   v\textsubscript{{CH$_4$, $I, j, t$}} = V\textsubscript{{CH$_4$, $I, j, t$}} / m_{I, j} 
@@ -75,7 +75,7 @@ And from these, a mean value is calculated as
 \end{equation}
 where $k$ = the number of inoculum-only bottles.
 
-Net \ce{CH4} production from inoculum + substrate bottles, i.e., an estimate of \ce{CH4} production derived from substrate only\footnote{This calculation is based on the assumption of additivity for \ce{CH4} production, i.e., production of \ce{CH4} from inoculum is not affected by the presence of substrate. This is almost certainly incorrect, but similar results even when varying the inoculum-to-substrate ratio and plausible differences between measured and maximum theoretical BMP suggest it is not a large source of error.} is calculated as given in Eq. (\ref{eq:net_CH4}).
+Net \ce{CH4} production from inoculum + substrate bottles (mL), i.e., an estimate of \ce{CH4} production derived from substrate only\footnote{This calculation is based on the assumption of additivity for \ce{CH4} production, i.e., production of \ce{CH4} from inoculum is not affected by the presence of substrate. This is almost certainly incorrect, but similar results even when varying the inoculum-to-substrate ratio and plausible differences between measured and maximum theoretical BMP suggest it is not a large source of error.} is calculated as given in Eq. (\ref{eq:net_CH4}).
 \begin{equation}
   \label{eq:net_CH4}
   V\textsubscript{CH$_4$, $S, i, t, net$} = V\textsubscript{CH$_4$, $S, i, t$} - \bar{v}\textsubscript{{CH$_4$, $I, t$}} \cdot m_{I, i}
@@ -84,7 +84,7 @@ Note that the units on inoculum mass are completely irrelevant and have no effec
 Fresh (wet) mass is recommended, for simplicity, although dry or VS mass could be used.\footnote{Any error in determination of inoculum dry matter or VS content here is exactly canceled by the combination of Eqs. (\ref{eq:inoc_production}) and (\ref{eq:net_CH4}), so has no effect. However, accurate determination of inoculum VS content is needed for calculation of inoculum-to-substrate ratio.}.
 Equation (\ref{eq:net_CH4}) may be simplified if all bottles (with and without substrate) have exactly the same mass of inoculum, but because this is never completely true, Eq. (\ref{eq:net_CH4}) should always be used. 
 
-SMP for an individual bottle at a particular duration is calculated by normalizing net \ce{CH4} production by substrate VS mass:
+SMP (mL g$^{-1}$) for an individual bottle at a particular duration is calculated by normalizing net \ce{CH4} production by substrate VS mass:
 \begin{equation}
   \label{eq:yield}
   B_{i} = V\textsubscript{CH$_4$, $S, i, t, net$} / m_{VS, S, i}
@@ -106,7 +106,7 @@ Note that $s_{\bar{x},1}$ and $s_{\bar{x},2}$ may include many sources of error 
 Other sources of random error are assumed to be small: determination of inoculum and substrate mass in particular. 
 Systematic error, which may be more important in some cases, is not included here. 
 
-Units on all three standard errors are the units of the final BMP estimates, e.g., standardized \ce{CH4} volume from substrate in mL per g substrate VS. 
+Units on all three standard errors are the units of the final BMP estimates, e.g., mL g$^{-1}$, standardized \ce{CH4} volume from substrate in mL per g substrate VS. 
 They can be added together to provide a total estimate with:
 \begin{equation}
   \label{eq:se_sum}
