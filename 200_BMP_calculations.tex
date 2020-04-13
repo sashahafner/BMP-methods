@@ -29,7 +29,7 @@ Hafner, S.D. Calculation of Biochemical Methane Potential (BMP). Standard BMP Me
 \maketitle
 
 \section{Background}
-This document describes how to calculate biochemical methane potential (also called biomethane potential) (BMP) from laboratory measurements made in a batch BMP test.
+This document describes calculation of biochemical methane potential (also called biomethane potential) (BMP) from laboratory measurements made in a batch BMP test.
 The calculations are based on standardized \ce{CH4} volume produced in bottles with: 1) inoculum only and 2) with substrate and inoculum, along with information on the quantity of inoculum and substrate organic matter (typically as volatile solids, VS, although chemical oxygen deman, COD, is also used) added to each bottle.
 For details on calculating \ce{CH4} production, see method-specific documents from the Standard BMP Methods collection\footnote{
   Available methods are: volumetric (document 201), manometric (document 202), gravimetric (document 203), and gas density (document 204), all of which can be downloaded from \url{https://www.dbfz.de/en/BMP}.
@@ -80,14 +80,14 @@ Net \ce{CH4} production from inoculum + substrate bottles (mL), i.e., an estimat
   \label{eq:net_CH4}
   V\textsubscript{CH$_4$, $S, i, t, net$} = V\textsubscript{CH$_4$, $S, i, t$} - \bar{v}\textsubscript{{CH$_4$, $I, t$}} \cdot m_{I, i}
 \end{equation}
-Note that the units on inoculum mass are completely irrelevant and have no effect of results, as long as they are sufficiently precise.
+Note that the units on inoculum mass $m_{I, i}$ are completely irrelevant and have no effect of results, as long as they are sufficiently precise.
 Fresh (wet) mass is recommended, for simplicity, although dry or VS mass could be used.\footnote{Any error in determination of inoculum dry matter or VS content here is exactly canceled by the combination of Eqs. (\ref{eq:inoc_production}) and (\ref{eq:net_CH4}), so has no effect. However, accurate determination of inoculum VS content is needed for calculation of inoculum-to-substrate ratio.}.
 Equation (\ref{eq:net_CH4}) may be simplified if all bottles (with and without substrate) have exactly the same mass of inoculum, but because this is never completely true, Eq. (\ref{eq:net_CH4}) should always be used. 
 
 SMP (mL g$^{-1}$) for an individual bottle at a particular duration is calculated by normalizing net \ce{CH4} production by substrate VS mass:
 \begin{equation}
   \label{eq:yield}
-  B_{i} = V\textsubscript{CH$_4$, $S, i, t, net$} / m_{VS, S, i}
+  B_{i, t} = V\textsubscript{CH$_4$, $S, i, t, net$} / m_{VS, S, i}
 \end{equation}
 The mean of these values is calculated by substrate:
 \begin{equation}
@@ -95,8 +95,8 @@ The mean of these values is calculated by substrate:
   \bar{B_t} = \sum_{i = 1} ^n B_{i, t} / n
 \end{equation}
 where $n$ is the number of replicate bottles.
-Collectively all $\bar{B_t}$ values for a single substrate or all $B_{i}$ values for a single bottle represent and SMP curve.
-BMP for a substrate is $\bar{B_t}$ at an appropriate duration.
+Collectively all $\bar{B_t}$ values for a single substrate or all $B_{i, t}$ values for a single bottle represent an SMP curve.
+BMP for a substrate is taken as $\bar{B_t}$ at an appropriate duration.
 
 \section{Calculation of random error}
 Calculation of random error in BMP estimates must include at least two sources of error: variation in \ce{CH4} production among substrate bottles, and variation in apparent inoculum \ce{CH4} productivity in blanks (inoculum-only bottles).

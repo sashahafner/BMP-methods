@@ -13,12 +13,7 @@
 \begin{document}
 \maketitle
 
-\section{BMP-methods}
-File version 1.4. 
-This file is from the GitHub repository BMP-methods.
-For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
-
-\section{Description}
+\section{Background}
 This document describes calculations for volumetric measurment of biogas.
 As with manometric methods, two methods are commonly used and both are described here: one based on normalized \ce{CH4} concentrations (method 1) and one that explicitly includes estimation of \ce{CH4} in the bottle headspace (method 2).
 Expected results from the two methods are identical; differences are due only to error in measurement of biogas composition or headspace volume.
@@ -111,7 +106,9 @@ Then, volume is further standardized following Eq. (\ref{eq:bgstd}).
 \end{equation*}
 $V_{biogas,i}$ is taken as this $V_{std}$. Cumulative production is taken as the cumulative sum of interval values.
 
-For method 2 additional calculation of standardized gas volume post venting is required in order to determine interval biogas production. Post-venting pressure in the current ($P_{post_{i}}$) and previous ($P_{post_{i-1}}$) intervals was assumed to be constant atmospheric pressure of 101.325 kPa. Bottle headspace volume was 81.3 mL. 
+For method 2 additional calculation of standardized gas volume post venting is required in order to determine interval biogas production. 
+Post-venting pressure in the current ($P_{post_{i}}$) and previous ($P_{post_{i-1}}$) intervals was assumed to be constant atmospheric pressure of 101.325 kPa. 
+Bottle headspace volume was 81.3 mL. 
 \begin{equation*}
    V_{dry,post,i-1} = V_{dry,post,i} = \frac{81.3\unit{mL} \cdot (101.325\unit{kPa} - 4.237\unit{kPa})}{101.325\unit{kPa}} = 77.88\unit{mL}  
 \end{equation*}
