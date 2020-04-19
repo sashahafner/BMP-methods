@@ -1,44 +1,47 @@
-%\documentclass[twocolumn]{article}
 \documentclass[]{article}
 \usepackage[version=3]{mhchem}
-\usepackage{sectsty}
-\usepackage{amsmath}
-\usepackage[flushleft]{threeparttablex} % For table notes
-\usepackage{rotating} 
-\usepackage{longtable}
-\usepackage{hyperref}
-\usepackage{gensymb}
-% For decimal alignment in tables
-\usepackage{dcolumn}
+%\usepackage{natbib}
+%\bibliographystyle{abbrvnat}
 \usepackage{siunitx}
-
-% For dcolumn
-\newcolumntype{.}{D{.}{.}{3}}
-
-\sectionfont{\large}
+\usepackage[colorlinks]{hyperref}
 
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
-\title {Calculation of methane production from gas density-based measurements}
-\author{Camilla G. Justesen, Rasmus Thorsen, Sasha D. Hafner
-\\
-\texttt{sasha.hafner@eng.au.dk} (S. D. Hafner)\\
+
+\title {Calculation of Methane Production from Gas Density-Based Measurements\footnote{
+  Recommended citation: 
+Hafner, S.D.; Justesen, C.G.; Thorsen, R.; Astals, S.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of methane production from gas density-based measurements. Standard BMP Methods document 204, version 1.5. Available online: https://www.dbfz.de/en/BMP (accessed on April 19, 2020).
+\newline
+  Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }
+}
+
+\author{Sasha D.Hafner, Camilla G. Justesen, \\ Rasmus Thorsen, Sergi Astals, \\ Christof Holliger, Konrad Koch, \\ and S{\"o}ren Weinrich
+\\
+\texttt{sasha.hafner@eng.au.dk}\\
+}
+
+\date{\today \\
+\bigskip
+\textit{
+  Document number 204.
+  File version 1.5. 
+  This document is from the Standard BMP Methods collection.
+    \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
+    For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
+}
+}
+
 
 \begin{document}
 \maketitle
 
-\section{BMP-methods}
-File version 1.4 - \textbf{DRAFT}. 
-This file is from the GitHub repository BMP-methods.
-For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
-
-\section{Description}
+\section{Introduction}
 In the gas density BMP (GD-BMP) method, bottle mass loss and vented biogas volume from one or more time intervals are used to determine biogas density, and from that, composition. 
 With this information, CH$_4$ production can be calculated from either biogas volume or bottle mass loss.
-This document describes calculations for the GD-BMP method (Section \ref{s_equations}) and provides an example calculation (Section \ref{s_example}).
+This document describes calculations for the GD-BMP method and provides an example calculation.
 
-\section{Calculation of CH$_4$ production} \label{s_equations}
+\section{Calculation of methane production}
 Using Eq. (\ref{eq:1}), biogas density ($d_b$, g/mL) is determined by mass loss ($\Delta m_b$, g) and standardized biogas volume ($V_b$, mL), corrected for water vapor content ($m_{H_2O}$, g/mL) in the gas. 
 \begin{equation}
   \label{eq:1}
@@ -46,13 +49,16 @@ Using Eq. (\ref{eq:1}), biogas density ($d_b$, g/mL) is determined by mass loss 
 \end{equation}
 Standardized biogas volume is determined from measured vented biogas volume by correcting for moisture, temperature, and pressure, as described in the BMP-methods document on volumetric calculations (Hafner, 2019).
 Water vapor pressure ($P_{H_2O}$, kPa) is assumed to be at saturation, and can be calculated using a Magnus-form equation from Alduchov and Eskridge (1996)\footnote{
-  Other options exist, and will provide nearly identical values}.
+  Other options exist, and will provide nearly identical values.
+}.
+
 \begin{equation}
 \label{eq:2_magnus}
    P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 T}{243.04 + T}}
 \end{equation}
-$T_{hs}$ in Eq. \ref{eq:2_magnus} indicates the bottle headspace temperature at the time of venting (\degree C). 
-The mass of the water vapor present in the vented biogas ($m_{H_2O}$) is then calculated from the molar mass of water ($M_{H_2O}$ = 18.02 g/mol), the partial pressure ($P_{H_2O}$, kPa), the pressure of biogas in the bottle headspace just prior to venting ($P_{hs}$, kPa), and the molar volume of biogas at standard conditions (here, 101.325 kPa and 0\degree C).
+
+$T_{hs}$ in Eq. \ref{eq:2_magnus} indicates the bottle headspace temperature at the time of venting ($^\circ$C). 
+The mass of the water vapor present in the vented biogas ($m_{H_2O}$) is then calculated from the molar mass of water ($M_{H_2O}$ = 18.02 g/mol), the partial pressure ($P_{H_2O}$, kPa), the pressure of biogas in the bottle headspace just prior to venting ($P_{hs}$, kPa), and the molar volume of biogas at standard conditions (here, dry, 101.325 kPa, and 0$^\circ$C).
 \begin{equation}
   \label{eq:3}
   m_{H_2O}=M_{H_2O} \cdot \frac{P_{H_2O}}{P_{hs}-P_{H_2O}} \cdot \frac{1}{v_b}
@@ -78,9 +84,9 @@ In the following example, \ce{CH4} production is calculated from measurements ma
 For a complete BMP trial, the standardized biogas volume was 779.2 mL, and the complete total mass loss was 1.070 g.
 
 To find the biogas density ($d_b$) with equation \ref{eq:1}, water vapor partial pressure is first calculated using Eq. (\ref{eq:2_magnus}). 
-The bottle headspace temperature (\textit{T}$_{hs}$) was assumed to be 30\degree C.
+The bottle headspace temperature (\textit{T}$_{hs}$) was assumed to be 30$^\circ$C.
 \begin{equation*}
-   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 \cdot 30 \degree C}{243.04 + 30 \degree C}} = 4.237\ kPa
+   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 \cdot 30^\circ C}{243.04 + 30 ^\circ C}} = 4.237\ kPa
 \end{equation*}
 Then, following equation \ref{eq:3}, the mass of the water vapor ($m_{H_2O}$) is calculated.
 \begin{equation*}

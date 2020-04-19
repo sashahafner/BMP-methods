@@ -6,12 +6,12 @@
 
 \title {Calculation of Methane Production from Gravimetric Measurements\footnote{
   Recommended citation: 
-Hafner, S.D.; Richards, B.K.; Astals, S. Calculation of Methane Production from Gravimetric Measurements. Standard BMP Methods document 203, version 0.4. Available online: https://www.dbfz.de/en/BMP (accessed on Feb 28, 2020).
+Hafner, S.D.; Richards, B.K.; Astals, S.; Holliger, C.; Koch, K.; Weinrich, S. Calculation of Methane Production from Gravimetric Measurements. Standard BMP Methods document 203, version 1.0. Available online: https://www.dbfz.de/en/BMP (accessed on April 19, 2020).
   \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }}
 
-\author{Sasha D. Hafner, Brian K. Richards, Sergi Astals\\
+\author{Sasha D. Hafner, Brian K. Richards, \\ Sergi Astals, Christof Holliger, \\ Konrad Koch, and S{\"o}ren Weinrich
 \\
 \texttt{sasha.hafner@eng.au.dk}
 }
@@ -20,7 +20,7 @@ Hafner, S.D.; Richards, B.K.; Astals, S. Calculation of Methane Production from 
 \bigskip
 \textit{
   Document number 203.
-  File version 0.4. 
+  File version 1.0. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -31,7 +31,7 @@ Hafner, S.D.; Richards, B.K.; Astals, S. Calculation of Methane Production from 
 \begin{document}
 \maketitle
 
-\section{Description}
+\section{Introduction}
 In the gravimetric BMP method, bottles are weighed after venting biogas that accumulated during each measurement interval, and a subsample is analyzed for composition \cite{validation}.
 With mass loss and biogas composition, \ce{CH4} production can accurately be determined.
 The standardised volume of \ce{CH4} produced and released by venting is calculated separately for each bottle and for each incubation interval, based on the observed mass loss and an estimate of biogas density and water vapour content. 
@@ -40,7 +40,7 @@ In method 1, vented biogas is assumed to consist of only \ce{CH4} and \ce{CO2}.
 When flushing gas density differs from biogas density, this assumption introduces systematic error (generally small), but a correction can be applied as long as virtually all of the initial headspace gas is removed from the bottle by the end of the test. 
 Alternatively, method 2 assumes vented biogas is a mixture of \ce{CH4}, \ce{CO2}, and \ce{N2}, to account for common flushing gases (or mixtures, e.g., pure \ce{N2} or a mix of \ce{N2} and \ce{CO2}).
 Here, two components must be considered in order to account for total \ce{CH4} production: 1) \ce{CH4} removed in vented biogas, and 2) \ce{CH4} remaining in the bottle headspace.
-This method is expected to be more accurate.
+This method may be slightly more accurate.
 In the original publication describing the gravimetric method \cite{validation} only method 1 was presented.
 
 \section{Calculation of CH$_4$ production}

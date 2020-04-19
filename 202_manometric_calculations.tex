@@ -1,39 +1,38 @@
-%\documentclass[twocolumn]{article}
 \documentclass[]{article}
 \usepackage[version=3]{mhchem}
-\usepackage{sectsty}
-\usepackage{amsmath}
-\usepackage[flushleft]{threeparttablex} % For table notes
-\usepackage{rotating} 
-\usepackage{longtable}
-\usepackage{hyperref}
-% For decimal alignment in tables
-\usepackage{dcolumn}
-\usepackage{gensymb}
-
-% For dcolumn
-\newcolumntype{.}{D{.}{.}{3}}
-
-\sectionfont{\large}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\usepackage[colorlinks]{hyperref}
 
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
-\title {Calculation of methane production from manometric measurements}
-\author{Sasha D. Hafner, Sergi Astals, Pierre Buffiere, and Nanna L{\o}jborg\\
+\title {Calculation of Methane Production from Manometric Measurements\footnote{
+  Recommended citation: 
+Hafner, S.D.; Astals, S.; Buffiere, P.; L\o jborg, N.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of Methane Production from Manometric Measurements. Standard BMP Methods document 201, version 2.5. Available online: https://www.dbfz.de/en/BMP (accessed on April 19, 2020).
+\newline
+  Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
+}}
+\author{Sasha D. Hafner, Sergi Astals, \\ Pierre Buffiere, Nanna L{\o}jborg, \\ Christof Holliger, Konrad Koch, \\ and S{\"o}ren Weinrich\\
 \\
 \texttt{sasha.hafner@eng.au.dk} (S. D. Hafner)\\
 \texttt{sastals@ub.edu} (S. Astals)\\
 } 
 
+\date{\today \\
+\bigskip
+\textit{
+  Document number 202.
+  File version 2.5. 
+  This document is from the Standard BMP Methods collection.
+    \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
+    For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
+}
+}
+
 \begin{document}
 \maketitle
 
-\section{BMP-methods}
-File version 2.4. 
-This file is from the GitHub repository BMP-methods.
-For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
-
-\section{Description}
+\section{Introduction}
 This document describes calculations for manometric measurment of biogas.
 Two methods are commonly used and both are described here: one based on normalized \ce{CH4} concentrations (method 1) and one that explicitly includes estimation of \ce{CH4} in the bottle headspace (method 2).
 Expected results from the two methods are identical; differences are due only to error in measurement of biogas composition or headspace volume.
