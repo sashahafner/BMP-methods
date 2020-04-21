@@ -2,13 +2,14 @@
 \usepackage[version=3]{mhchem}
 \usepackage{natbib}
 \bibliographystyle{abbrvnat}
+\usepackage{amsmath}
 \usepackage[colorlinks]{hyperref}
 
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
 \title {Calculation of Methane Production from Volumetric Measurements\footnote{
   Recommended citation: 
-Hafner, S.D.; L\o jborg, N.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of Methane Production from Volumetric Measurements. Standard BMP Methods document 201, version 1.5. Available online: https://www.dbfz.de/en/BMP (accessed on April 19, 2020).
+Hafner, S.D.; L\o jborg, N.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of Methane Production from Volumetric Measurements. Standard BMP Methods document 201, version 1.7. Available online: https://www.dbfz.de/en/BMP (accessed on April 21, 2020).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }}
@@ -21,7 +22,7 @@ Hafner, S.D.; L\o jborg, N.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation 
 \bigskip
 \textit{
   Document number 201.
-  File version 1.6. 
+  File version 1.7. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -32,11 +33,11 @@ Hafner, S.D.; L\o jborg, N.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation 
 \begin{document}
 \maketitle
 
-\section{Background}
+\section{Introduction}
 This document describes calculations for volumetric measurment of biogas.
 As with manometric methods, two methods are commonly used and both are described here: one based on normalized \ce{CH4} concentrations (method 1) and one that explicitly includes estimation of \ce{CH4} in the bottle headspace (method 2).
 Expected results from the two methods are identical; differences are due only to error in measurement of biogas composition or headspace volume.
-Both methods are available through the \texttt{cumBg()} function in the biogas package \cite{softwarex} and through the web application OBA (\url{https://biotransformers.shinyapps.io/oba1/}) and can be easily added to, e.g., a spreadsheet template.
+Both methods are available through the \texttt{cumBg()} function in the biogas package \citep{hafnerSoftwareBiogasResearch2018} and through the web application OBA (\url{https://biotransformers.shinyapps.io/oba1/}) and can be easily added to, e.g., a spreadsheet template.
 
 \section{Standardization of measured gas volume}
 Both methods use the same approach for standardization of gas volume.
@@ -49,7 +50,7 @@ First the measured gas volume (e.g., in a syringe or hanging water column) is co
 \end{equation}
 where $P_{meas}$ is the measured headspace pressure and $P_{H_2O}$ the water vapor partial pressure (both in kPa).
 Eq. (\ref{eq:h2ocorrection}) is an expression of Boyle's law.
-The value of $P_{H_2O}$ is assumed to be the saturation vapor pressure, and can be calculated using, e.g., the Magnus-form equation given below (Eq. 21 in \cite{magnus}):
+The value of $P_{H_2O}$ is assumed to be the saturation vapor pressure, and can be calculated using, e.g., the Magnus-form equation given below (Eq. 21 in \citet{alduchovImprovedMagnusForm1996}):
 
 \begin{equation}
 \label{eq:magnus}
@@ -66,10 +67,10 @@ where $V_{std}$ is the standardized volume of gas within a bottle's headspace at
 Interval biogas production $V_{biogas, i}$ is taken as this standardized volume $v_{std}$.
 Cumulative production is taken as the cumulative sum of interval values. 
 
-\section{Calculation of \ce{CH4} production}
+\section{Calculation of methane production}
 \subsection{Method 1}
 In the first method, biogas is assumed to consist of only \ce{CH4} and \ce{CO2} at the time of production (i.e., as produced by the microbial community) and \ce{CH4} production is calculated from vented (removed) biogas only.
-This method is described in \cite{brian1991}.
+This method is described in \cite{richardsMethodsKineticanalysisMethane1991}.
 Coupled with the assumption that all gas production is biogas, this provides the simplest approach for calculating \ce{CH4} production.
 
 First, concentrations of \ce{CH4} and \ce{CO2} are adjusted so they sum to 1.0:
@@ -108,12 +109,12 @@ Cumulative production is taken as the cumulative sum of interval values.
 In the following example, \ce{CH4} production is calculated from a single interval measurement made on a single bottle in a BMP trial. Calculations are made using both volumetric method 1 and 2. 
 For both methods standardized gas volume is calculated from Eq. (\ref{eq:bgstd}) by correcting for water vapor, temperature, and pressure.
 
-Measured biogas volume ($V_{biogas,i}$) was 73.6 mL at a temperature ($T_{meas}$) of 30\degree C and a pressure ($P_{meas}$) of 101.325 kPa .
+Measured biogas volume ($V_{biogas,i}$) was 73.6 mL at a temperature ($T_{meas}$) of 30$^\circ$C and a pressure ($P_{meas}$) of 101.325 kPa .
 Measured biogas composition $x_{CH_4}$ for the given interval was 0.656, and $x_{CO_2}$ was 0.289. For the previous interval, $x_{CH_4}$ was 0.587.
 
 First water vapor pressure is calculated at the measured headspace temperature using Eq (\ref{eq:magnus}).
 \begin{equation*}
-   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 \cdot 30\degree C}{243.04 + 30\degree C}} = 4.237\unit{kPa}
+   P_{H_2O} = 0.61094 \cdot e^{\frac{17.625 \cdot 30^\circ C}{243.04 + 30^\circ C}} = 4.237\unit{kPa}
 \end{equation*}
 Secondly, the measured volume is converted to dry conditions at standard pressure using Eq. (\ref{eq:h2ocorrection}).
 \begin{equation*}
@@ -165,30 +166,6 @@ Then, following Eq. (6), $CH_{4}$ production in the interval is calculated.
   V_{CH_{4},i} = 73.74\unit{mL} + (46.033\unit{mL} - 41.19\unit{mL})  = 78.59\unit{mL} 
 \end{equation*}
 
-
-\begin{thebibliography}{1}
-
-\bibitem{softwarex}
-Hafner, S.D., Koch, K., Carrere, H., Astals, S., Weinrich, S., Rennuit, C.
-    \newblock{2018}
-    \newblock{Software for biogas research: Tools for measurement and prediction of methane production}. 
-    \newblock{SoftwareX} 7: 205-210
-
-\bibitem{magnus}
-Alduchov, O.A., Eskridge, R.E.    
-    \newblock{1996}
-    \newblock{Improved Magnus form approximation of saturation vapor pressure}. 
-    \newblock{Journal of Applied Meteorology} 35: 601-609
-
-\bibitem{brian1991}
-Richards, B.K., Cummings, R.J., White, T.E., Jewell, W.J.    
-    \newblock{1991}
-    \newblock{Methods for kinetic-analysis of methane fermentation in high solids biomass digesters}. 
-    \newblock{Biomass and Bioenergy} 1: 65-73
-
-\end{thebibliography}
-
-\bibliographystyle{plain}
-%\bibliography{gbib}
+\bibliography{bib}
 
 \end{document}
