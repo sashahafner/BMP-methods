@@ -5,6 +5,10 @@
 \usepackage{amsmath}
 \usepackage[colorlinks]{hyperref}
 
+\hypersetup{
+  citecolor = {blue},
+}
+
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
 \title {Calculation of Methane Production from Volumetric Measurements\footnote{
@@ -34,25 +38,42 @@ Hafner, S.D.; L\o jborg, N.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation 
 \maketitle
 
 \section{Introduction}
-This document describes calculations for volumetric measurement of biogas.
+This document describes calculations for processing volumetric measurements of biogas production, typically from laboratory experiments aimed at measuring biochemical methane potential (BMP).
+Volumetric measurement systems are not described here, but details can be found elsewhere \citep{owenBioassayMonitoringBiochemical1979,rozziMethodsAssessingMicrobial2004,vdiFermentationOrganicMaterials2016}.
+
+In volumetric methods, biogas is typically allowed to accumulate over \textit{measurement intervals}, which are the periods between measurements.
+Biogas volume and composition are measured at the end of each measurement interval.
+Measurements might be \textit{interval}, where the measurement system is reset after each measurement.
+For example, when bottles sealed with septa are used, the biogas that accumulates in each bottle's headspace during a measurement interval is typically removed (vented) at the end of the interval, and its volume is measured. 
+In the process the headspace pressure is reset to ambient.
+Or measurements may be \textit{cumulative}, where the biogas quantity measured at a particular time is the cumulative total produced in all preceding measurement intervals.
+For example, biogas might accumulate in a separate vessel also used to measure volume (e.g., a eudiometer) that is not emptied of biogas until the end of the experiment, although cumulative volume is recorded at the end of each measurement interval.
+Measurement of biogas composition must reflect the approach used for volume, i.e., it does not make sense to work with interval volume data if composition measurements are made on a cumulative mixture of biogas produced.
+Once measurements are converted to standardized biogas and \ce{CH4} volume, cumulative data can be calculated from interval or vice versa.
+
 As with manometric methods, two methods are commonly used to address the problem of biogas dilution with flushing gas, and both are described here: one based on normalized \ce{CH4} concentrations (method 1) and one that explicitly includes estimation of \ce{CH4} in the bottle headspace (method 2).
-Expected results from the two methods are effectively identical; differences in cumulative \ce{CH4} production are due only to error in measurement of biogas composition or headspace volume, in addition to small effects of changes in biogas composition over time.
+Expected results from the two methods are effectively identical; differences in cumulative \ce{CH4} production are due only to error in measurement of biogas composition or headspace volume, in addition to small effects of changes in biogas composition between measurement intervals.
 
 \section{Standardization of measured gas volume}
-Both methods use the same approach for standardization of gas volume.
-Standard gas volume is calculated by correcting the measured volume $V_{meas}$ for water vapor, temperature, and pressure.
-
+The approach used for standardization of biogas volume is identical for all biogas methods \citep{BMPdoc202man, BMPdoc204gasdens, BMPdoc201vol, BMPdoc203grav}.
+Standard gas volume is calculated from measured volume ($V_{meas}$) by correcting for water vapor, temperature, and pressure:
 \begin{equation}
   \label{eq:stdvol}
-  V_{std} = \frac{V_{meas}(p_{meas} - p\textsubscript{H$_2$O})} {101.325 \unit{kPa}} \cdot \frac {273.15 \unit{K}}{(T_{meas} + 273.15)}
+  V_{std} = V_{meas} \cdot \frac{(p_{meas} - p\textsubscript{H$_2$O})} {101.325 \unit{kPa}} \cdot \frac {273.15 \unit{K}}{(T_{meas} + 273.15)}
 \end{equation}
-where $p_{meas}$ is the gas pressure, $T_{meas}$ is the gas temperature at the time of volume measurement in $^\circ$C, $p\textsubscript{H$_2$O}$ the water vapor partial pressure, 273.15 K (0$^\circ$C) is the standard temperature, 101.325 kPa is the standard pressure, and $V_{std}$ is the standardized gas volume.
-Eq. (\ref{eq:stdvol}) combines Boyle's and Charles's laws.
-Other units can, of course, be used, but standard temperature and pressure must be equivalent (e.g., 1.01325 bar, 1.0 atm) and Eq. (\ref{eq:stdvol}) is based on absolute temperature (note the conversion within the equation by $+~273.15$).
+where $p_{meas}$ is the gas pressure (kPa), $T_{meas}$ is the gas temperature at the time of volume measurement in $^\circ$C, $p\textsubscript{H$_2$O}$ the water vapor partial pressure (kPa), 273.15 K (0$^\circ$C) is the standard temperature, 101.325 kPa is the standard pressure (kPa)\footnote{
+  Other standard conditions for temperature and pressure exist, but these are the values used in the biogas field.
+  In particular, that this standard pressure used in the biogas field is different from the value recommended by IUPAC (1.0 bar).
+}, and $V_{std}$ is the standardized gas volume.
+Eq. (\ref{eq:stdvol}) combines Boyle's, Charles's, and Dalton's laws \citep{negiTextbookPhysicalChemistry1985}, which are appropriate for the pressure and temperature ranges encountered in BMP experiments.
+%Note that Eq. (\ref{eq:stdvol}) is not exactly the same as the ideal gas law, which includes the ideal gas constant, while Eq. (\ref{eq:stdvol}) includes no assumption about molar volume.
+Other units can, of course, be used, but standard temperature and pressure must be equivalent (e.g., 1.01325 bar, 1.0 atm, 32$^\circ$F) and Eq. (\ref{eq:stdvol}) is based on absolute temperature (note the conversion of $^\circ$C within the equation by $+~273.15$).
 
-The value of $p\textsubscript{H$_2$O}$ is assumed to be the saturation vapor pressure, and can be calculated using, e.g., the Magnus-form equation given below (Eq. 21 in \citet{alduchovImprovedMagnusForm1996})\footnote{
-  Other options exist, and will provide nearly identical values.
-}:
+As long as volume is measured at or below the temperature of the reactor\footnote{
+  And has not undergone substantial expansion due to a drop in pressure after removal from the reactor, or if so, has also been cooled.
+}, the value of $p\textsubscript{H$_2$O}$ should be assumed to be the saturation vapor pressure, and can be calculated using, e.g., the Magnus-form equation given below (Eq. 21 in \citet{alduchovImprovedMagnusForm1996})\footnote{
+  Other options exist, and will provide nearly identical values \citep{richardsMethodsKineticanalysisMethane1991, vdiFermentationOrganicMaterials2016}.
+}.
 
 \begin{equation}
 \label{eq:magnus}
@@ -61,17 +82,13 @@ The value of $p\textsubscript{H$_2$O}$ is assumed to be the saturation vapor pre
 
 \section{Calculation of methane production}
 
-With volumetric methods, biogas is typically allowed to accumulate during individual measurement intervals.
-Biogas volume and composition are then measured for each interval.
-When biogas accumulates in sealed bottles, measured biogas volume is taken as the measured vented (removed) volume.
-In other cases, biogas might accumulate in a separate vessel also used to measure volume (e.g., a eudiometer).
-Regardless of the method used, standardized biogas volume ($V_{b, std}$) is calculated from the measured biogas volume using Eq. (\ref{eq:stdvol}).
-
 \subsection{Method 1}
 In the first method, biogas is assumed to consist of only \ce{CH4} and \ce{CO2} at the time of production (i.e., as produced by the microbial community) and \ce{CH4} production is calculated from vented (removed) biogas only.
-With this method, each measurement interval is completely independent of the others; \ce{CH4} production for each interval is determined from $V_{b, std}$ and normalized biogas composition for that interval.
-This method is described in \citet{richardsMethodsKineticanalysisMethane1991} (Section 3) and \citet{vdiFermentationOrganicMaterials2016} (Eq. (7)).
-Coupled with the assumption that all gas production is biogas, this provides the simplest approach for calculating \ce{CH4} production.
+With this method, each measurement interval is completely independent of the others; \ce{CH4} production for each interval is determined from the biogas volume and composition for that interval.
+This method is described in \citet[Section 3]{richardsMethodsKineticanalysisMethane1991} and \citet[Eq. (7)]{vdiFermentationOrganicMaterials2016}.
+Relying on the assumptions that all gas production is biogas and all \ce{CH4} and \ce{CO2} are from biogas\footnote{
+  Therefore, this approach is not suitable when \ce{CO2} is included in the flushing gas.
+}, this provides the simplest approach for calculating \ce{CH4} production.
 
 Concentrations of \ce{CH4} and \ce{CO2} are normalized so they sum to 1.0:
 \begin{equation}
@@ -84,14 +101,15 @@ Methane production in an individual measurement interval is then calculated from
   V\textsubscript{CH$_4$} = x\textsubscript{CH$_4$,$ n$} \cdot V_{b, std}
 \end{equation}
 
-Cumulative \ce{CH4} production is taken as the cumulative sum of interval values.
+If measurements are interval, cumulative \ce{CH4} production is taken as the cumulative sum of interval values.
 
 \subsection{Method 2}
 Method 2 relies on fewer assumptions, but requires the true concentration of \ce{CH4} (volume fraction) of \ce{CH4} within the bottle headspace, with correction only for water vapor.
+This method was described in \citet[p 488]{owenBioassayMonitoringBiochemical1979}.
 Here, \ce{CH4} production in an interval has two components: a vented part that is naturally interval, and a residual headspace part, that is naturally cumulative.
-Because determination of \ce{CH4} production in an individual interval depends on both, a subscript $i$ for measurement interval is introduced here.
+Because determination of \ce{CH4} production in an individual interval depends on multiple intervals, a subscript $i$ for measurement interval is introduced here.
 
-Vented \ce{CH4} for interval $i$ V\textsubscript{CH$_4, v, i$} is calculated simply as the product of standardized vented (removed) biogas volume and \ce{CH4} mole fraction for that interval:
+Vented \ce{CH4} for interval $i$ (V\textsubscript{CH$_4, v, i$}) is calculated simply as the product of standardized vented (removed) biogas volume and \ce{CH4} mole fraction for that interval:
 \begin{equation}
   V\textsubscript{CH$_4$$,v, i$} = x\textsubscript{CH$_4$,$ i$} \cdot V_{b, std, i}
 \end{equation}
