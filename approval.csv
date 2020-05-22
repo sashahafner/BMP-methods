@@ -1,37 +1,50 @@
 Document,Description,Name,Affiliation,Contact
-100,Guidelines,Sasha D. Hafner,"Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark","sasha.hafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom"
-200,BMP calculation,Sasha D. Hafner,"Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark","sasha.hafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom"
-201,Volumetric calculations,Sasha D. Hafner,"Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark","sasha.hafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom"
-202,Manometric calculations,Sasha D. Hafner,"Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark","sasha.hafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom"
-203,Gravimetric calculations,Sasha D. Hafner,"Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark","sasha.hafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom"
-204,Gas density calculations,Sasha D. Hafner,"Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark","sasha.hafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom"
-304,Gas density measurements,Sasha D. Hafner,"Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark","sasha.hafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom"
-100,Guidelines, Christof Holliger, "EPFL, Lausanne, Switzerland", "christof.holligerATepflDOTch"
-200,BMP calculation,Christof Holliger,"EPFL, Lausanne, Switzerland","christof.holligerATepflDOTch"
-201,Volumetric calculations,Christof Holliger,"EPFL, Lausanne, Switzerland","christof.holligerATepflDOTch"
-202,Manometric calculations,Christof Holliger,"EPFL, Lausanne, Switzerland","christof.holligerATepflDOTch"
-203,Gravimetric calculations,Christof Holliger,"EPFL, Lausanne, Switzerland","christof.holligerATepflDOTch"
-204,Gas density calculations,Christof Holliger,"EPFL, Lausanne, Switzerland","christof.holligerATepflDOTch"
-304,Gas density measurements,Christof Holliger,"EPFL, Lausanne, Switzerland","christof.holligerATepflDOTch"
-100,Guidelines,Sergi Astals,"University of Barcelona, Spain","sastalsATubDOTedu"
-200,BMP calculation,Sergi Astals,"University of Barcelona, Spain","sastalsATubDOTedu"
-201,Volumetric calculations,Sergi Astals,"University of Barcelona, Spain","sastalsATubDOTedu"
-202,Manometric calculations,Sergi Astals,"University of Barcelona, Spain","sastalsATubDOTedu"
-203,Gravimetric calculations,Sergi Astals,"University of Barcelona, Spain","sastalsATubDOTedu"
-204,Gas density calculations,Sergi Astals,"University of Barcelona, Spain","sastalsATubDOTedu"
-304,Gas density measurements,Sergi Astals,"University of Barcelona, Spain","sastalsATubDOTedu"
-100,Guidelines,Sören Weinrich,"DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany","soeren.weinrichATdbfzDOTde"
-200,BMP calculation,Sören Weinrich,"DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany","soeren.weinrichATdbfzDOTde"
-201,Volumetric calculations,Sören Weinrich,"DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany","soeren.weinrichATdbfzDOTde"
-202,Manometric calculations,Sören Weinrich,"DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany","soeren.weinrichATdbfzDOTde"
-203,Gravimetric calculations,Sören Weinrich,"DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany","soeren.weinrichATdbfzDOTde"
-204,Gas density calculations,Sören Weinrich,"DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany","soeren.weinrichATdbfzDOTde"
-304,Gas density measurements,Sören Weinrich,"DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany","soeren.weinrichATdbfzDOTde"
-100,Guidelines,Konrad Koch,"Technical University of Munich","k.kochATtumDOTde"
-200,BMP calculation,Konrad Koch,"Technical University of Munich","k.kochATtumDOTde"
-201,Volumetric calculations,Konrad Koch,"Technical University of Munich","k.kochATtumDOTde"
-202,Manometric calculations,Konrad Koch,"Technical University of Munich","k.kochATtumDOTde"
-203,Gravimetric calculations,Konrad Koch,"Technical University of Munich","k.kochATtumDOTde"
-204,Gas density calculations,Konrad Koch,"Technical University of Munich","k.kochATtumDOTde"
-304,Gas density measurements,Konrad Koch,"Technical University of Munich","k.kochATtumDOTde"
-
+100,Guidelines,"Sasha D. Hafner","Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark",sashaDOThafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom
+200,"BMP calculation","Sasha D. Hafner","Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark",sashaDOThafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom
+201,"Volumetric calculations","Sasha D. Hafner","Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark",sashaDOThafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom
+202,"Manometric calculations","Sasha D. Hafner","Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark",sashaDOThafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom
+203,"Gravimetric calculations","Sasha D. Hafner","Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark",sashaDOThafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom
+204,"Gas density calculations","Sasha D. Hafner","Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark",sashaDOThafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom
+304,"Gas density measurements","Sasha D. Hafner","Hafner Consulting LLC, Reston, VA, USA; Aarhus University, Aarhus, Denmark",sashaDOThafnerATengDOTauDOTdk;sashaAThafnerconsultingDOTcom
+100,Guidelines,"Christof Holliger","EPFL, Lausanne, Switzerland",christofDOTholligerATepflDOTch
+200,"BMP calculation","Christof Holliger","EPFL, Lausanne, Switzerland",christofDOTholligerATepflDOTch
+201,"Volumetric calculations","Christof Holliger","EPFL, Lausanne, Switzerland",christofDOTholligerATepflDOTch
+202,"Manometric calculations","Christof Holliger","EPFL, Lausanne, Switzerland",christofDOTholligerATepflDOTch
+203,"Gravimetric calculations","Christof Holliger","EPFL, Lausanne, Switzerland",christofDOTholligerATepflDOTch
+204,"Gas density calculations","Christof Holliger","EPFL, Lausanne, Switzerland",christofDOTholligerATepflDOTch
+304,"Gas density measurements","Christof Holliger","EPFL, Lausanne, Switzerland",christofDOTholligerATepflDOTch
+100,Guidelines,"Sergi Astals","University of Barcelona, Spain",sastalsATubDOTedu
+200,"BMP calculation","Sergi Astals","University of Barcelona, Spain",sastalsATubDOTedu
+201,"Volumetric calculations","Sergi Astals","University of Barcelona, Spain",sastalsATubDOTedu
+202,"Manometric calculations","Sergi Astals","University of Barcelona, Spain",sastalsATubDOTedu
+203,"Gravimetric calculations","Sergi Astals","University of Barcelona, Spain",sastalsATubDOTedu
+204,"Gas density calculations","Sergi Astals","University of Barcelona, Spain",sastalsATubDOTedu
+304,"Gas density measurements","Sergi Astals","University of Barcelona, Spain",sastalsATubDOTedu
+100,Guidelines,"Sören Weinrich","DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany",soerenDOTweinrichATdbfzDOTde
+200,"BMP calculation","Sören Weinrich","DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany",soerenDOTweinrichATdbfzDOTde
+201,"Volumetric calculations","Sören Weinrich","DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany",soerenDOTweinrichATdbfzDOTde
+202,"Manometric calculations","Sören Weinrich","DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany",soerenDOTweinrichATdbfzDOTde
+203,"Gravimetric calculations","Sören Weinrich","DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany",soerenDOTweinrichATdbfzDOTde
+204,"Gas density calculations","Sören Weinrich","DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany",soerenDOTweinrichATdbfzDOTde
+304,"Gas density measurements","Sören Weinrich","DBFZ Deutsches Biomasseforschungszentrum, Leipzig, Germany",soerenDOTweinrichATdbfzDOTde
+100,Guidelines,"Konrad Koch","Technical University of Munich",kDOTkochATtumDOTde
+200,"BMP calculation","Konrad Koch","Technical University of Munich",kDOTkochATtumDOTde
+201,"Volumetric calculations","Konrad Koch","Technical University of Munich",kDOTkochATtumDOTde
+202,"Manometric calculations","Konrad Koch","Technical University of Munich",kDOTkochATtumDOTde
+203,"Gravimetric calculations","Konrad Koch","Technical University of Munich",kDOTkochATtumDOTde
+204,"Gas density calculations","Konrad Koch","Technical University of Munich",kDOTkochATtumDOTde
+304,"Gas density measurements","Konrad Koch","Technical University of Munich",kDOTkochATtumDOTde
+100,Guidelines,"Mariangela Soldano","Centro ricerche produzioni animali - CRPA",mDOTsoldanoATcrpaDOTit
+200,"BMP calculation","Mariangela Soldano","Centro ricerche produzioni animali - CRPA",mDOTsoldanoATcrpaDOTit
+202,"Manometric calculations","Mariangela Soldano","Centro ricerche produzioni animali - CRPA",mDOTsoldanoATcrpaDOTit
+100,Guidelines,"Corrado Amodeo","Université de Lyon, INSA-Lyon, DEEP Laboratory ",corradoDOTamodeoATinsa-lyonDOTfr
+200,"BMP calculation","Corrado Amodeo","Université de Lyon, INSA-Lyon, DEEP Laboratory ",corradoDOTamodeoATinsa-lyonDOTfr
+202,"Manometric calculations","Corrado Amodeo","Université de Lyon, INSA-Lyon, DEEP Laboratory ",corradoDOTamodeoATinsa-lyonDOTfr
+203,"Gravimetric calculations","Corrado Amodeo","Université de Lyon, INSA-Lyon, DEEP Laboratory ",corradoDOTamodeoATinsa-lyonDOTfr
+100,Guidelines,"Lise Appels","KU Leuven",liseDOTappelsATkuleuvenDOTbe
+200,"BMP calculation","Lise Appels","KU Leuven",liseDOTappelsATkuleuvenDOTbe
+201,"Volumetric calculations","Lise Appels","KU Leuven",liseDOTappelsATkuleuvenDOTbe
+202,"Manometric calculations","Lise Appels","KU Leuven",liseDOTappelsATkuleuvenDOTbe
+203,"Gravimetric calculations","Lise Appels","KU Leuven",liseDOTappelsATkuleuvenDOTbe
+204,"Gas density calculations","Lise Appels","KU Leuven",liseDOTappelsATkuleuvenDOTbe
+304,"Gas density measurements","Lise Appels","KU Leuven",liseDOTappelsATkuleuvenDOTbe
