@@ -1,4 +1,4 @@
-Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; Alves, M.; Andrade, D.; Angelidaki, I.; Appels, L.; et al. Requirements for measurement of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.3. Available online: https://www.dbfz.de/en/BMP (accessed on Apr 19, 2020).
+Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; Alves, M.; Andrade, D.; Angelidaki, I.; Appels, L.; et al. Requirements for measurement of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.5. Available online: https://www.dbfz.de/en/BMP (accessed on Aug 1, 2020).
 
 Hafner, S.D.; Astals, S.; Holliger, C.; Koch, K.; Weinrich, S. Calculation of Biochemical Methane Potential (BMP). Standard BMP Methods document 200, version 1.6. Available online: https://www.dbfz.de/en/BMP (accessed on Apr 19, 2020).
 
