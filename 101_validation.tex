@@ -1,0 +1,60 @@
+\documentclass[]{article}
+\usepackage[version=3]{mhchem}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+  citecolor = {blue},
+}
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\title {Validation criteria for measurement of biochemical methane potential (BMP)\footnote{
+  Recommended citation: 
+Hafner, S.D.; Holliger, C.; Fruteau de Laclos, H.; Koch, K. Validation criteria for measurement of biochemical methane potential (BMP). Standard BMP Methods document 101, version 1.0. Available online: https://www.dbfz.de/en/BMP (accessed on August 1, 2020).
+\newline
+  Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
+}}
+\author{
+Sasha D. Hafner,
+Christof Holliger,
+H{\'e}l{\`e}ne Fruteau de Laclos,
+Konrad Koch
+} 
+
+\date{\today \\
+\bigskip
+\textit{
+  Document number 101.
+  File version 1.0. 
+  This document is from the Standard BMP Methods collection.
+    \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
+    For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
+}
+}
+
+\begin{document}
+\maketitle
+
+\section{Validation criteria}
+\label{sec:crit}
+BMP results that meet \textit{all} the following criteria can be described as ``validated''.
+Otherwise tests should be repeated.
+
+\begin{enumerate}
+  \item All required components of the BMP measurement protocol described in \citet{BMPdoc100req} (document 100) are met. 
+    This includes a duration criterion: Terminate BMP tests only after daily \ce{CH4} production from individual batches (bottles) during 3 consecutive days is $<$ 1.0\% of the net accumulated volume of methane from the substrate (substrate batch minus average of blanks). 
+  \item Mean cellulose BMP is between 340 and 395 NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}.
+  \item Relative standard deviation for cellulose BMP (standard deviation, including variability in blanks, substrate bottles, and added substrate VS, divided by mean BMP) is no more than 6\%.
+\end{enumerate}
+
+
+\section{More details}
+This document presents validation criteria for measurement of biochemical methane potential (also called biomethane potential) (BMP) in batch tests.
+The development of these criteria is described in \citet{hafnerImprovingInterlaboratoryReproducibility2020} and they are intended to be applied after measurement of BMP in order to determine if results are valid, or if the test must be repeated.
+Only results from BMP tests that have followed the requirements given in \citet{BMPdoc100req} (document 100) can be considered ``validated''.
+The criteria listed above are duplicated in this document, and the present document was created to simply make it easier to find these required criteria.
+For details and many additional recommendations, see \citet{holligerStandardizationBiomethanePotential2016}, \citet{hafnerImprovingInterlaboratoryReproducibility2020}, and \citet{BMPdoc100req}.
+
+\bibliography{bib}
+
+\end{document}
