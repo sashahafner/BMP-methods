@@ -1,11 +1,12 @@
 \documentclass[spanish]{article}
 \usepackage[version=3]{mhchem}
 \usepackage[utf8]{inputenc}
-%\usepackage{natbib}
-%\bibliographystyle{abbrvnat}
-\usepackage{siunitx}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
 \usepackage[colorlinks]{hyperref}
-
+\hypersetup{
+  citecolor = {blue},
+}
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
 
@@ -19,9 +20,9 @@ Hafner, S.D.; Justesen, C.G.; Thorsen, R.; Astals, S.; Holliger, C.; Koch, K.;, 
 }
 }
 
-\author{Sasha D.Hafner, Camilla G. Justesen, \\ Rasmus Thorsen, Sergi Astals, \\ Christof Holliger, Konrad Koch, \\ and S{\"o}ren Weinrich
+\author{Sergi Astals, Sasha D.Hafner, \\ Camilla G. Justesen, Rasmus Thorsen, \\ Christof Holliger, Konrad Koch, \\ and S{\"o}ren Weinrich
 \\
-\texttt{sasha.hafner@eng.au.dk}\\
+\texttt{sastals@ub.edu}\\
 }
 
 \date{\today \\
@@ -40,95 +41,67 @@ Hafner, S.D.; Justesen, C.G.; Thorsen, R.; Astals, S.; Holliger, C.; Koch, K.;, 
 \maketitle
 
 \section{Introducción}
-El método para medir el potencial bioquímico de metano utilizando la densidad de biogás (GD-BMP del inglés gas-density biochemical methane potential) utiliza la pérdida de masa y el volumen de biogás venteado de uno o más intervalos para determinar la densidad del biogás y, con ello, su composición. Una vez calculada la densidad del biogás, la producción de CH$_4$ se puede calcular con el volumen de biogás generado o con la pérdida de masa de la botella. Este documento explica detallada los cálculos para el método GD-BMP e incluye un ejemplo.
+El método para medir el potencial bioquímico de metano utilizando la densidad de biogás (GD-BMP del inglés \textit{gas-density biochemical methane potential}) utiliza la pérdida de masa y el volumen de biogás venteado de uno o más intervalos para determinar la densidad del biogás y, con ello, su composición. Una vez calculada la densidad del biogás, la producción de CH$_4$ se puede calcular con el volumen de biogás venteado o con la pérdida de masa de la botella. Este documento explica detalladamente los cálculos para el método GD-BMP e incluye un ejemplo. El desarrollo y validación del método GD-BMP esta explicado en \citet{justesenDevelopmentValidationLowcost2019}.
 
 \section{Metodología para calcular la producción de metano}
-La ecuación (\ref{eq:1}) calcula la densidad del biogás ($d_b$, g/mL) utilizando de la pérdida de masa ($\Delta m_b$, g) y el volumen de biogás en condiciones estándar (0 $^\circ$C, 101,325 kPa) ($V_b$, mL), corrigiendo por la cantidad de vapor de agua en el biogás ($m_{H_2O}$, g/mL). 
+La ecuación (\ref{eq:1}) calcula la densidad del biogás ($\rho_b$, g/mL) utilizando la pérdida de masa ($\Delta m_b$, g) y el volumen de biogás venteado en condiciones estándar (0 $^\circ$C, 101,325 kPa) ($V_b$, mL), corregido por la cantidad de vapor de agua en el biogás ($c\textsubscript{H$_2$O}$, g/mL). 
 \begin{equation}
   \label{eq:1}
-  d_b=\frac{\Delta m_b}{V_b}-m_{H_2O}
+  \rho_b=\frac{\Delta m_b}{V_b}-c\textsubscript{H$_2$O}
 \end{equation}
-El volumen de biogás producido en condiciones estándar ($V_{std}$) es el volumen de biogás venteado de la botella ($V_{meas}$) una vez se ha corregido teniendo en cuenta el vapor de agua, la temperatura y la presión como muestra la ecuación (\ref{eq:2}).
+El volumen de biogás venteado en condiciones estándar ($V_b$) es determinado teniendo en cuenta el volumen de biogás venteado ($V_{meas}$), la presión de vapor de agua, la temperatura y la presión. Ver ecuación (\ref{eq:2}).
 \begin{equation}
   \label{eq:2}
-  V_{std} = V_{meas} \cdot \frac{(p_{meas} - p\textsubscript{H$_2$O})} {101,325 \unit{kPa}} \cdot \frac {273,15 \unit{K}}{(T_{meas} + 273,15)}
+  V_{b} = V_{meas} \cdot \frac{(p_{meas} - p\textsubscript{H$_2$O})} {101,325 \unit{kPa}} \cdot \frac {273,15 \unit{K}}{(T_{meas} + 273,15)}
 \end{equation}
-donde $p_{meas}$ es la presión del biogás cuando se mide el volumen de biogás (aprox. presión atmosférica, kPa), $T_{meas}$ es la temperatura en $^\circ$C cuando se mide el volumen de biogás, $p \textsubscript{H$_2$O}$ es la presión de vapor (kPa), 273,15 K (0$^\circ$C) es la temperatura estándar, y 101,325 kPa es la presión estándar (kPa). El documento dedicado a la determinación del potencial bioquímico de metano por el método volumétrico proporciona información más detallada sobre este cálculo (Hafner, 2019).
-La presión de vapor de agua en el biogás ($p_{H_2O}$, kPa) se calcula con la ecuación (\ref{eq:3}) asumiendo que el biogás está saturado mediante la ecuación (\ref{eq:3}) de Alduchov and Eskridge (1996)\footnote{
+donde $p_{meas}$ es la presión del biogás cuando se mide el volumen de biogás venteado (aprox. presión atmosférica, kPa), $T_{meas}$ es la temperatura del biogás en $^\circ$C cuando se mide el volumen de biogás, $p \textsubscript{H$_2$O}$ es la presión de vapor (kPa), 273,15 K (0$^\circ$C) es la temperatura estándar y 101,325 kPa es la presión estándar (kPa). El documento 201, dedicado a la determinación del potencial bioquímico de metano utilizando el método volumétrico, proporciona más información sobre este cálculo \citep{BMPdoc201vol}.
+
+La presión de vapor de agua en el biogás ($p\textsubscript{H$_2$O}$, kPa) se calcula, asumiendo que el biogás está saturado, utilizando la ecuación (\ref{eq:3_magnus}) de \citet{alduchovImprovedMagnusForm1996}\footnote{
   Existen otras ecuaciones en la bibliografía, todas ellas proporcionan resultados casi idénticos.
 }.
 
 \begin{equation}
-\label{eq:3_magnus}
-   p_{H_2O} = 0,61094 \cdot e^{\frac{17,625 T_{hs}}{243,04 + T_{hs}}}
+  \label{eq:3_magnus}
+  p\textsubscript{H$_2$O} = 0,61094 \cdot e^{\frac{17,625 T_{hs}}{243,04 + T_{hs}}}
 \end{equation}
-donde $T_{hs}$ es la temperatura en el espacio de cabeza en el momento de venteo ($^\circ$C). 
-La masa de vapor de agua en el biogás venteado ($m_{H_2O}$) se calcula con la ecuación (\ref{eq:4}) utilizando el peso molecular del agua  ($M_{H_2O}$ = 18.02 g/mol), la presión de vapor del agua en $T_{hs}$ ($p_{H_2O}$, kPa), la presión del biogás en la botella justo antes de ventear ($p_{hs}$, kPa), y el volumen molar del biogás en condiciones estándar (seco, 101,325 kPa, 0$^\circ$C). El volumen molar del biogás ($v_b$) en condiciones stardard es aproximadamente 22.300 mL/mol (Hafner et al., 2015) y la presión del biogás justo antes de ventear se estima a 150 kPa.
+donde $T_{hs}$ es la temperatura en el espacio de cabeza de la botella cuando se ventea el biogás ($^\circ$C). 
+
+La concentración de vapor de agua en el biogás venteado ($c\textsubscript{H$_2$O}$) se calcula con la ecuación (\ref{eq:4}) utilizando la masa molecular del agua ($M\textsubscript{H$_2$O}$ = 18.02 g/mol), la presión de vapor del agua en $T_{hs}$ ($p\textsubscript{H$_2$O}$, kPa), la presión del biogás en la botella justo antes de ventear ($p_{hs}$, kPa) y el volumen molar del biogás en condiciones estándar (seco, 101,325 kPa, 0$^\circ$C). El volumen molar del biogás ($v_b$) en condiciones estándar es aproximadamente 22300 mL/mol \citep{hafnerValidationSimpleGravimetric2015} y la presión del biogás justo antes de ventear ($p_{hs}$)se estima en 150 kPa.
 \begin{equation}
   \label{eq:4}
-  m_{H_2O}=M_{H_2O} \cdot \frac{p_{H_2O}}{p_{hs}-p_{H_2O}} \cdot \frac{1}{v_b}
+  c\textsubscript{H$_2$O}=M\textsubscript{H$_2$O} \cdot \frac{p\textsubscript{H$_2$O}}{p_{hs}-p\textsubscript{H$_2$O}} \cdot \frac{1}{v_b}
 \end{equation}
-La masa molar del biogás ($M_b$, g/mol) se obtiene combinando la densidad y el volumen molar del biogás como indica la ecuación (\ref{eq:5}).
+Finalmente, la fracción molar de \ce{CH4} metano ($x_{CH_4}$, adimensional) normalizado para \ce{CH4} y \ce{CO2} ($x_{CH_4}$ + $x_{CO_2}$ = 1) se calcula con la ecuación (\ref{eq:5})  mediante la diferencia normalizada entra la densidad del \ce{CO2} y el biogás. En la ecuación (\ref{eq:5}), $\rho\textsubscript{CH$_4$}$ y $\rho\textsubscript{CO$_2$}$ se refiere a la densidad del gas puro en condiciones estándar. Estos parámetros tienen un valor de 0.0007174 y 0.001977 g mL$^{-1}$ para el \ce{CH4} y el \ce{CO2} respectivamente.
 \begin{equation}
   \label{eq:5}
-  M_b=d_b \cdot v_b
+  x\textsubscript{CH$_4$}=\frac{\rho\textsubscript{CO$_2$} - \rho_b}{\rho\textsubscript{CO$_2$}-\rho\textsubscript{CH$_4$}}
 \end{equation}
-Finalmente, la fracción molar de \ce{CH4} metano ($x_{CH_4}$, adimensional) normalizado para \ce{CH4} y \ce{CO2} ($x_{CH_4}$ + $x_{CO_2}$ = 1) se calcula con la ecuación (\ref{eq:6})  mediante la diferencia normalizada entra la masa molar del \ce{CO2} ($M_{CO_2}$ = 16,042 g/mol) y el biogás. El peso molar del \ce{CH4} es 44,01 g/mol.
-\begin{equation}
-  \label{eq:6}
-  x_{CH_4}=\frac{M_{CO_2}-M_b}{M_{CO_2}-M_{CH_4}}
-\end{equation}
-La ecuación \ref{eq:6} calcula el contenido de \ce{CH4} en el biogás, el cual se puede usar para determinar el potencial de metanización con el método gravimétrico o volumétrico (Hafner et al., 2015). La ecuación \ref{eq:6} asume que el biogás solo contiene \ce{CH4} y \ce{CO2}. El gas utilizado para lavar el espacio de cabeza de las botellas al inicio del ensayo puede afectar los resultados, pero los cálculos se pueden corregir para evitar esta fuente de error (Hafner et al., 2019).
+La ecuación \ref{eq:5} calcula el contenido de \ce{CH4} en el biogás, el cual se puede usar para determinar el potencial de metanización con el método gravimétrico o volumétrico \citep{hafnerValidationSimpleGravimetric2015}. La ecuación \ref{eq:5} asume que el biogás solo contiene \ce{CH4} y \ce{CO2}. El gas utilizado para lavar el espacio de cabeza de las botellas al inicio del ensayo no afecta mucho el resultado, pero los cálculos se pueden corregir para evitar esta fuente de error \citep{justesenDevelopmentValidationLowcost2019}.
 Finalmente recordar que la aplicación online gratuita OBA \url{ https://biotransformers.shinyapps.io/oba1/ } realiza estos cálculos de forma automática.
-\section{Ejemplo de cálculos} \label{s_example}
-En el siguiente ejemplo la producción de \ce{CH4} se calcula de una botella de un ensayo de biometanización. Para todo el ensayo, el volumen de biogás producido en condiciones estándar es 779,2 mL, mientras que la pérdida de masa total es 1,070 g.
+\section{Ejemplo} \label{s_example}
+En el siguiente ejemplo la producción de \ce{CH4} se calcula para una botella de un ensayo de biometanización. Para todo el ensayo, el volumen de biogás producido en condiciones estándar es 779,2 mL, mientras que la pérdida de masa total es 1,070 g.
 
-Para determinar la densidad del biogás ($d_b$) utilizamos la ecuación \ref{eq:1}, donde se utiliza la presión de vapor calculada con la ecuación (\ref{eq:2_magnus}). 
-La temperature del espacio de cabeza (\textit{T}$_{hs}$) se estimó en 30$^\circ$C.
+Para determinar la densidad del biogás ($\rho_b$) utilizamos la ecuación \ref{eq:1}. La concentración de vapor de agua en el biogás se calcula con la ecuación (\ref{eq:3_magnus}). 
+La temperatura del espacio de cabeza (\textit{T}$_{hs}$) se estima en 30$^\circ$C.
 \begin{equation*}
-   p_{H_2O} = 0,61094 \cdot e^{\frac{17.625 \cdot 30^\circ C}{243,04 + 30 ^\circ C}} = 4,237\ kPa
+  p\textsubscript{H$_2$O} = 0,61094 \cdot e^{\frac{17,625 \cdot 30\unit{^\circ C}}{243,04 + 30 \unit{^\circ C}}} = 4,237 \unit{kPa}
 \end{equation*}
-A continuación usando la ecuación \ref{eq:4}, se calcula la cantidad de vapor de agua en el biogás ($m_{H_2O}$).
+A continuación usando la ecuación \ref{eq:4}, se calcula la concentración de vapor de agua en el biogás ($m\textsubscript{H$_2$O}$).
 \begin{equation*}
-  m_{H_2O} = \SI{18,016} {g/mol} \cdot \frac{\SI{4.237}{kPa}}{\SI{150}{kPa} - \SI{4,237}{kPa}} \cdot \frac{\SI{1}{mol}}{\SI{22.300}{mL}} = \SI{2,348e-5}{mg/mL}
+  c\textsubscript{H$_2$O} = 18,016 \unit{g~mol^{-1}} \cdot \frac{4,237 \unit{kPa}}{150 \unit{kPa} - 4,237 \unit{kPa}} \cdot \frac{1 \unit{mol}}{22300 \unit{mL}} = 2,348\cdot10^{-5} \unit{g~mL^{-1}}
 \end{equation*}
-
-Con $m_{H_2O}$, el volumen de biogás producido ($V_{std}$) y la pérdida de masa de la botella ($\Delta m_b$, g) se calcula la densidad del biogás con la ecuación \ref{eq:1}.
+Con $c\textsubscript{H$_2$O}$, el volumen de biogás venteado en condiciones estándar ($V_{b}$) y la pérdida de masa de la botella ($\Delta m_b$) se calcula la densidad del biogás con la ecuación \ref{eq:1}.
 \begin{equation*}
-  d_b=\frac{1,070\ g}{779,2\ mL} – 2,348 \cdot 10^{-5} \frac{g}{mL} = 1,35 \cdot 10^{-3} \frac{g}{mL}
+  \rho_b=\frac{1.070 \unit{g}}{779.2 \unit{mL}} - 2.348 \cdot 10^{-5} \unit{g~mL^{-1}} = 1.349 \cdot 10^{-3} \unit{g~mL^{-1}}
 \end{equation*}
-La masa molar del biogás (M$_b$, [g/mol]) se calcula con la ecuación eq. \ref{eq:5} la cual combina la densidad y volumen molar del biogás.
-\begin{equation*}
-  \centering
-  M_b= 1,35 \cdot 10^{-3} \frac{g}{mL} \cdot 22.300\ \frac{mL}{mol} = 30.11\ \frac{g}{mol}
-\end{equation*}
-La fracción molar de CH$_4$ (x$_{CH_4}$, adimensional) se calcula teniendo en cuenta el peso molecular del \ce{CH4} y el \ce{CO2} mediante la ecuación \ref{eq:6}. 
+Finalemente, la fracción molar de CH$_4$ en el biogás ($x\textsubscript{CH$_4$}$, adimensional) se calcula con la ecuación \ref{eq:5}. 
 
 \begin{equation*}
-  x_{CH_4}=\frac{44,01\ \frac{g}{mol}-30,11\ \frac{g}{mol}}{44,01\ \frac{g}{mol}-16,042\ \frac{g}{mol}} = 0,497
+  x\textsubscript{CH$_4$}=\frac{1.977  \cdot 10^{-3} \unit{g~mL^{-1}} - 1.349 \cdot 10^{-3} \unit{g~mL^{-1}}}
+  {1.977  \cdot 10^{-3} \unit{g~mL^{-1}} - 7.174 \cdot 10^{-4} \unit{g~mL^{-1}}}
+  = 0.498
 \end{equation*}
 
-
-\begin{thebibliography}{1}
-
-\bibitem{bmpmethods}
-Hafner, S.D.,
-    \newblock{2019},
-    \newblock{Calculation of methane production from volumetric measurements, part of the BMP-methods repository},
-    \newblock{\url{https://github.com/sashahafner/BMP-methods}}
-
-\bibitem{magnus}
-Alduchov, O.A., Eskridge, R.E.,   
-    \newblock{1996},
-    \newblock{Improved Magnus form approximation of saturation vapor pressure.}, 
-    \newblock{Journal of Applied Meteorology} 35: 601-609
-
-\bibitem{validation}
-Hafner, S.D., Rennuit, C., Triolo, J.M., Richards, B.K.,
-    \newblock{2015},
-    \newblock{Validation of a simple gravimetric method for measuring biogas production in laboratory experiments.},
-        \newblock{Biomass and Bioenergy} 83: 297-301
-
-\end{thebibliography}
+\bibliography{bib}
 
 \end{document}
