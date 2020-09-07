@@ -1,0 +1,31 @@
+\section{Example calculation} \label{s_example}
+In the following example, \ce{CH4} production is calculated from measurements made on a single bottle in a BMP trial.
+For a complete BMP trial, the standardized biogas volume was 779.2 mL, and the complete total mass loss was 1.070 g.
+
+To find the biogas density ($\rho_b$) with equation \ref{eq:1}, water vapor partial pressure is first calculated using Eq. (\ref{eq:2_magnus}). 
+The bottle headspace temperature (\textit{T}$_{hs}$) is assumed to be 30$^\circ$C.
+\begin{equation*}
+   p_{H_2O} = 0.61094 \cdot e^{\frac{17.625 \cdot 30^\circ C}{243.04 + 30 ^\circ C}} = 4.237\ kPa
+\end{equation*}
+Then, following equation \ref{eq:3}, the mass of the water vapor ($c_{H_2O}$) is calculated.
+\begin{equation*}
+  c_{H_2O} = \SI{18.016} {g/mol} \cdot \frac{\SI{4.237}{kPa}}{\SI{150}{kPa} - \SI{4.237}{kPa}} \cdot \frac{\SI{1}{mol}}{\SI{22300}{mL}} = \SI{2.348e-5}{mg/mL}
+\end{equation*}
+
+With $c_{H_2O}$ and measured biogas volume and bottle mass loss, biogas density can be calculated from Eq. (\ref{eq:1}).
+\begin{equation*}
+  \rho_b=\frac{1.070\ g}{779.2\ mL} - 2.348 \cdot 10^{-5} \frac{g}{mL} = 1.35 \cdot 10^{-3} \frac{g}{mL}
+\end{equation*}
+The molar mass of biogas (M$_b$, [g/mol]) is obtained from the density and molar volume of the biogas (eq. \ref{eq:4}).
+
+\begin{equation*}
+  \centering
+  M_b= 1.35 \cdot 10^{-3} \frac{g}{mL} \cdot 22300\ \frac{mL}{mol} = 30.11\ \frac{g}{mol}
+\end{equation*}
+The mole fraction of CH$_4$ (x$_{CH_4}$, dimensionless) is calculated from the molar masses of the biogas components using Eq. (\ref{eq:5}). 
+
+\begin{equation*}
+  x_{CH_4}=\frac{44.01\ \frac{g}{mol}-30.11\ \frac{g}{mol}}{44.01\ \frac{g}{mol}-16.042\ \frac{g}{mol}} = 0.497
+\end{equation*}
+
+
