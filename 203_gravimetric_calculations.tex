@@ -6,7 +6,7 @@
 
 \title {Calculation of Methane Production from Gravimetric Measurements\footnote{
   Recommended citation: 
-Hafner, S.D.; Richards, B.K.; Astals, S.; Holliger, C.; Koch, K.; Weinrich, S. Calculation of Methane Production from Gravimetric Measurements. Standard BMP Methods document 203, version 1.0. Available online: https://www.dbfz.de/en/BMP (accessed on April 19, 2020).
+Hafner, S.D.; Richards, B.K.; Astals, S.; Holliger, C.; Koch, K.; Weinrich, S. Calculation of Methane Production from Gravimetric Measurements. Standard BMP Methods document 203, version 1.1. Available online: https://www.dbfz.de/en/BMP (accessed on September 7, 2020).
   \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }}
@@ -20,7 +20,7 @@ Hafner, S.D.; Richards, B.K.; Astals, S.; Holliger, C.; Koch, K.; Weinrich, S. C
 \bigskip
 \textit{
   Document number 203.
-  File version 1.0. 
+  File version 1.1. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -61,20 +61,20 @@ Biogas density (g mL$^{-1}$) at standard conditions (dry at 101.325 kPa, 0$^\cir
   \rho_b = \rho_{CH_4,n} x_{CH_4,n} + \rho_{CO_2} (1 - x_{CH_4,n})
 \end{equation}
 
-In Eq. (1) $d_{CH_4}$ and $d_{CO_2}$ are pure gas densities at standard conditions, which are 0.0007174 and 0.001977 g mL$^{-1}$ for \ce{CH4} and \ce{CO2}, respectively.
+In Eq. (1) $\rho_{CH_4}$ and $\rho_{CO_2}$ are pure gas densities at standard conditions, which are 0.0007174 and 0.001977 g mL$^{-1}$ for \ce{CH4} and \ce{CO2}, respectively.
 This value of $\rho_b$ can be used to calculate biogas volume from mass loss, but a small correction for water vapor is needed.
 Water vapor pressure ($p_{H_2O}$, kPa) is assumed to be at saturation, and can be calculated using a Magnus-form equation from Alduchov and Eskridge (1996) as with other BMP methods \cite{bmpmethods}.
 
 \begin{equation}
 \label{eq:magnus}
-   p_{H_2O} = 0.61094 \cdot e^{\frac{17.625 T}{243.04 + T}}
+   p\textsubscript{H$_2$O} = 0.61094 \cdot e^{\frac{17.625 T_{hs}}{243.04 + T_{hs}}}
 \end{equation}
 
 From this value the water concentration in biogas (g mL$^{-1}$) can be calculated.
 
 \begin{equation}
   \label{eq:ch2o}
-  c_{H_2O}=M_{H_2O} \cdot \frac{p_{H_2O}}{p_{hs} - p_{H_2O}} \cdot \frac{1}{v_b}
+  c\textsubscript{H$_2$O}=M\textsubscript{H$_2$O} \cdot \frac{p\textsubscript{H$_2$O}}{p_{hs} - p\textsubscript{H$_2$O}} \cdot \frac{1}{v_b}
 \end{equation}
 
 Here, $M_{H_2O}$ is the molar mass of water (18.02 g mol$^{-1}$) and $v_b$ is biogas molar volume, which varies slightly with composition (ca. 0.3\%) but can be taken as 22300 mL g$^{-1}$ \cite{validation}.
