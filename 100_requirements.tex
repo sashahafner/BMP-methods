@@ -10,7 +10,7 @@
 
 \title {Requirements for measurement and validation of biochemical methane potential (BMP)\footnote{
   Recommended citation: 
-Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; Alves, M.; Andrade, D.; Angelidaki, I.; Appels, L.; Astals, S.; Azman, S.; et al. Requirements for measurement and validation of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.6. Available online: https://www.dbfz.de/en/BMP (accessed on September 7, 2020).
+Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; Alves, M.; Andrade, D.; Angelidaki, I.; Appels, L.; Azman, S.; et al. Requirements for measurement and validation of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.7. Available online: https://www.dbfz.de/en/BMP (accessed on September 7, 2020).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }}
@@ -67,16 +67,14 @@ Anton Taboada,
 Michel Torrijos,
 Miriam van Eekert,\\
 Jules van Lier, 
-Isabella Wierinck
-\\
-\texttt{sasha.hafner@eng.au.dk}
+Isabella Wierinck\\
 } 
 
 \date{\today \\
 \bigskip
 \textit{
   Document number 100.
-  File version 1.6. 
+  File version 1.7. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -92,6 +90,7 @@ The list of requirements is based on \citet{holligerStandardizationBiomethanePot
 For details and many additional recommendations, see these papers \citep{holligerStandardizationBiomethanePotential2016,hafnerImprovingInterlaboratoryReproducibility2020}.
 
 \section{Requirements for BMP measurement}
+\label{sec:requirements}
 \subsection{Analysis of substrate and inoculum}
 \label{sec:analysis}
   Volatile solids (VS) content of inoculum and substrate is needed to determine quantities for a selected inoculum-to-substrate ratio (ISR) and for calculation of BMP.
@@ -137,11 +136,11 @@ For details and many additional recommendations, see these papers \citep{hollige
     BMP of all substrates (including cellulose) is calculated by subtracting inoculum \ce{CH4} production (determined from blanks) from gross (total) \ce{CH4} production from substrate with inoculum, and normalizing by substrate VS mass.
     Any differences in inoculum or substrate mass among batches must be reflected in calculations.
     Calculations must follow a standardized approach\footnote{
-      Calculation of BMP is described in detail in document 200 from the Standard BMP Methods collection (\url{https://www.dbfz.de/en/BMP}).
+      Calculation of BMP is described in detail in document 200 \cite{BMPdoc200BMP}.
     }.
   \item Calculation of BMP standard deviation.
     The standard deviation associated with each mean ($n = 3$) BMP value must include variability from both blanks and batches (bottles) with substrate and inoculum, along with uncertainty in the mass of substrate VS added\footnote{
-      See document 200. 
+      See document 200 \cite{BMPdoc200BMP}. 
     }.
 \end{enumerate}
 
@@ -153,7 +152,7 @@ The criteria listed above are duplicated in document 101 \citep{BMPdoc101val}, w
 Otherwise, results are not validated, and tests must be repeated.
 
 \begin{enumerate}
-  \item All required components of the BMP measurement protocol listed above (Sections \ref{sec:analysis} through \ref{sec:calculations}) are met (including duration).
+  \item All required components of the BMP measurement protocol listed above (Section \ref{sec:requirements}) are met (including duration) and calculations are done as described above (Section \ref{sec:calculations}).
   \item Mean cellulose BMP is between 340 and 395 NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}.
   \item Relative standard deviation for cellulose BMP (standard deviation, including variability in blanks, substrate bottles, and added substrate VS, divided by mean BMP) is no more than 6\%.
 \end{enumerate}
