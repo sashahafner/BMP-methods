@@ -1,0 +1,164 @@
+\documentclass[]{article}
+\usepackage[version=3]{mhchem}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+  citecolor = {blue},
+}
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\title {Anforderungen an die Messung und Validierung von Batchtests\footnote{
+  Empfohle Zitierung: 
+Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S. et al. Requirements for measurement and validation of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.6. Online verfügbar unter https://www.dbfz.de/en/BMP (abgerufen am TT.MM.JJJJ).
+\newline
+  Unter \url{https://www.dbfz.de/en/BMP} gibt es eine BibTeX-Datei, die in alle gängigen Literaturverwaltungsprogramme importiert werden kann.
+}}
+\author{
+Christof Holliger, 
+H{\'e}l{\`e}ne Fruteau de Laclos,
+Sasha D. Hafner,\\
+Konrad Koch,
+S{\"o}ren Weinrich,
+Sergi Astals, \\
+Madalena Alves, 
+Diana Andrade,
+Irini Angelidaki,\\
+Lise Appels,
+Samet Azman,
+Alexandre Bagnoud \\
+Urs Baier,
+Yadira Bajon Fernandez,
+Jan Bartacek,\\
+Federico Battista,
+David Bolzonella,
+Claire Bougrier,\\
+Camilla Braguglia,
+Pierre Buffi{\`e}re,
+Marta Carballa,\\
+Arianna Catenacci,
+Vasilis Dandikas,
+Fabian de Wilde,\\
+Sylvanus Ekwe,
+Elena Ficara,
+Ioannis Fotidis,\\
+Jean-Claude Frigon,
+Agata Gallipoli,
+J{\"o}rn Heerenklage,\\
+Pavel Jenicek,
+Judith Krautwald,
+Ralph Lindeboom,\\
+Jing Liu,
+Javier Lizasoain,
+Rosa Marchetti,\\
+Florian Monlau,
+Mihaela Nistor,
+Hans Oechsner,\\
+Jo{\~a}o V{\'i}tor Oliveira,
+Andr{\'e} Pauss,
+S{\'e}bastien Pommier,\\
+Francisco Raposo,
+Thierry Ribeiro,
+Christian Schaum,\\
+Els Schuman,
+Sebastian Schwede,
+Mariangela Soldano,\\
+Anton Taboada,
+Michel Torrijos,
+Miriam van Eekert,\\
+Jules van Lier, 
+Isabella Wierinck
+\\
+\texttt{sasha.hafner@eng.au.dk}
+} 
+
+\date{\today \\
+\bigskip
+\textit{
+  Document 100.
+  Version 1.6 (Deutsche Version).
+  Dieses Dokument ist Teil der Sammlung der Standard-Batch-Methoden\footnote{ Weitere Informationen und andere Dokumente finden Sie unter \url{https://www.dbfz.de/en/BMP}. 
+    Alle Dokumentversionen gibt es unter \url{https://github.com/sashahafner/BMP-methods}; dort ist es auch möglich, Änderungen vorzuschlagen.} .  
+}
+}
+
+\begin{document}
+\maketitle
+
+\section{Einleitung}
+Dieses Dokument stellt die Mindestanforderungen für die Bestimmung und Validierung des biochemischen Methanpotenzials (auch Biomethanpotenzial genannt, BMP) in Batchtests vor, wie es gemeinsam von mehr als 40 Biogas-Experten entwickelt wurde. Die Liste der Anforderungen basiert auf dem Leitfaden von  \citet{holligerStandardizationBiomethanePotential2016}, mit Ausnahme von einigen Anpassungen der Validierungskriterien gemäß der Erkenntnisse aus  \citet{hafnerImprovingInterlaboratoryReproducibility2020} und zusätzlichen Details zur Standardisierung der Berechnung.
+Details und weiterführenden Empfehlungen können den entsprechenden Literaturstellen entnommen werden \citep{holligerStandardizationBiomethanePotential2016,hafnerImprovingInterlaboratoryReproducibility2020}.
+
+\section{Anforderungen an die Messung des BMP}
+\label{sec:req}
+\subsection{Analyse von Substrat und Inokulum}
+\label{sec:analysis}
+  Die Bestimmung des Gehaltes an organischer Trockensubstanz (oTS) sowohl des Substrates als auch des Inokulums ist wichtig, um die jeweiligen Zugabemengen für ein gewähltes Inokulum-Substrat-Verhältnis (ISV) zu ermitteln. Darüber hinaus wird es für die Berechnung des Biomethanpotentials des Substrates benötigt. Eine detaillierte Beschreibung der Bestimmung von TS und oTS ist u.a. in \citet{strachDeterminationTotalSolids2016} und \citet{bairdStandardMethodsExamination2017} zu finden, sowie in einem ausführlichen kostenlosen Dokument der US-EPA in Englisch \citep{epaMethod1684Total2001}. 
+
+  \begin{enumerate}
+    \item Trockensubstanz (TS). Dreifach-Bestimmung für das Inokulum und alle Substrate durch Trocknung bei 105$^\circ$C bis zur Gewichtskonstanz.
+    \item Glühverlust (GV). Dreifach-Bestimmung für das Inokulum und alle Substrate durch Veraschung der getrockneten Probe bei 550$^\circ$C bis zur Gewichtskonstanz.
+    \item Organische Trockensubstanz (oTS). Der Anteil an oTS ergibt sich aus der Multiplikation von TS und GV.
+    \end{enumerate}
+
+\subsection{Versuchsaufbau und -dauer}
+\label{sec:setup}
+\begin{enumerate}
+  \item Proben. 
+    Alle Batchversuche müssen neben dem eigentlichen Ansatz mit Inokulum und Substrate zusätzliche folgende Ansätze enthalten: Einen Ansatz mit ausschließlich Inokulum (Negativkontrolle bzw. "Blank") sowie einen Ansatz mit Inokulum und mikrokristalliner Zellulose als sog. Positivkontrolle
+    \footnote{
+      Andere Substrate als Positivkontrolle sind theoretisch ebenfalls möglich, allerdings wurden nur für Zellulose umfangreiche Tests durchgeführt, die zur Entwicklung der in Abschnitt \ref{sec:crit} beschriebenen Validierungskriterien geführt haben
+      \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
+    }.
+    \item Replikate. 
+    Jeder der oben beschriebenen Versuchsansätze ist mindestens als Dreifachbestimmung anzusetzen\footnote{
+      Kommt es während des Versuches zum Verlust einer Flasche, beispielsweise durch Beschädigung, sodass für einen der Ansätze nur noch 2 Flaschen für die Auswertung zur Verfügung stehen, kann der gesamte Versuch nicht validiert werden (vgl. Abschnitt \ref{sec:crit}).
+      Daher ist es ratsam, besser 4 (oder mehr) Replikate anzusetzen, insbesondere bei den Blanks.
+      Ausreißer können eliminiert werden, wenn ein begründeter Verdacht auf einen Messfehler besteht (z.B. Undichtigkeit), aber die verbleibende Anzahl von Replikaten für die Auswertung muss mindestens 3 betragen.
+    }.
+    Die Mindestanzahl der in einem Batchtest mit einem Substrat anzusetzenden Flaschen beträgt daher 9 (3 x Blanks, 3 x Zellulose, 3 x Substrat).
+  \item Dauer. 
+    Der BMP-Test darf erst beendet werden, wenn die tägliche \ce{CH4}-Produktion aus den einzelnen Ansätzen während 3 aufeinanderfolgender Tagen weniger als 1\% des akkumulierten Nettovolumens an Methan aus dem Substrat (Substratansatz minus Durchschnitt der Blanks) beträgt.
+    Bei händischen oder anderen Messmethoden, bei denen die Messungen nicht jeden Tag durchgeführt werden, kann der Abbruch am Ende des ersten Messintervalls von mindestens 3 Tagen erfolgen, an der die Produktionsrate unter das Abbruchkriterium von 1\% fällt (oder zwei oder mehr Intervalle, die sich auf mindestens 3 Tage summieren und alle  Raten unter 1\% aufweisen).
+    Wenn verschiedene Substrate parallel getestet werden, soll der jeweilige Substratansatz erst dann beendet werden, wenn auch das letzte Replikat das Abbruchkriterium erreicht hat.
+    Blanks dürfen erst beendet werden, wenn alle Flaschen des gesamten Ansatzes (Substrat und Positivkontrolle) das Abbruchkriterium unterschreiten.
+    Die Fortsetzung der Tests über dieses 1\%-Abbruchkriterium hinaus ist legitim und kann dazu beitragen, sicherzustellen, dass die in Abschnitt \ref{sec:crit} aufgeführten Validierungskriterien erfüllt werden (beispielsweise bezüglich des erforderlichen Bereiches des Biomethanpotentials der Cellulose).
+\end{enumerate}
+
+\section{Berechnungen}
+\label{sec:calculations}
+\begin{enumerate}
+  \item Prozessierung der Rohdaten.
+    Das genormte \ce{CH4}-Volumen (trocken, 0$^\circ$C, 101,325 kPa) wird aus den Rohdaten nach standardisierten Methoden berechnet\footnote{
+      Eine detaillierte Beschreibungen der Berechnungen sind für die folgenden Messmethoden in der Sammlung der Standard-Batch-Methoden zu finden (\url{https://www.dbfz.de/en/BMP}): volumetrisch (Document 201) \citep{BMPdoc201vol}, manometrisch (Document 202) \citep{BMPdoc202man}, gravimetrisch (Document 203) \citep{BMPdoc203grav}, und mittels Gasdichte (Document 204) \citep{BMPdoc204gasdens}.
+    }.
+  \item Einheit.
+	  Das Biomethanpotential wird als genormtes \ce{CH4}-Volumen (trocken, 0$^\circ$C, 101,325 kPa; häufig als "Normvolumen" bezeichnet) bezogen auf die Masse an zugegebener organischer Trockensubstanz (oTS) mit der Einheit NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{oTS}\textsuperscript{-1} angegeben. Insbesondere bei eher flüssigen Substraten wird mitunter auch der chemische Sauerstoffbedarf (CSB) als Bezugsgröße gewählt (NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{COD}\textsuperscript{-1}).
+  \item Berechnung des Biomethanpotentials.
+    Das Biomethanpotential aller Substrate (inklusive der Positivkontrolle) errechnet sich durch den Abzug der \ce{CH4}-Produktion der Blanks (im Durchschnitt aller Flaschen) von der \ce{CH4}-Produktion der Substrate mit Inokulum und der Normierung auf die zugeführte Menge an oTS.
+    Mögliche Differenzen in den Einwaagen von Substrat oder Inokulum in den einzelnen Ansätzen müssen bei der Berechnung unbedingt berücksichtigt werden.
+    Die Berechnungen solltem einem standardisierten Ansatz folgen\footnote{
+      Die Berechnung des Biomethanpotential ist ausführlich in Dokument 200 der Standard-Batch-Methoden beschrieben (\url{https://www.dbfz.de/en/BMP}).
+    }.
+  \item Berechnung der Standardabweichung.
+    Die gemeinsam mit dem ermittelten durchschnittlichen Biomethanpotential anzugebende Standardabweichung ($n = 3$) muss die Varianz sowohl innerhalb des Substratansatzes, als auch die der Blanks berücksichtigen. Zudem sollte die Messunsicherheit bei der Bestimmung des oTS und die der Einwaagemengen ebenfalls Berücksichtigung finden\footnote{
+      Weiterführende Informationen diesbezüglich in Dokument 200. 
+    }.
+\end{enumerate}
+
+\section{Validierungskriterien}
+\label{sec:crit}
+Nur Versuche, in denen \textit{alle} der folgenden Kriterien erfüllt wurden, gelten als "validiert"\footnote{
+Die Validierungskriterien sind auch in Dokument 101 zu finden \citep{BMPdoc101val}, in dem diese zentralen Kriterien in übersichtlicher Form zusammengefasst sind.
+}.
+Andernfalls kann der gesamte Versuch nicht validiert werden und muss entsprechend wiederholt werden.
+
+\begin{enumerate}
+  \item Alle erforderlichen Kriterien zur Bestimmung des Biomethanpotentials, wie diese in Abschnitt \ref{sec:req} beschrieben sind, wurden eingehalten (inklusive der notwendigen Dauer des Versuches). Alle Berechnungen erfolgten gemäß der Vorgaben in Abschnitt \ref{sec:calculations}.
+  \item Das durschnittliche Biomethanpotential für Cellulose liegt zwischen 340 and 395 NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{oTS}\textsuperscript{-1}.
+  \item Die relative Standardabweichung des Biomethanpotentials (absolute Standardabweichung geteilt durch das mittlere Methanpotential) der Cellulose (inklusive der Varianz der Blanks und der Messungenauigkeit bei der oTS-Bestimmung) ist kleiner als 6\%.
+\end{enumerate}
+
+\bibliography{bib}
+
+\end{document}
