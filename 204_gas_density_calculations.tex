@@ -11,22 +11,20 @@
 
 \title {Calculation of Methane Production from Gas Density-Based Measurements\footnote{
   Recommended citation: 
-Hafner, S.D.; Justesen, C.G.; Thorsen, R.; Astals, S.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of methane production from gas density-based measurements. Standard BMP Methods document 204, version 1.6. Available online: https://www.dbfz.de/en/BMP (accessed on September 7, 2020).
+Hafner, S.D.; Justesen, C.G.; Thorsen, R.; Astals, S.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of methane production from gas density-based measurements. Standard BMP Methods document 204, version 1.7. Available online: https://www.dbfz.de/en/BMP (accessed on September 7, 2020).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }
 }
 
 \author{Sasha D.Hafner, Camilla G. Justesen, Rasmus Thorsen, \\ Sergi Astals, Christof Holliger, Konrad Koch, \\ and S{\"o}ren Weinrich
-\\
-\texttt{sasha.hafner@eng.au.dk}\\
 }
 
 \date{\today \\
 \bigskip
 \textit{
   Document number 204.
-  File version 1.6. 
+  File version 1.7. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -43,6 +41,41 @@ In the gas density BMP (GD-BMP) method, bottle mass loss and vented biogas volum
 With this information, CH$_4$ production can be calculated from either biogas volume or bottle mass loss.
 Development and validation of the method is described in \citet{justesenDevelopmentValidationLowcost2019}.
 This document describes calculations for the GD-BMP method and provides an example calculation.
+Note that all these calculations can be carried out easily using the web application OBA (\url{https://biotransformers.shinyapps.io/oba1/}) or the biogas package (\url{https://CRAN.R-project.org/package=biogas}) \citep{hafnerSoftwareBiogasResearch2018}. 
+For a detailed measurement protocol, see document 304 from the Standard BMP Methods website \citep{BMPdoc304gasdens}.
+
+\section{GD-BMP algorithms}
+\label{sec:algs}
+There are two algorithms that can be used for GD-BMP calculations, which differ only in the way mass loss is calculated.
+The general and recommended approach is referred to as GD$_t$ (t for total).
+For GD$_t$, mass loss for each individual bottle ($\Delta m_b$) is taken as the sum of mass loss across all individual incubation intervals, which is exactly identical to the difference between initial and final mass.
+The alternative is referred to as GD$_v$, and should be used only when bottle leakage is significant.
+With GD$_v$, $\Delta m_b$ is taken as the sum of the difference between pre- and post-venting mass over the entire BMP test. 
+For both GD$_t$ and GD$_v$, biogas volume $V_b$ is taken as the sum of standardized volume across all measurement intervals.
+
+These algorithms are described in detail in \citet{justesenDevelopmentValidationLowcost2019} (see Fig. 2, Section 2.1.3, and Table S1).
+
+\section{Caclulation of bottle leakage}
+For an individual bottle over a single incubation interval, bottle leakage is calculated as the difference between the pre- and post-venting bottle mass.\footnote{
+  For details on making these measurements see document 304 \citep{BMPdoc304gasdens}.
+}
+The sum of these values across all measurement intervals is an estimate of total leakage for an individual bottle.
+
+Leakage detection limit can be estimated from the standard deviation in measured mass of sealed bottles with water only (``water controls'') over all measurements, $s_{wc}$. 
+From this value a standard deviation in the sum of $k$ values can be determined, and the limit of detection ($LOD$) may be taken as 3 (or more) times this value.
+\begin{equation}
+  \label{eq:lod}
+  LOD = 3 s_{wc} \sqrt{k}
+\end{equation}
+
+In Eq. (\ref{eq:lod}) $k$ is the total number of measurement intervals, and $s_{wc}$ is the standard deviation in the measured mass of a water control bottle over all measurement intervals. 
+With two or more water control bottles, $s_{wc}$ can be taken as the mean of values calculated separately for each bottle.
+Measured leakage larger than the detection limit is strong evidence that leakage occured. 
+In this case, the GD$_v$ algorithm may be used (Section \ref{sec:algs}).
+However, precision is higher with GD$_t$ and a more prudent approach is to repeat the test taking care to avoid leakage.
+For large leaks (e.g., perhaps $>$ 20\% of total mass loss) the test should always be repeated.
+
+More details on leakage calculations can be found in \citet{hafnerQuantificationLeakageBatch2018}. 
 
 \section{Calculation of methane production}
 Using Eq. (\ref{eq:1}), biogas density ($\rho_b$, g/mL) is determined by mass loss ($\Delta m_b$, g) and standardized biogas volume ($V_b$, mL), corrected for water vapor content ($c\textsubscript{H$_2$O}$, g/mL) in the gas. 
@@ -82,7 +115,11 @@ Over a complete BMP incubation, this is generally a reasonable approximation, bu
 
 \section{Example calculation} \label{s_example}
 In the following example, \ce{CH4} production is calculated from measurements made on a single bottle in a BMP trial.
-For a complete BMP trial, the standardized biogas volume \citep{BMPdoc201vol} was 779.2 mL, and the complete total mass loss was 1.070 g.
+For a complete BMP trial, the standardized biogas volume\footnote{
+  See document 201 \citep{BMPdoc201vol} for information on calculation of standardized biogas volume.
+} was 779.2 mL, and the complete total mass loss was 1.070 g.
+Total leakage mass loss was only 0.003 g, much smaller than the detection limit of 0.04 g, so the GD$_t$ approach is appropriate.
+Data are from \citet{justesenDevelopmentValidationLowcost2019} (Experiment 2, cellulose bottle).
 
 To find the biogas density ($\rho_b$) with Eq. (\ref{eq:1}), water vapor partial pressure is first calculated using Eq. (\ref{eq:2_magnus}). 
 The bottle headspace temperature (\textit{T}$_{hs}$) is assumed to be 30$^\circ$C.
