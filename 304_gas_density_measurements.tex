@@ -1,37 +1,41 @@
 \documentclass[]{article}
 \usepackage[version=3]{mhchem}
-\usepackage{sectsty}
-\usepackage{amsmath}
-\usepackage[flushleft]{threeparttablex} % For table notes
-\usepackage{rotating} 
-\usepackage{longtable}
-\usepackage{hyperref}
-% For decimal alignment in tables
-\usepackage{dcolumn}
-
-% For dcolumn
-\newcolumntype{.}{D{.}{.}{3}}
-
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+  citecolor = {blue},
+}
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
-\title {Gas density-based (GD) BMP measurement}
-\author{Sasha D. Hafner, Jacob R. Mortensen, Sergi Astals\\
-\\
-\texttt{sasha.hafner@eng.au.dk, sasha@hafnerconsulting.com} (S. D. Hafner)
-} 
+\title {Gas density-based BMP measurement\footnote{
+  Recommended citation: 
+Hafner, S.D.; Mortensen, J.R.; Astals, Gas density-based BMP measurement. Standard BMP Methods document 304, version 1.3. Available online: https://www.dbfz.de/en/BMP (accessed on October 12, 2020).
+\newline
+  Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
+}
+}
+\author{Sasha D. Hafner, Jacob R. Mortensen, Sergi Astals} 
+
+\date{\today \\
+\bigskip
+\textit{
+  Document number 304.
+  File version 1.3. 
+  This document is from the Standard BMP Methods collection.
+    \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
+    For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
+}
+}
 
 \begin{document}
-
 \maketitle
 
-\section{BMP-methods}
-File version 1.2. 
-This file is from the GitHub repository BMP-methods.
-For more information, visit BMP-methods at \url{https://github.com/sashahafner/BMP-methods}.
-
-\section{Overview}
+\section{Introduction}
 By measuring BMP bottle mass loss and biogas volume, gas density can be calculated, and from this, biogas composition.
-This document describes the laboratory measurements needed for applying this "GD-BMP" approach.
+Development and validation of the method is described in \citet{justesenDevelopmentValidationLowcost2019}.
+This document describes the laboratory measurements needed for applying this ``GD-BMP'' (for \textbf{g}as \textbf{d}ensity) method.
+For information on GD-BMP calculations, see document 204 from the Standard BMP Methods website \citep{BMPdoc204gasdens}. 
 
 \section{Protocol}
 
@@ -45,10 +49,13 @@ This document describes the laboratory measurements needed for applying this "GD
 \end{itemize}
 
 The required accuracy of the scale will depend on the quantity of biogas produced. 
-For 1 g of substrate VS, readability should be 0.01 g (10 mg) or better (with accuracy no more than 3 times as large).
-However, accuracy as large as 0.2 g may be sufficient, but is less than ideal.
+Generally, stated accuracy\footnote{
+  Manufacturers often report accuracy as ``linearity''. 
+  Note that accuracy is not the same as ``readability'', which is the smallest value that can be read. 
+} of the scale should be around 30 mg for every g of substrate volatile solids (VS) used.
+As described below, the precision and stability of the scale is checked as part of the protocol.
 
-A simple closed u-tube manometer is sufficient for determining that post-venting headspace pressure is close to atmospheric.
+A simple closed U-tube manometer is sufficient for determining that post-venting headspace pressure is close to atmospheric.
 One can be made with some plastic tubing filled with water and a simple valve (made, e.g., by folding flexible tubing).
 
 It is best to have several sizes of syringes, in order to have high relative precision in volume measurements when biogas production is both high or low.
@@ -56,7 +63,7 @@ Ideally the largest syringe will be large enough to measure the largest volume o
 But large syringes are expensive, and not necessary.
 Instead, a single small syringe can be used multiple times to remove the biogas from a single bottle in a single interval.
 But this approach requires that the manometer is directly connected to the syringe and there is a valve between the syringe and the bottle.
-Videos showing this approach will be available in the near future.
+%%Videos showing this approach are available (INFO NEEDED).
 
 \subsection{Setup}
 During setup, inoculum and substrate are added to bottles, and the headspace of each bottle is flushed to remove \ce{O2} and ensure anaerobic conditions. 
@@ -96,7 +103,7 @@ To minimize uncertainty in the headspace temperature used in calculations, the t
 (Ideally, venting and weighing should be done inside a temperature-controlled room, so bottles are always at the incubation temperature. 
 However, the effects of headspace temperature on accuracy are small, so this is not required.)
 
-The accuracy of the GD-BMP method is only slightly affected by headspace pressure, and it is possible to correct for leakage of biogas. 
+The accuracy of the GD-BMP method is affected only slightly by variation in headspace pressure, and it is possible to correct for leakage of biogas. 
 However, for safety (to avoid exploding bottles), for maximum precision, and to minimize possible effects of high \ce{CO2} dissolution, total headspace pressure (absolute) should be kept below 3 bar (2 bar gauge pressure). 
 Bottle pressures can be estimated from headspace and vented biogas volume.
 
@@ -118,5 +125,7 @@ Bottle pressures can be estimated from headspace and vented biogas volume.
     \item After all replicates have been mixed, weighed, vented, and weighed again, place the bottles back in the incubator.
     \item Proceed to the next set of replicates (e.g., the three replicates for substrate ``food waste A'') and repeat steps 2 - 9.
 \end{enumerate}
+
+\bibliography{bib}
 
 \end{document}
