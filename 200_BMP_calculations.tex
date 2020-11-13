@@ -7,7 +7,7 @@
 
 \title {Calculation of Biochemical Methane Potential (BMP)\footnote{
   Recommended citation: 
-Hafner, S.D.; Astals, S.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of Biochemical Methane Potential (BMP). Standard BMP Methods document 200, version 1.6. Available online: https://www.dbfz.de/en/BMP (accessed on April 19, 2020).
+Hafner, S.D.; Astals, S.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of Biochemical Methane Potential (BMP). Standard BMP Methods document 200, version 1.7. Available online: https://www.dbfz.de/en/BMP (accessed on April 19, 2020).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }}
@@ -19,7 +19,7 @@ Hafner, S.D.; Astals, S.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of 
 \bigskip
 \textit{
   Document number 200.
-  File version 1.6. 
+  File version 1.7. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -72,7 +72,7 @@ Methane productivity of inoculum (mL g$^{-1}$) is calculated separately for each
 And from these, a mean value is calculated as 
 \begin{equation}
   \label{eq:inoc_productivity}
-  \bar{v}\textsubscript{{CH$_4$, $I, t$}} = \sum_{j = 1} ^k v\textsubscript{{CH$_4$, $I, t$}} / k
+  \bar{v}\textsubscript{{CH$_4$, $I, t$}} = \sum_{j = 1} ^k v\textsubscript{{CH$_4$, $I, j, t$}} / k
 \end{equation}
 where $k$ = the number of inoculum-only bottles.
 
@@ -133,13 +133,13 @@ In contrast, $s_{\bar{x},BMP}$ has a clear interpretation: it is an estimate of 
 The value of $s_{\bar{x},1}$ is calculated from BMP values calculated for individual bottles: 
 \begin{equation}
   \label{eq:se1_calc}
-  s_{\bar{x},1} = \sqrt{\sum_{i=1} ^n \frac{(B_i - \bar{B})^2} {n - 1} }
+  s_{\bar{x},1} = \sqrt{ \frac{\sum_{i=1} ^n(B_i - \bar{B})^2} {n(n - 1)} }
 \end{equation}
 
 To calculate $s_{\bar{x},2}$ the standard error of inoculum \ce{CH4} productivity (e.g., in mL per g inoculum mass) is first calculated from individual values determined from each individual blanks. 
 \begin{equation}
   \label{eq:seI_calc}
-  s_{\bar{x},I} = \sqrt{\sum_{j=1} ^k \frac{(v_{CH_4, I, j} - \bar{v}_{CH_4, I})^2} {k -1} }
+  s_{\bar{x},I} = \sqrt{\frac{\sum_{j=1} ^k (v_{CH_4, I, j} - \bar{v}_{CH_4, I})^2} {k(k -1)} }
 \end{equation}
 
 For each individual substrate bottle an estimate of $s_{\bar{x},2}$ is then made as:
