@@ -7,13 +7,11 @@
 
 \title {Calculation of Biochemical Methane Potential (BMP)\footnote{
   Recommended citation: 
-Hafner, S.D.; Astals, S.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of Biochemical Methane Potential (BMP). Standard BMP Methods document 200, version 1.7. Available online: https://www.dbfz.de/en/BMP (accessed on April 19, 2020).
+Hafner, S.D.; Astals, S.; Holliger, C.; Koch, K.;, Weinrich, S., Calculation of Biochemical Methane Potential (BMP). Standard BMP Methods document 200, version 1.7. Available online: https://www.dbfz.de/en/BMP (accessed on November 13, 2020).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }}
-\author{Sasha D. Hafner, Sergi Astals, Christof Holliger, \\ Konrad Koch, and S{\"o}ren Weinrich\\
-\texttt{sasha.hafner@eng.au.dk}
-}
+\author{Sasha D. Hafner, Sergi Astals, Christof Holliger, \\ Konrad Koch, and S{\"o}ren Weinrich}
 
 \date{\today \\
 \bigskip
@@ -67,12 +65,12 @@ Units may differ, but typical units are listed below.
 Methane productivity of inoculum (mL g$^{-1}$) is calculated separately for each inoculum-only bottle at each measurement time using Eq. (\ref{eq:inoc_production}).
 \begin{equation}
   \label{eq:inoc_production}
-  v\textsubscript{{CH$_4$, $I, j, t$}} = V\textsubscript{{CH$_4$, $I, j, t$}} / m_{I, j} 
+  v\textsubscript{{CH$_4$, $I, j, t$}} = \frac {V\textsubscript{{CH$_4$, $I, j, t$}} } { m_{I, j} }
 \end{equation}
 And from these, a mean value is calculated as 
 \begin{equation}
   \label{eq:inoc_productivity}
-  \bar{v}\textsubscript{{CH$_4$, $I, t$}} = \sum_{j = 1} ^k v\textsubscript{{CH$_4$, $I, j, t$}} / k
+  \bar{v}\textsubscript{{CH$_4$, $I, t$}} = \frac{\sum_{j = 1} ^k v\textsubscript{{CH$_4$, $I, j, t$}}} {k}
 \end{equation}
 where $k$ = the number of inoculum-only bottles.
 
@@ -88,12 +86,12 @@ Equation (\ref{eq:net_CH4}) may be simplified if all bottles (with and without s
 SMP (mL g$^{-1}$) for an individual bottle at a particular duration is calculated by normalizing net \ce{CH4} production by substrate VS mass:
 \begin{equation}
   \label{eq:yield}
-  B_{i, t} = V\textsubscript{CH$_4$, $S, i, t, net$} / m_{VS, S, i}
+  B_{i, t} = \frac {V\textsubscript{CH$_4$, $S, i, t, net$} }  { m_{VS, S, i}}
 \end{equation}
 The mean of these values is calculated by substrate:
 \begin{equation}
   \label{eq:BMP}
-  \bar{B_t} = \sum_{i = 1} ^n B_{i, t} / n
+  \bar{B_t} = \frac {\sum_{i = 1} ^n B_{i, t}} {n}
 \end{equation}
 where $n$ is the number of replicate bottles.
 Collectively all $\bar{B_t}$ values for a single substrate or all $B_{i, t}$ values for a single bottle represent an SMP curve.
@@ -129,6 +127,12 @@ Given $s_{\bar{x},BMP}$, standard deviation $s_{BMP}$ can be calculated by multi
 
 This approach is preferred in the literature, although the use of standard error is perhaps less ambiguous\footnote{The interpretation of this standard deviation is ambiguous when the number of replicate bottles is not the same for blanks and bottles with substrate and inoculum (or when VS determination is included, when it is based on a different number of subsamples). 
 In contrast, $s_{\bar{x},BMP}$ has a clear interpretation: it is an estimate of the standard deviation in the BMP $\bar{B_t}$ for a particular substrate over multiple hypothetical experiments with no change in systematic error.}. 
+Typically relative standard deviation (RSD) is reported:
+
+\begin{equation}
+  \label{eq:rsd}
+  RSD = 100\% \cdot \frac{s_{BMP}} {\bar{B}}
+\end{equation}
 
 The value of $s_{\bar{x},1}$ is calculated from BMP values calculated for individual bottles: 
 \begin{equation}
@@ -155,7 +159,20 @@ Given these values, $s_{\bar{x},2}$ is then calculated by substrate with:
   s_{\bar{x},2} = \sqrt{\frac{\sum_{i=1} ^n s_{\bar{x},2,i}^2} {n}}
 \end{equation}
 
-The third (and optional) source of random error ($s_{\bar{x},3}$) is determined from the relative standard error in substrate VS content determination $rs_{\bar{x},VS}$ (dimensionless, expressed as a fraction of VS content (e.g., \% of fresh mass)).
+It may be more convenient to use directly calculate standard deviation values using available software functions, e.g., \texttt{STDEV()} in Microsoft Excel or \texttt{sd()} in R, instead of using Eqs.(\ref{eq:se1_calc}) and (\ref{eq:seI_calc}).
+Then use the following two expressions to get standard errors.
+
+\begin{equation}
+  \label{eq:se1_calcb}
+  s_{\bar{x},1} = \frac{s_{1} } {\sqrt{n}}
+\end{equation}
+
+\begin{equation}
+  \label{eq:seI_calcb}
+  s_{\bar{x},I} = \frac{s_{I} } {\sqrt{k}}
+\end{equation}
+
+The third (and optional) source of random error ($s_{\bar{x},3}$) is determined from the relative standard error in substrate VS content determination $rs_{\bar{x},VS}$ (dimensionless, expressed as a fraction of VS content).
 This approach is based on the assumption that the primary source of error in substrate VS mass comes from measurement of substrate VS content. 
 Given this value, an estimate of $s_{\bar{x},3}$ can be made for each bottle with:
 \begin{equation}
