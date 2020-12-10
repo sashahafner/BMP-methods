@@ -1,0 +1,162 @@
+\documentclass[]{article}
+\usepackage[version=3]{mhchem}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+  citecolor = {blue},
+}
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\title {Exigences pour la mesure et la validation du potentiel méthanogène (BMP)\footnote{
+  Recommended citation: 
+Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; et al. Requirements for measurement and validation of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.8. Available online: https://www.dbfz.de/en/BMP (accessed on October 7, 2020).
+\newline
+  Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
+}}
+\author{
+Christof Holliger, 
+H{\'e}l{\`e}ne Fruteau de Laclos,
+Sasha D. Hafner,\\
+Konrad Koch,
+S{\"o}ren Weinrich,
+Sergi Astals, \\
+Madalena Alves, 
+Diana Andrade,
+Irini Angelidaki,\\
+Lise Appels,
+Samet Azman,
+Alexandre Bagnoud \\
+Urs Baier,
+Yadira Bajon Fernandez,
+Jan Bartacek,\\
+Federico Battista,
+David Bolzonella,
+Claire Bougrier,\\
+Camilla Braguglia,
+Pierre Buffi{\`e}re,
+Marta Carballa,\\
+Arianna Catenacci,
+Vasilis Dandikas,
+Fabian de Wilde,\\
+Sylvanus Ekwe,
+Elena Ficara,
+Ioannis Fotidis,\\
+Jean-Claude Frigon,
+Agata Gallipoli,
+J{\"o}rn Heerenklage,\\
+Pavel Jenicek,
+Judith Krautwald,
+Ralph Lindeboom,\\
+Jing Liu,
+Javier Lizasoain,
+Rosa Marchetti,\\
+Florian Monlau,
+Mihaela Nistor,
+Hans Oechsner,\\
+Jo{\~a}o V{\'i}tor Oliveira,
+Andr{\'e} Pauss,
+S{\'e}bastien Pommier,\\
+Francisco Raposo,
+Thierry Ribeiro,
+Christian Schaum,\\
+Els Schuman,
+Sebastian Schwede,
+Mariangela Soldano,\\
+Anton Taboada,
+Michel Torrijos,
+Miriam van Eekert,\\
+Jules van Lier, 
+Isabella Wierinck\\
+} 
+
+\date{\today \\
+\bigskip
+\textit{
+  Numéro du document 100. 
+  Version du fichier 1.8. 
+  Ce document est issu de la collection Standard BMP Methods
+    \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
+    For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
+}
+}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Ce document présente les exigences minimales pour la mesure et la validation du potentiel méthanogène par des tests en batchs, et représente le consensus de plus de 40 chercheurs dans le domaine du biogaz. 
+La liste des exigences est basée sur \citet{holligerStandardizationBiomethanePotential2016}, avec quelques modifications récentes des critères de validation comme décrit dans \citet{hafnerImprovingInterlaboratoryReproducibility2020} et des détails supplémentaires sur la normalisation des calculs. Pour plus de détails et de recommandations supplémentaires, se référer à ces articles \citep{holligerStandardizationBiomethanePotential2016,hafnerImprovingInterlaboratoryReproducibility2020}.
+
+\section{Exigences pour la mesure du potentiel méthanogène}
+\label{sec:requirements}
+\subsection{Analyses du substrat et de l’inoculum}
+\label{sec:analysis}
+La teneur en matière solide volatile (MSV) de l'inoculum et du substrat est nécessaire pour déterminer les quantités pour un rapport déterminé inoculum-substrat (I/S) et pour le calcul du potentiel méthanogène. 
+Pour les détails sur les mesures de MS et MSV se reporter aux documents de référence (y compris un document gratuit détaillé de l’US EPA \citep{epaMethod1684Total2001}, ainsi que \citet{strachDeterminationTotalSolids2016} et \citet{bairdStandardMethodsExamination2017}). 
+
+  \begin{enumerate}
+    \item Matière Sèche (MS). La matière sèche de l'inoculum et de tous les substrats est déterminée par séchage à 105$^\circ$C en triplicat. La MS n'est nécessaire que pour la détermination de la teneur en matière sèche volatile (MSV). 
+    \item Matière sèche volatile (MSV).  La matière volatile de l'inoculum et de tous les substrats est déterminée par calcination de l'échantillon sec à 550$^\circ$C en triplicat. 
+      La MSV est déterminée à partir de la perte de masse
+  \end{enumerate}
+
+\subsection{Protocole et durée du test}
+\label{sec:setup}
+\begin{enumerate}
+  \item Echantillons. 
+    Tous les essais de potentiel méthanogène doivent inclure trois types d’échantillons : des batchs avec l’inoculum seul (\guillemotleft blancs \guillemotright), avec l’inoculum et de la cellulose microcristalline comme contrôle positif\footnote{
+      Other positive control substrates could be used in the future \citep{kochEvaluationCommonSupermarket2020}, but only cellulose has had extensive testing that was used to develop the validation criteria described below in Section \ref{sec:crit} \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
+    }, et avec l’inoculum et le substrat.
+    \item Réplication. 
+Tous les tests doivent inclure au moins 3 batchs (bouteilles) pour chaque condition 
+    Le nombre minimum de batchs utilisés pour un test de potentiel méthanogène d’un substrat est donc de 9 (3 blancs, 3 cellulose, 3 substrat)\footnote{
+      If a bottle is lost through, e.g., breakage, resulting in $n=2$ for any condition, results cannot be validated.
+      Therefore it is prudent to include 4 replicates, especially for blanks.
+      Outliers can be eliminated if there is good reason to suspect there was an error in measurement (e.g., leakage) but the remaining number of replicates must be at least 3.
+    }.
+Le nombre minimum de batchs utilisés pour un test de potentiel méthanogène d’un substrat est donc de 9 (3 blancs, 3 cellulose, 3 substrat).
+  \item Durée. 
+    Les tests doivent être arrêtés uniquement quand la production quotidienne de \ce{CH4} des batchs individuels est < 1,0\% du volume net cumulé de méthane à partir du substrat pendant 3 jours consécutifs (batch de substrat moins la moyenne des blancs).  
+    Pour les méthodes manuelles ou autres où les mesures ne sont pas effectuées tous les jours, l’arrêt peut avoir lieu à la fin du premier intervalle de mesure d'au moins 3 jours où le taux de production tombe en dessous du maximum de 1\% (ou au moins deux intervalles qui totalisent au moins 3 jours, le tout avec des productions inférieures au maximum de 1\%). 
+    Si différents substrats sont testés, chaque substrat peut être arrêté lorsque le plus lent des 3 réplicats a atteint le critère d’arrêt. 
+    Les blancs doivent être poursuivis aussi longtemps que le batch avec substrat le plus lent. La poursuite des tests au-delà de cette durée ($<$ 1\% de production nette) est acceptable et peut aider à garantir que les critères de validation soient respectés (Section \ref{sec:crit}).
+\end{enumerate}
+
+\section{Calculs}
+\label{sec:calculations}
+\begin{enumerate}
+  \item Traitement des données. 
+    Le volume normalisé de CH4 (sec, 0°C, 101,325 kPa) est calculé à partir des données de laboratoire en utilisant des méthodes normalisées.\footnote{
+      Detailed descriptions of calculations are available for the following measurement methods in the Standard BMP Methods collection (\url{https://www.dbfz.de/en/BMP}): volumetric (document 201) \citep{BMPdoc201vol}, manometric (document 202) \citep{BMPdoc202man}, gravimetric (document 203) \citep{BMPdoc203grav}, and gas density (document 204) \citep{BMPdoc204gasdens}.
+    }
+  \item Unités. 
+    Le potentiel méthanogène est exprimé en volume standardisé de CH4 (sec, 0$^\circ$C, 101,325 kPa, appelé volume \guillemotleft normal \guillemotright) par unité de masse de matière organique du substrat ajouté (généralement en MSV mais parfois en demande chimique en oxygène (DCO)) (souvent écrite comme NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}). 
+  \item Calcul du potentiel méthanogène.
+    Le potentiel méthanogène de tous les substrats (y compris la cellulose) est calculé en soustrayant la production de \ce{CH4} de l’inoculum (déterminée à partir des blancs) de la production brute (totale) de \ce{CH4} à partir du substrat avec inoculum, et en ramenant à la masse du substrat (en MSV). 
+    Toute différence de masse d'inoculum ou de substrat entre les batchs doit être prise en compte dans les calculs. Les calculs doivent suivre une approche standardisée\footnote{
+      Calculation of BMP is described in detail in document 200 \citep{BMPdoc200BMP}.
+    }.
+  \item Calcul de l’écart type du résultat. 
+    L'écart-type associé à chaque valeur moyenne (($n \ge 3$) du potentiel méthanogène doit inclure la variabilité des blancs et des batchs (bouteilles) avec substrat et inoculum, ainsi que l'incertitude sur la masse de substrat ajoutée (en MSV)\footnote{
+      See document 200 \citep{BMPdoc200BMP}. 
+    }.
+\end{enumerate}
+
+\section{Critères de validation}
+\label{sec:crit}
+Les résultats de potentiel méthanogène qui satisfont à tous les critères suivants peuvent être qualifiés de \guillemotleft validés \guillemotright \footnote{
+The criteria listed above are duplicated in document 101 \citep{BMPdoc101val}, which was created to simply make it easier to find these required criteria.
+}.
+Sinon, les résultats ne sont pas validés et les tests doivent être répétés.
+
+\begin{enumerate}
+  \item Toutes les conditions requises du protocole de mesure énumérées ci-dessus (Section \ref{sec:requirements}) sont respectées (y compris la durée) et les calculs sont effectués comme décrit ci-dessus (Section \ref{sec:calculations}).
+  \item Le potentiel méthanogène moyen de la cellulose est compris entre 340 et 395 NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}.
+  \item L’écart type relatif du potentiel méthanogène de la cellulose (écart type, y compris la variabilité des blancs, des bouteilles de substrat et de la masse de substrat ajouté en MSV, divisé par le potentiel méthanogène moyen) ne dépasse pas 6\%.
+\end{enumerate}
+
+\bibliography{bib}
+
+\end{document}
