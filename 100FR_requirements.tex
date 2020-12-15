@@ -10,10 +10,12 @@
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
 
 \title {Exigences pour la mesure et la validation du potentiel méthanogène (BMP)\footnote{
-  Recommended citation: 
-Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; et al. Requirements for measurement and validation of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.8. Available online: https://www.dbfz.de/en/BMP (accessed on October 7, 2020).
+   Citation recommandée : 
+Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; et al. Requirements for measurement and validation of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.8.  Disponible en ligne : https://www.dbfz.de/en/BMP (consulté le 7 octobre, 2020).
 \newline
-  Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
+  Ou voir \url{https://www.dbfz.de/en/BMP} pour un fichier BibTeX.
+\newline
+  Ce document est une traduction espagnole du document original en anglais. En cas de différences, la version anglaise prévaut.
 }}
 \author{
 Christof Holliger, 
@@ -77,8 +79,8 @@ Isabella Wierinck\\
   Numéro du document 100. 
   Version du fichier 1.8. 
   Ce document est issu de la collection Standard BMP Methods
-    \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
-    For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
+    \footnote{Pour plus d'informations et d'autres documents, visitez \url{https://www.dbfz.de/en/BMP}.
+     Pour l'historique des versions du document ou pour proposer des modifications, visitez \url{https://github.com/sashahafner/BMP-methods}.}
 }
 }
 
@@ -106,15 +108,14 @@ Pour les détails sur les mesures de MS et MSV se reporter aux documents de réf
 \label{sec:setup}
 \begin{enumerate}
   \item Echantillons. 
-    Tous les essais de potentiel méthanogène doivent inclure trois types d’échantillons : des batchs avec l’inoculum seul (\guillemotleft blancs \guillemotright), avec l’inoculum et de la cellulose microcristalline comme contrôle positif\footnote{
-      Other positive control substrates could be used in the future \citep{kochEvaluationCommonSupermarket2020}, but only cellulose has had extensive testing that was used to develop the validation criteria described below in Section \ref{sec:crit} \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
+    Tous les essais de potentiel méthanogène doivent inclure trois types d’échantillons : des batchs avec l’inoculum seul (\guillemotleft blancs \guillemotright), avec l’inoculum et de la cellulose microcristalline comme contrôle positif\footnote{D'autres substrats de contrôle positif pourraient être utilisés à l'avenir \citep{kochEvaluationCommonSupermarket2020}, mais seule la cellulose a fait l'objet de tests approfondis utilisés pour définir les critères de validation décrits ci-dessous dans la Section \ref{sec:crit} \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
     }, et avec l’inoculum et le substrat.
     \item Réplication. 
 Tous les tests doivent inclure au moins 3 batchs (bouteilles) pour chaque condition 
     Le nombre minimum de batchs utilisés pour un test de potentiel méthanogène d’un substrat est donc de 9 (3 blancs, 3 cellulose, 3 substrat)\footnote{
-      If a bottle is lost through, e.g., breakage, resulting in $n=2$ for any condition, results cannot be validated.
-      Therefore it is prudent to include 4 replicates, especially for blanks.
-      Outliers can be eliminated if there is good reason to suspect there was an error in measurement (e.g., leakage) but the remaining number of replicates must be at least 3.
+      Si une bouteille est perdue, par exemple cassée, ce qui entraîne $ n = 2 $ pour n'importe quelle condition, les résultats ne peuvent pas être validés.
+      Par conséquent, il est prudent d'inclure 4 répétitions, en particulier pour les blancs.
+      Les valeurs aberrantes peuvent être éliminées s'il y a de bonnes raisons de soupçonner qu'il y a eu une erreur de mesure (par exemple, une fuite), mais le nombre de répétitions restant doit être d'au moins 3.
     }.
 Le nombre minimum de batchs utilisés pour un test de potentiel méthanogène d’un substrat est donc de 9 (3 blancs, 3 cellulose, 3 substrat).
   \item Durée. 
@@ -128,26 +129,26 @@ Le nombre minimum de batchs utilisés pour un test de potentiel méthanogène d�
 \label{sec:calculations}
 \begin{enumerate}
   \item Traitement des données. 
-    Le volume normalisé de CH4 (sec, 0°C, 101,325 kPa) est calculé à partir des données de laboratoire en utilisant des méthodes normalisées.\footnote{
-      Detailed descriptions of calculations are available for the following measurement methods in the Standard BMP Methods collection (\url{https://www.dbfz.de/en/BMP}): volumetric (document 201) \citep{BMPdoc201vol}, manometric (document 202) \citep{BMPdoc202man}, gravimetric (document 203) \citep{BMPdoc203grav}, and gas density (document 204) \citep{BMPdoc204gasdens}.
+    Le volume normalisé de \ce{CH4} (sec, 0°C, 101,325 kPa) est calculé à partir des données de laboratoire en utilisant des méthodes normalisées.\footnote{
+    Des descriptions détaillées des calculs sont disponibles pour les méthodes de mesure suivantes dans la collection Méthodes BMP standard (\url{https://www.dbfz.de/en/BMP}): volumétrique (document 201) \citep{BMPdoc201vol}, manométrique (document 202) \citep{BMPdoc202man}, gravimétrique (document 203) \citep{BMPdoc203grav}, et densité du gaz (document 204) \citep{BMPdoc204gasdens}.
     }
   \item Unités. 
-    Le potentiel méthanogène est exprimé en volume standardisé de CH4 (sec, 0$^\circ$C, 101,325 kPa, appelé volume \guillemotleft normal \guillemotright) par unité de masse de matière organique du substrat ajouté (généralement en MSV mais parfois en demande chimique en oxygène (DCO)) (souvent écrite comme NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}). 
+    Le potentiel méthanogène est exprimé en volume standardisé de \ce{CH4} (sec, 0$^\circ$C, 101,325 kPa, appelé volume \guillemotleft normal \guillemotright) par unité de masse de matière organique du substrat ajouté (généralement en MSV mais parfois en demande chimique en oxygène (DCO)) (souvent écrite comme NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{VS}\textsuperscript{-1}). 
   \item Calcul du potentiel méthanogène.
     Le potentiel méthanogène de tous les substrats (y compris la cellulose) est calculé en soustrayant la production de \ce{CH4} de l’inoculum (déterminée à partir des blancs) de la production brute (totale) de \ce{CH4} à partir du substrat avec inoculum, et en ramenant à la masse du substrat (en MSV). 
     Toute différence de masse d'inoculum ou de substrat entre les batchs doit être prise en compte dans les calculs. Les calculs doivent suivre une approche standardisée\footnote{
-      Calculation of BMP is described in detail in document 200 \citep{BMPdoc200BMP}.
+    Le calcul du potentiel méthanogène (BMP) est décrit en détail dans le document 200 \citep{BMPdoc200BMP}.
     }.
   \item Calcul de l’écart type du résultat. 
     L'écart-type associé à chaque valeur moyenne (($n \ge 3$) du potentiel méthanogène doit inclure la variabilité des blancs et des batchs (bouteilles) avec substrat et inoculum, ainsi que l'incertitude sur la masse de substrat ajoutée (en MSV)\footnote{
-      See document 200 \citep{BMPdoc200BMP}. 
+      Voir le document 200 \citep{BMPdoc200BMP}.
     }.
 \end{enumerate}
 
 \section{Critères de validation}
 \label{sec:crit}
-Les résultats de potentiel méthanogène qui satisfont à tous les critères suivants peuvent être qualifiés de \guillemotleft validés \guillemotright \footnote{
-The criteria listed above are duplicated in document 101 \citep{BMPdoc101val}, which was created to simply make it easier to find these required criteria.
+Les résultats de potentiel méthanogène qui satisfont à tous les critères suivants peuvent être qualifiés de \guillemotleftvalidés\guillemotright \footnote{
+Les critères énumérés ci-dessus se trouvent également dans le document 101 \citep{BMPdoc101val} (en anglais uniquement), qui a été créé pour faciliter l’utilisation de  ces critères obligatoires.
 }.
 Sinon, les résultats ne sont pas validés et les tests doivent être répétés.
 
