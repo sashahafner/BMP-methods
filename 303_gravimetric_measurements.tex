@@ -32,10 +32,11 @@ Hafner, S.D.; Richards, B.K.; Astals, S. Gravimetric BMP measurement. Standard B
 \maketitle
 
 \section{Introduction}
-By measuring BMP bottle mass loss and biogas composition, methane (\ce{CH4}) production and biochemical methane potential (BMP) can be determined.
-This document describes the laboratory measurements needed for applying a gravimetric method.
+By measuring BMP bottle mass loss due to biogas venting, along with biogas composition, methane (\ce{CH4}) production and biochemical methane potential (BMP) can be determined.
+This document describes the laboratory measurements needed for applying this ``gravimetric method''.
 Development and validation of the method is described in \citet{justesenDevelopmentValidationLowcost2019}.
-For information on GD-BMP calculations, see document 204 from the Standard BMP Methods website \citep{BMPdoc204gasdens}. 
+Comparisons with other methods can be found in \citet{hafnerSystematicErrorManometric2019}, \citet{amodeoHowDifferentAre2020a}, and \citet{hafnerImprovingInterLaboratoryReproducibility2020}.
+For information on gravimetric calculations, see document 203 from the Standard BMP Methods website \citep{BMPdoc203grav}. 
 
 \section{Protocol}
 
@@ -44,8 +45,9 @@ For information on GD-BMP calculations, see document 204 from the Standard BMP M
 \begin{itemize}
     \item Electronic scale
     \item Syringes and needles
-    \item Manometer
+    \item Manometer (optional)
     \item Typical BMP bottles and septa
+    \item Vials or other supplies needed for biogas analysis
     \item Incubator or heat block
 \end{itemize}
 
@@ -58,19 +60,12 @@ Generally, stated accuracy\footnote{
 }.
 As described below, the precision and stability of the scale is checked as part of the protocol.
 
-A simple closed U-tube manometer or an inexpensive electronic manometer is sufficient for determining that post-venting headspace pressure is close to atmospheric.
+A manometer can be useful to ensure that post-venting bottle headspace pressure is close to atmospheric, but is not necessary.
+If used, a simple closed U-tube manometer or an inexpensive electronic manometer is sufficient.
 A U-tube manometer can be made with some plastic tubing filled with water and a simple valve (made, e.g., by folding flexible tubing).
 
-It is best to have several sizes of syringes, in order to have high relative precision in volume measurements when biogas production is both high and low.
-Ideally the largest syringe will be large enough to measure the largest volume of biogas produced in a single interval.\footnote{
-  Biogas production rate depends on substrate and inoculum characteristics, and is best estimated from previous experiments.
-  For microcrystalline cellulose, typical production early in a test may be 200 to 300 mL biogas per g VS over one day. 
-  With 2 g substrate VS then, syringe volume would ideally be more than 600 mL (perhaps 1 L), but even a 150 mL syringe could be sufficient with multiple emptying cycles.
-}
-But large syringes are expensive, and not necessary.
-Instead, a single small syringe can be used multiple times to remove the biogas from a single bottle in a single interval.
-But this approach requires that the manometer is directly connected to the syringe and there is a valve between the syringe and the bottle.
-%%Videos showing this approach are available (INFO NEEDED).
+Biogas collection and analysis by e.g., gas chromatography, is required for this method.
+If a suitable instrument is not available, the gas density method can be used instead \citep{BMPdoc204gasdens, BMPdoc304gasdens}.
 
 An incubator or temperature-controlled room is needed to keep bottles at the desired test temperature, e.g., 37$^\circ$C.
 A water bath is not recommended because water on a bottle surface will affect its weight.
@@ -111,23 +106,18 @@ Bottles are then weighed and placed in an incubator.
 \end{enumerate}
 
 \subsection{Incubation and sampling}
-Bottles are removed from the incubator occasionally to vent and weigh in what is here referred to as a ``sampling event''. 
-Biogas temperature affects water vapor content. 
-To minimize uncertainty in the headspace temperature used in calculations, the time that bottles spend outside the incubator should be short, and the same procedure and timing should be followed for each sampling event. 
+Bottles are removed from the incubator occasionally to vent, weigh, and take a biogas sample for analysis, in what is here referred to as a “sampling event”. 
+Biogas temperature affects water vapor loss and consequently the relationship between mass loss and standardised biogas volume (although less so than in volumetric and manometric meth- ods). 
+As such, the time that bottles spend outside the incubator should be short, and the same procedure and timing should be followed for each sampling event. 
+Ideally, venting and weighing should be done inside a temperature-controlled room, so bottles are always at the incubation temperature. 
+However, the effects of headspace temperature on accuracy are small, so this is not required.  
 
-The accuracy of the GD-BMP method is affected only slightly by variation in headspace pressure, and it is possible to correct for leakage of biogas. 
-However, for safety (to avoid exploding bottles), for maximum precision, and to minimize possible effects of high \ce{CO2} dissolution, total headspace pressure (absolute) should be kept below 3 bar (2 bar gauge pressure). 
-Bottle pressures can be estimated from headspace and vented biogas volume.\footnote{
+The accuracy of the gravimetric method is not affected by headspace pressure or leakage of biogas. 
+However, for safety (to avoid bursting bottles) and to minimize possible effects of high \ce{CO2} dissolution, total headspace pressure (absolute) should be kept below 3 bar.  
+Bottle pressures can be estimated from headspace volume and calculated biogas production after measuring mass loss.\footnote{
   Or measured directly before venting if an electronic manometer is used.
   However, as with headspace temperature, the effect of uncertainty here is very small.
 }
-
-Unlike headspace conditions, the temperature and pressure of biogas at the time of volume measurement is important to determine in order to standardize the volume.
-When using syringes, it is reasonable to assume that the syringe and gas inside are approximately at the ambient temperature.
-With a manometer, the pressure can be kept nearly identical to the ambient value.
-Therefore ambient pressure and temperature (room pressure and temperature) must be determined or, if necessary, estimated.
-Absolute pressure, can now be done using barometer apps on many smart phones.
-Alternatively, pressure can be determined from public meteorological data (from a close by weather station), with corrections for elevation if necessary.
 
 \subsubsection{Step-by-step instructions}
 \begin{enumerate}
@@ -149,8 +139,12 @@ Alternatively, pressure can be determined from public meteorological data (from 
         Otherwise, data from this replicate should be discarded.
       }
     \item Weigh the bottle and record the result as pre-venting mass.
-    \item Vent the bottle using a syringe and measure biogas volume.
-      Use the manometer to ensure that the pressure of both removed biogas and biogas remaining in the bottle headspace after venting pressure is close to atmospheric (gauge pressure = $\pm3$ kPa).
+    \item Collect a biogas sample from the bottle using a syringe. 
+      Puncture the septum with a needle attached to a syringe, and allow the syringe to fill under pressure. 
+      Inject the required gas volume into a gas chromatograph for biogas composition analysis or into a gas sample container for later analysis.
+    \item Vent the bottle using a needle.\footnote{
+      If desired, use the manometer to ensure that the pressure of the bottle headspace after venting pressure is close to atmospheric (gauge pressure = $\pm3$ kPa).
+    }
     \item Weigh the bottle after venting, and record the result as post-venting mass. 
     \item Proceed to the next replicate (e.g., ``2'' or ``b'') and repeat steps 3 - 7.
     \item After all replicates have been mixed, weighed, vented, and weighed again, place the bottles back in the incubator.
@@ -158,7 +152,7 @@ Alternatively, pressure can be determined from public meteorological data (from 
 \end{enumerate}
 
 \section{Calculations}
-See document 204 from the Standard BMP Methods website \citep{BMPdoc204gasdens} for a detailed description of calculations. 
+See document 203 from the Standard BMP Methods website \citep{BMPdoc203grav} for a detailed description of calculations. 
 
 
 \bibliography{bib}
