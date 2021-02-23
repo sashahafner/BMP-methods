@@ -10,7 +10,7 @@
 
 \title {Requirements for Measurement and Validation of Biochemical Methane Potential (BMP)\footnote{
   Recommended citation: 
-Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; et al. Requirements for measurement and validation of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.8. Available online: https://www.dbfz.de/en/BMP (accessed on October 7, 2020).
+Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; et al. Requirements for measurement and validation of biochemical methane potential (BMP). Standard BMP Methods document 100, version 1.9. Available online: https://www.dbfz.de/en/BMP (accessed on February 22, 2021).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }}
@@ -74,7 +74,7 @@ Isabella Wierinck\\
 \bigskip
 \textit{
   Document number 100.
-  File version 1.8. 
+  File version 1.9. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -85,20 +85,20 @@ Isabella Wierinck\\
 \maketitle
 
 \section{Introduction}
-This document presents the minimal requirements for measurement and validation of biochemical methane potential (also called biomethane potential) (BMP) in batch tests, and represents the consensus of more than 40 biogas researchers.
-The list of requirements is based on \citet{holligerStandardizationBiomethanePotential2016}, with some recent modifications of validation criteria as described in \citet{hafnerImprovingInterlaboratoryReproducibility2020} and additional details on calculation standardization.
-For details and many additional recommendations, see these papers \citep{holligerStandardizationBiomethanePotential2016,hafnerImprovingInterlaboratoryReproducibility2020}.
+This document presents the minimal requirements for measurement and validation of biochemical methane potential (also called biomethane potential) (BMP) in batch tests, and represents the consensus of more than 50 biogas researchers.
+The list of requirements is based on an open-access commentary \citep{holligerStandardizationBiomethanePotential2021}. 
+For details on development of these requirements see the open-access papers \citet{holligerStandardizationBiomethanePotential2016} and \citet{hafnerImprovingInterlaboratoryReproducibility2020}.
 
 \section{Requirements for BMP measurement}
 \label{sec:requirements}
 \subsection{Analysis of substrate and inoculum}
 \label{sec:analysis}
   Volatile solids (VS) content of inoculum and substrate is needed to determine quantities for a selected inoculum-to-substrate ratio (ISR) and for calculation of BMP.
-   Details on measurements of TS and VS can be found elsewhere (including a detailed free document from the US EPA \citep{epaMethod1684Total2001}, as well as \citet{strachDeterminationTotalSolids2016} and \citet{bairdStandardMethodsExamination2017}). 
+  For details on measurement of TS and VS see the detailed document from the US EPA \citep{epaMethod1684Total2001} (free) or other sources( e.g., \citet{strachDeterminationTotalSolids2020} (free) or \citet{bairdStandardMethodsExamination2017}). 
 
   \begin{enumerate}
     \item Total solids (TS). Measure for the inoculum and all substrates, by drying at 105$^\circ$C in triplicate. TS is needed only for determination of volatile solids (VS) content.
-    \item Volatile solids (VS). Measure for the inoculum and all substrates by combusting the dried sample at 550$^\circ$C in triplicate. VS is determined from mass loss.
+    \item Volatile solids (VS). Measure for the inoculum and all substrates by igniting the dried sample at 550$^\circ$C in triplicate. VS is determined from mass loss.
   \end{enumerate}
 
 \subsection{Test setup and duration}
@@ -109,14 +109,14 @@ For details and many additional recommendations, see these papers \citep{hollige
       Other positive control substrates could be used in the future \citep{kochEvaluationCommonSupermarket2020}, but only cellulose has had extensive testing that was used to develop the validation criteria described below in Section \ref{sec:crit} \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
     }, and with inoculum and substrate.
     \item Replication. 
-    All tests must include at least 3 batches (bottles) for each condition\footnote{
+    All tests must include at least 3 batches (bottles) for each condition.\footnote{
       If a bottle is lost through, e.g., breakage, resulting in $n=2$ for any condition, results cannot be validated.
       Therefore it is prudent to include 4 replicates, especially for blanks.
       Outliers can be eliminated if there is good reason to suspect there was an error in measurement (e.g., leakage) but the remaining number of replicates must be at least 3.
-    }.
+    }
     The minimum number of batches used in a BMP test with one substrate is therefore 9 (3 blanks, 3 cellulose, 3 substrate).
   \item Duration. 
-    Terminate BMP tests only after daily \ce{CH4} production from individual batches during 3 consecutive days is $<$ 1.0\% of the net accumulated volume of methane from the substrate (substrate batch minus average of blanks). 
+    Terminate BMP tests only after daily methane (\ce{CH4}) production from individual batches during 3 consecutive days is $<$ 1.0\% of the net accumulated volume of \ce{CH4} from the substrate (substrate batch minus average of blanks). 
     For manual or other methods where measurements are not made every day, termination can take place at the end of the first measurement interval of at least 3 days where the rate of production drops below the 1\% maximum (or two or more intervals that sum to at least 3 days, all with rates below the 1\% maximum).
     If different substrates are tested, each substrate can be terminated when the slowest of the 3 replicate batches has reached the termination criterion.
     Blanks must be continued as long as the slowest (latest) batch with substrate.
@@ -135,13 +135,13 @@ For details and many additional recommendations, see these papers \citep{hollige
   \item Calculation of BMP.
     BMP of all substrates (including cellulose) is calculated by subtracting inoculum \ce{CH4} production (determined from blanks) from gross (total) \ce{CH4} production from substrate with inoculum, and normalizing by substrate VS mass.
     Any differences in inoculum or substrate mass among batches must be reflected in calculations.
-    Calculations must follow a standardized approach\footnote{
+    Calculations must follow a standardized approach.\footnote{
       Calculation of BMP is described in detail in document 200 \citep{BMPdoc200BMP}.
-    }.
+    }
   \item Calculation of BMP standard deviation.
-    The standard deviation associated with each mean ($n \ge 3$) BMP value must include variability from both blanks and batches (bottles) with substrate and inoculum, along with uncertainty in the mass of substrate VS added\footnote{
+    The standard deviation associated with each mean ($n \ge 3$) BMP value must include variability from both blanks and batches (bottles) with substrate and inoculum, along with uncertainty in the mass of substrate VS added.\footnote{
       See document 200 \citep{BMPdoc200BMP}. 
-    }.
+    }
 \end{enumerate}
 
 \section{Validation criteria}
