@@ -1,6 +1,8 @@
 \documentclass[]{article}
 \usepackage[version=3]{mhchem}
 \usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{float}
 \bibliographystyle{abbrvnat}
 \usepackage[colorlinks]{hyperref}
 \hypersetup{
@@ -10,7 +12,7 @@
 
 \title {Gas density-based BMP measurement\footnote{
   Recommended citation: 
-Hafner, S.D.; Mortensen, J.R.; Koch, K.; Astals, S. Gas density-based BMP measurement. Standard BMP Methods document 304, version 1.3. Available online: https://www.dbfz.de/en/BMP (accessed on October 12, 2020).
+Hafner, S.D.; Mortensen, J.R.; Koch, K.; Astals, S. Gas density-based BMP measurement. Standard BMP Methods document 304, version 2.0. Available online: https://www.dbfz.de/en/BMP (accessed on March XX, 2021).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }
@@ -21,7 +23,7 @@ Hafner, S.D.; Mortensen, J.R.; Koch, K.; Astals, S. Gas density-based BMP measur
 \bigskip
 \textit{
   Document number 304.
-  File version 1.3. 
+  File version 2.0. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -117,7 +119,7 @@ Biogas temperature affects water vapor content.
 To minimize uncertainty in the headspace temperature used in calculations, the time that bottles spend outside the incubator should be short, and the same procedure and timing should be followed for each sampling event. 
 
 The accuracy of the GD-BMP method is affected only slightly by variation in headspace pressure, and it is possible to correct for leakage of biogas. 
-However, for safety (to avoid exploding bottles), for maximum precision, and to minimize possible effects of high \ce{CO2} dissolution, total headspace pressure (absolute) should be kept below 3 bar (2 bar gauge pressure). 
+However, for safety (to avoid exploding bottles), for maximum precision, and to minimize possible effects of high \ce{CO2} dissolution, total headspace pressure (absolute) should be kept below about 300 kPa (200 kPa (2 bar) gauge pressure). 
 Bottle pressures can be estimated from headspace and vented biogas volume.\footnote{
   Or measured directly before venting if an electronic manometer is used.
   However, as with headspace temperature, the effect of uncertainty here is very small.
@@ -130,7 +132,7 @@ Therefore ambient pressure and temperature (room pressure and temperature) must 
 Absolute pressure can now be measured using barometer apps on many smart phones.
 Alternatively, pressure can be determined from public meteorological data (from a closeby weather station), with corrections for elevation if necessary.
 
-\subsubsection{Step-by-step instructions}
+\subsubsection{Step-by-step instructions} \label{sec:steps}
 \begin{enumerate}
     \item Measure and record the room temperature and pressure at which biogas volume will be determined.
     \item Remove the 3 water control bottles from the incubator and weigh them to confirm scale consistency. 
@@ -150,13 +152,63 @@ Alternatively, pressure can be determined from public meteorological data (from 
         Otherwise, data from this replicate should be discarded.
       }
     \item Weigh the bottle and record the result as pre-venting mass.
-    \item Vent the bottle using a syringe and measure biogas volume.
-      Use the manometer to ensure that the pressure of both removed biogas and biogas remaining in the bottle headspace after venting pressure is close to atmospheric (gauge pressure = $\pm3$ kPa).
+    \item Vent the bottle using a syringe and measure biogas volume (see Section \ref{sec:volmeas}).
+      Use the manometer to ensure that the pressure of both removed biogas and biogas remaining in the bottle headspace after venting pressure is close to atmospheric (gauge pressure = 0 $\pm3$ kPa).
     \item Weigh the bottle after venting, and record the result as post-venting mass. 
-    \item Proceed to the next replicate (e.g., ``2'' or ``b'') and repeat steps 3 - 7.
+    \item Proceed to the next replicate (e.g., ``2'' or ``b'') and repeat steps 4 - 7.
     \item After all replicates have been mixed, weighed, vented, and weighed again, place the bottles back in the incubator.
-    \item Proceed to the next set of replicates (e.g., the three replicates for substrate ``food waste A'') and repeat steps 2 - 9.
+    \item Proceed to the next set of replicates (e.g., the three replicates for substrate ``food waste A'') and repeat steps 3 - 9.
 \end{enumerate}
+
+This sequence of steps is shown in Fig. \ref{fig:steps}.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{figs/GD_steps.pdf}
+  \caption{The data collection steps required for GD-BMP measurements. Step numbers match those listed in the text, and are repeated for each sampling event. For details on volume measurement (step 6) see Section \ref{sec:volmeas}.}
+  \label{fig:steps}
+\end{figure}
+
+
+\subsection{Volume measurement} \label{sec:volmeas}
+Volume measurement in Section \ref{sec:steps} should take place at ambient pressure, in order to later convert the measurement to standardized volume.
+This task can be done very simply with an inexpensive plastic syringe and a simple U-tube manometer, as long as the capacity of the syringe (maximum volume) is greater than the quantity of biogas produced in any sampling interval.
+Unfortunately, typical small syringes ($\le$ 150 mL) are generally not large enough, and large syringes (e.g., 1 L) are expensive.
+There are at least two solutions:
+\begin{itemize}
+  \item Use multiple syringes to remove accumlated gas all at one time.
+  \item Use a simple manometer and a three-way valve to measure accumulated gas in steps. This is shown in Fig. \ref{fig:utube}.
+\end{enumerate}
+
+The first approach is straightforward, but handling three or more syringes with only two hands is challenging.
+The second requires construction of a simple U-tube manometer system, shown in Fig. \ref{fig:utube}, and its construction and use is described here.
+The manometer should be made from flexible plastic tubing, large enough to avoid problems due to adhension.\footnote{Clear polyvinyl chloride (PVC) tubing with a 3/8 inch inner diameter works well.}
+It is filled with water to the level shown by ii in Fig. \ref{fig:utube}, and clamped at location i to create a \textit{closed}-tube manometer.\footnote{This is essential. An open-tube manometer would lose its water under even moderate pressure.}
+Smaller diameter tubing (iii in Fig. \ref{fig:utube}) can be used to connect to the three-way valve (A, B, C).\footnote{Plastic valves sometimes called "disposable medical three-way stopcock valves" are inexpensive and work well for this task.}
+When in use, the system is connected to a BMP bottle via a needle (iv in Fig. \ref{fig:utube})\footnote{21 gauge/0.8 mm works well.}.
+A syringe is connected through tubing to the valve (v in Fig. \ref{fig:utube})
+This connection should be easy to disconnect, in order to vent biogas.
+With this system, the following steps are used for each bottle.
+The capital letters (labeled with A, B, C) and small Roman numerals (i, ii, ...) refer to the labels in Fig. \ref{fig:utube}.
+\begin{enumerate}
+  \item With syringe disconnected (around location v), check that water levels at ii are equal. Equilibrate closed end by removing and replacing clamp at i if necessary.
+  \item Turn valve so connection B-C is open (A closed) and allow accumulated biogas to flow under pressure to no more than ca. 80 or 90\% of syringe capacity.
+  \item Turn valve so connection A-C is open (B closed) and adjust syringe plunger position so the water levels at ii are equal. Read and record volume.
+  \item Disconnect syringe at v, push out biogas, and return to step 1, repeating until all excess accumulated biogas has been removed, i.e., when headspace pressure is equal to atmospheric (determined by completely opening valve, A-B-C open).
+\end{enumerate}
+
+\begin{figure}
+  \includegraphics[]{figs/GD_utube.pdf}
+  \caption{The U-tube manometer/3-way valve approach to measuring biogas volume. See Section \ref{sec:volmeas} for an explanation.} 
+  \label{fig:utube}
+\end{figure}
+
+\subsection{Testing}
+The GD-BMP method requires accurate determination of gas volume and bottle mass loss.
+It is important that any new setup is tested.
+Fortunately, ambient air can be used as a standard.
+To test the system, simply force a volume (more than ca. 20\% of a bottle headspace is difficult to add) into an empty bottle, and proceed with the measurement steps given above. 
+Calculate apparent density based on bottle mass loss and volume of gas removed.\footnote{This volume may be smaller than the volume thought to be added because of leakage during addition or removal of the syringe.}
+The value should be within 10\% (or better, 5\%) of the density for the known ambient pressure and temperature.\footnote{Humidity effects are small around room temperature (assuming $\le$ 25$^\circ$C).}
 
 \section{Calculations}
 See document 204 from the Standard BMP Methods website \citep{BMPdoc204gasdens} for a detailed description of calculations. 
