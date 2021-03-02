@@ -1,0 +1,156 @@
+\documentclass[]{article}
+\usepackage[version=3]{mhchem}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+  citecolor = {blue},
+}
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+\title {Requisitos para validar los ensayos de medición del Potencial Bioquímico de Metano (PBM)\footnote{
+  Citación recomendada:
+Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; et al. Requirements for Measurement and Validation of Biochemical Methane Potential (BMP). Standard BMP Methods document 100, version 1.9. Available online: https://www.dbfz.de/en/BMP (accessed on February 24, 2021).
+\newline
+  En \url{https://www.dbfz.de/en/projects/bmp/methods} encontraréis un documento BibTeX para importar la referencia al gestor de referencias.
+}}
+\author{
+Christof Holliger, 
+H{\'e}l{\`e}ne Fruteau de Laclos,
+Sasha D. Hafner,\\
+Konrad Koch,
+S{\"o}ren Weinrich,
+Sergi Astals, 
+Madalena Alves, \\ 
+Diana Andrade,
+Irini Angelidaki,
+Lise Appels, 
+Samet Azman, \\
+Alexandre Bagnoud
+Urs Baier,
+Yadira Bajon Fernandez,
+Jan Bartacek,\\
+Federico Battista,
+David Bolzonella,
+Claire Bougrier,
+Camilla Braguglia, \\
+Pierre Buffi{\`e}re,
+Marta Carballa,
+Arianna Catenacci,
+Vasilis Dandikas, \\
+Fabian de Wilde,
+Sylvanus Ekwe,
+Elena Ficara,
+Ioannis Fotidis,\\
+Jean-Claude Frigon,
+Agata Gallipoli,
+J{\"o}rn Heerenklage,
+Pavel Jenicek,\\
+Judith Krautwald,
+Ralph Lindeboom,
+Jing Liu,
+Javier Lizasoain, \\
+Rosa Marchetti,
+Florian Monlau,
+Mihaela Nistor,
+Hans Oechsner,\\
+Jo{\~a}o V{\'i}tor Oliveira,
+Andr{\'e} Pauss,
+S{\'e}bastien Pommier,
+Francisco Raposo, \\
+Thierry Ribeiro,
+Christian Schaum,
+Els Schuman,
+Sebastian Schwede, \\
+Mariangela Soldano,
+Anton Taboada,
+Michel Torrijos,
+Miriam van Eekert,\\
+Jules van Lier, 
+Isabella Wierinck
+} 
+
+\date{\today \\
+\bigskip
+\textit{
+  Documento número 100.
+  Esta es una traducción al español realizada por Sergi Astals y Glen B. Madrigal del documento en inglés (versión 1.9). En caso de duda el documento en inglés prevalece sobre esta traducción. 
+  Este documento forma parte de una serie de documentos dedicados a la estandarización de los ensayos de medición del potencial bioquímico de metano.\footnote{Para más información y otros documentos visite \url{https://www.dbfz.de/en/BMP}. 
+    Para ver el historial de versiones y proponer cambios visite \url{https://github.com/sashahafner/BMP-methods}.}
+}
+}
+
+\begin{document}
+\maketitle
+
+\section{Introducción}
+Este documento presenta los requisitos mínimos para la medición y validación del potencial bioquímico de metano (o potencial de biometanización (PBM)). Este documento representa el consenso de más de 50 investigadores en digestión anaeróbica. La lista de requisitos es la misma que en la publicación de acceso abierto de \citet{holligerStandardizationBiomethanePotential2021}. Para obtener detalles sobre el desarrollo de estos requisitos, consulte los documentos de acceso abierto \citet{holligerStandardizationBiomethanePotential2016} y \citet{hafnerImprovingInterlaboratoryReproducibility2020}.
+
+\section{Requisitos para validar los resultados}
+\label{sec:requirements}
+\subsection{Análisis del inóculo y sustrato}
+\label{sec:analysis}
+  Determinar la concentración de sólidos volátiles (SV) del inóculo y del sustrato es necesario para determinar las cantidad necesaria de ambos para alcanzar la relación inóculo-sustrato deseada y para calcular el potencial de biometanización.
+  Documentos explicando detalladamente el protocolo de medición de sólidos totales (ST) y SV, incluye el manual de la US EPA \citep{epaMethod1684Total2001} (acceso abierto) u otras fuentes (por ejemplo, \citet{strachDeterminationTotalSolids2020} (acceso abierto) o \citet{ bairdStandardMethodsExamination2017}). 
+  Brevemente:
+  \begin{enumerate}
+    \item Sólidos totales (ST). Medir para el inóculo y todos los sustratos por triplicado, secando una muestra representativa a 105$^\circ$C hasta peso constante. Los ST solo se necesitan como paso previo a la determinación de los SV.
+    \item Sólidos volátiles (SV). Medir para el inóculo y todos los sustratos por triplicado, introduciendo la muestra seca en una mufla a 550$^\circ$C hasta peso constante. Los SV se determinan a partir de la pérdida de masa. 
+  \end{enumerate}
+
+\subsection{Dispositivo experimental y duración del \emph{batch}}
+\label{sec:setup}
+\begin{enumerate}
+  \item Experimento. 
+    Todos los experimentos tienen que incluir tres tipos de ensayos: ensayo que solo continen inóculo (``blanco''), ensayo con inóculo y celulosa microcristalina (control positivo)\footnote{
+      Otros compuestos pueden ser usados como control positivo pero, a día de hoy, solo la celulosa ha sido analizada extensivamente para poder establecer los criterios de validació de la Sección \ref{sec:crit} \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
+    }, y un ensayo con inóculo y sustrato para cada uno de los sustratos.
+    \item Replicas. 
+    Todos los ensayos deben realizarse, como mínimo, por triplicado.\footnote{
+      Si una botella se daña durante el ensayo, quedando solo 2 para esa condición, los resultados no podrán ser validados. Consecuentement, se recomienda incluir 4 replicados para cada condición, especialmente para el blanco. Los \emph{outliers} se pueden eliminar si hay un motivo para sospechar que hubo un error en la medición (p.ej. fuga), pero para poder validar los resultados el número de replicas con la que se calcula el PBM debe ser, como mínimo, 3.
+    }
+    El número mínimo de botellas para un ensayo de biometanización es 9, incluendo 3 de blanco, 3 de control positivo (celulosa) y 3 de sustrato.
+  \item Duración. 
+    Los ensayos \emph{batch} se pueden finalizar cuando la producción diaria de metano (\ce{CH4}) durante 3 días consecutivos sea inferior al 1.0\% de la producción total neta de \ce{CH4} del sustrato (\ce{CH4} producido por el sustrato después de restar la producción de metano promedio de los blancos). 
+    Para métodos manuales u otro tipo de métodos en donde las mediciones no son realizadas diariamente, los ensayos se pueden finalizar cuando la producción de metano en un intervalo de tiempo superior a 3 días represente menos del  1\% del total (o cuando varios intervalos que engloben más de 3 días represente menos del 1\%).
+    Cuando se analizan varios sustratos, un sustrato se puede dejar de analizar cuando todas las replicas del sustato alcanzan este criterio.
+    Los blancos deben ser analizados hasta que todos los otros ensayos hayan alcanzado el criterio del 1\%.
+    Finalizar los ensayos después de que se haya alcanzado el criterio del 1\% no supone ningún problema, es más, puede ayudar a alcanzar los criterios de valdación decritos en la Sección \ref{sec:crit}.
+\end{enumerate}
+
+\section{Cálculos}
+\label{sec:calculations}
+\begin{enumerate}
+  \item Tratamiento de datos.
+    El volumen de \ce{CH4} en condiciones estándar (seco, 0$^\circ$C, 101.325 kPa) se calcula utilizado datos experimentales y ambientales siguiendo cálculos estandarizados.\footnote{
+      Esta colección de documentos (\url{https://www.dbfz.de/en/BMP}) incluye documentos donde se describe detalladamente los cálculos para difenretes sistemas de medición del PBM: volumétrico (documento 201) \citep{BMPdoc201vol}, manométrico (documento 202) \citep{BMPdoc202man}, gravimétrico (documento 203) \citep{BMPdoc203grav}, y densidad de gases (documento 204) \citep{BMPdoc204gasdens}.
+    }
+  \item Unidades.
+	  El PBM es expresado como el volumen de \ce{CH4} estandarizado (seco, 0$^\circ$C, 101.325 kPa, también denominado volumen ``normal'') por unidad de masa orgánica añadida del sustrato (normalmente sólidos volátiles pero también se puede usar la demanda química de oxígeno (DQO)). Los resultados normalmente se reportan como NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{SV}\textsuperscript{-1}. 
+  \item Cálculo del PBM.
+    El PBM de los sustratos (incluyendo la celulosa) se calcula restando la producción promedio de \ce{CH4} del inóculo (de los blancos) de la producción de \ce{CH4} total de los ensayos con inóculo y sustrato, normalizando por la masa de SV añadida. En el cálculo del PBM se debe tener en cuenta diferencias de masa de inoculo y sustrato en los diferentes ensayos y botellas.
+    Los cálculos deben seguir un protocolo estandarizado\footnote{
+      Los cálculos necesarios para calcular el PBM se describen en el documento  200 de esta colección \citep{BMPdoc200BMP}.
+    }.
+  \item Cálculo de la desviación estándar.
+    La desviación estándar de cada PBM ($n \ge 3$) debe considerar la variabilidad del los blancos y del ensayo en cuestión, así como la variabilidad en la determinación de los SV\footnote{
+      Ver documento 200 \citep{BMPdoc200BMP}. 
+    }.
+\end{enumerate}
+
+\section{Criterios de validación}
+\label{sec:crit}
+Los ensayos de biometanización que cumplan \textit{todos} los criterios que se describen a continuación se podran considerar ``validados''\footnote{
+The criteria listed above are duplicated in document 101 \citep{BMPdoc101val}, which was created to simply make it easier to find these required criteria.
+}.
+Si no se cumplen todos los criterios, los resultados no se considerarán validados y se deberá repetir el experimento (o los ensayos que no hayan cumplido los criterios).
+
+\begin{enumerate}
+  \item Todos los requisitos descritos en la Sección \ref{sec:requirements} se cumplen (incluyendo la duración del ensayo) y los cálculos se han realizado como se describe en la Sección \ref{sec:calculations}.
+  \item El PBM promedio de la celulosa está entre 340 and 395 NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{SV}\textsuperscript{-1}.
+  \item La desviación estándar relativa del PBM de la celulosa (desviación estándar, incluyendo la variabilidad de los blancos, sustratos, y SV, dividido por el PBM promedio) és igual o inferior al 6\%.
+\end{enumerate}
+
+\bibliography{bib}
+
+\end{document}
