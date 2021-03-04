@@ -2,161 +2,162 @@
 \usepackage[version=3]{mhchem}
 \usepackage{natbib}
 \bibliographystyle{abbrvnat}
+\usepackage[brazil]{babel}
 \usepackage[colorlinks]{hyperref}
 \hypersetup{
-  citecolor ={blue},
+  citecolor = {blue},
 }
 \newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
-
- 
-\title{Requisitos para medição e validação do potencial bioquímico de metano (PBM) \footnote{
+\title {Requisitos para medição e validação do potencial bioquímico de metano (PBM)\footnote{
   Citação recomendada: 
-Holliger, C .; Fruteau de Laclos, H .; Hafner, SD; Koch, K .; Weinrich, S .; Astals, S .; et al. Requisitos para medição e validação do potencial bioquímico do metano (PBM). Documento de métodos PBM padrão 100, versão 1.8. Disponível online: https://www.dbfz.de/en/PBM (acessado em 7 de outubro de 2020).
-\new online
-  Ou consulte \url{https://www.dbfz.de/en/PBM} para um arquivo BibTeX que pode ser importado para o software de gerenciamento de citações.
+Holliger, C.; Fruteau de Laclos, H.; Hafner, S.D.; Koch, K.; Weinrich, S.; Astals, S.; et al. Requirements for Measurement and Validation of Biochemical Methane Potential (BMP). Standard BMP Methods document 100, version 1.9. Available online: https://www.dbfz.de/en/BMP (accessed on February 24, 2021).
+\newline
+  Ou consulte \url{https://www.dbfz.de/en/BMP} para um arquivo BibTeX que pode ser importado para o software de gerenciamento de citações.
 }}
-\authors{
+\author{
 Christof Holliger, 
-H{\'e} l{\`e} ne Fruteau de Laclos,
-Sasha D. Hafner, \\
+H{\'e}l{\`e}ne Fruteau de Laclos,
+Sasha D. Hafner,\\
 Konrad Koch,
-S{\"o} ren Weinrich,
-Sergi Astals, \\
-Madalena Alves, 
+S{\"o}ren Weinrich,
+Sergi Astals, 
+Madalena Alves, \\ 
 Diana Andrade,
-Irini Angelidaki, \\
-Lise Appels,
-Samet Azman,
-Alexandre Bagnoud \\
+Irini Angelidaki,
+Lise Appels, 
+Samet Azman, \\
+Alexandre Bagnoud
 Urs Baier,
 Yadira Bajon Fernandez,
-Jan Bartacek, \\
+Jan Bartacek,\\
 Federico Battista,
 David Bolzonella,
-Claire Bougrier, \\
-Camilla Braguglia,
-Pierre Buffi{\`e} re,
-Marta Carballa, \\
+Claire Bougrier,
+Camilla Braguglia, \\
+Pierre Buffi{\`e}re,
+Marta Carballa,
 Arianna Catenacci,
-Vasilis Dandikas,
-Fabian de Wilde, \\
+Vasilis Dandikas, \\
+Fabian de Wilde,
 Sylvanus Ekwe,
 Elena Ficara,
-Ioannis Fotidis, \\
+Ioannis Fotidis,\\
 Jean-Claude Frigon,
 Agata Gallipoli,
-J{\"o} rn Heerenklage, \\
-Pavel Jenicek,
+J{\"o}rn Heerenklage,
+Pavel Jenicek,\\
 Judith Krautwald,
-Ralph Lindeboom, \\
+Ralph Lindeboom,
 Jing Liu,
-Javier Lizasoain,
-Rosa Marchetti, \\
+Javier Lizasoain, \\
+Rosa Marchetti,
 Florian Monlau,
 Mihaela Nistor,
-Hans Oechsner, \\
-Jo{\~ a} o V{\'i} tor Oliveira,
+Hans Oechsner,\\
+Jo{\~a}o V{\'i}tor Oliveira,
 Andr{\'e} Pauss,
-S{\'e} bastien Pommier, \\
-Francisco Raposo,
+S{\'e}bastien Pommier,
+Francisco Raposo, \\
 Thierry Ribeiro,
-Christian Schaum, \\
+Christian Schaum,
 Els Schuman,
-Sebastian Schwede,
-Mariangela Soldano, \\
+Sebastian Schwede, \\
+Mariangela Soldano,
 Anton Taboada,
 Michel Torrijos,
-Miriam van Eekert, \\
+Miriam van Eekert,\\
 Jules van Lier, 
-Isabella Wierinck \\
+Isabella Wierinck
 } 
- 
+
 \date{\today \\
 \bigskip
 \textit{
-  Documento número 100.
-  Versão do arquivo 1.8. 
-  Este documento faz parte da coleção de métodos PBM padrão.
-  Tradução para português (PT_BR) foi realizada por Heleno Quevedo de Lima.
-    \footnote{Para mais informações e outros documentos, visite \url{https://www.dbfz.de/en/PBM}. 
-    Para o histórico da versão do documento ou para propor alterações, visite \url{https://github.com/sashahafner/PBM-methods}.}
+  Documento número 100.
+  Esta é uma tradução para o portuguê (do Brasil) por Heleno Quevedo de Lima do documento em inglês (versão 1.9). Em caso de dúvida, o documento em inglês prevalece sobre esta tradução.
+  Este documento faz parte da coleção de métodos PBM padrão.\footnote{
+    Para mais informações e outros documentos, visite \url{https://www.dbfz.de/en/BMP}. 
+    Para o histórico da versão do documento ou para propor alterações, visite \url{https://github.com/sashahafner/BMP-methods}.
+  }
 }
 }
- 
+
 \begin{document}
 \maketitle
- 
+
 \section{Introdução}
-Este documento apresenta os requisitos mínimos para medição e validação do potencial bioquímico do metano (também chamado de potencial do biometano) (PBM) em testes de lote e representa o consenso de mais de 40 pesquisadores de biogás.
-A lista de requisitos é baseada em \citet{holligerStandardizationBiomethanePotential2016}, com algumas modificações recentes de critérios de validação, conforme descrito em \citet{hafnerImprovingInterlaboratoryReproducibility2020} e detalhes adicionais sobre a padronização dos cálculos.
-Para obter detalhes e muitas recomendações adicionais, consulte estes documentos \citep{holligerStandardizationBiomethanePotential2016, hafnerImprovingInterlaboratoryReproducibility2020}.
- 
+%Heleno, please check these 4 sentences
+Este documento apresenta os requisitos mínimos para medição e validação do potencial bioquímico do metano (também chamado de potencial do biometano) (PBM). 
+Este documento representa o consenso de mais de 50 pesquisadores em digestão anaeróbia. 
+A lista de requisitos é a mesma da publicação em acesso aberto de \citet{holligerStandardizationBiomethanePotential2021}. 
+Para obter detalhes sobre o desenvolvimento desses requisitos, consulte os documentos de acesso aberto \citet{holligerStandardizationBiomethanePotential2016} e \citet{hafnerImprovingInterlaboratoryReproducibility2020}.
+
 \section{Requisitos para medição do PBM}
-\label{sec: requisitos}
+\label{sec:requirements}
 \subsection{Análise de substrato e inóculo}
-\label{sec: análise}
-  O conteúdo de sólidos voláteis (SV) do inóculo e do substrato é necessário para determinar a relação inóculo/substrato (I/S) e para o cálculo de PBM. Para detalhes sobre as medições dos sólidos totais (TS) e SV podem ser encontrados no documento da US EPA (incluindo um documento gratuito detalhado da US EPA \citep{epaMethod1684Total2001}, bem como \citet{strachDeterminationTotalSolids2016} e \citet{bairdStandardMethodsExamination2017}). 
+\label{sec:analysis}
+  O conteúdo de sólidos voláteis (SV) do inóculo e do substrato é necessário para determinar a relação inóculo/substrato (I/S) e para o cálculo de PBM. Para detalhes sobre as medições dos sólidos totais (TS) e SV podem ser encontrados no documento da US EPA (incluindo um documento gratuito detalhado da US EPA \citep{epaMethod1684Total2001}, bem como \citet{strachDeterminationTotalSolids2020} e \citet{bairdStandardMethodsExamination2017}). 
  
-  \begin{enumerate}
-    \item Sólidos Totais (ST). Determine a massa do inóculo e todos os substratos após a secagem a 105 $ ^ \circ $ C em triplicata. O ST é necessário apenas para determinação do conteúdo de sólidos voláteis (SV).
-    \item Sólidos voláteis (SV). Determine a massa do inóculo e todos os substratos após calcinação da amostra seca a 550 $ ^ \circ $ C em triplicata. O SV é determinado a partir da perda de massa.
-  \end{enumerar}
- 
+\begin{enumerate}
+    \item Sólidos Totais (ST). Determine a massa do inóculo e todos os substratos após a secagem a 105$^\circ$C em triplicata. O ST é necessário apenas para determinação do conteúdo de sólidos voláteis (SV).
+    \item Sólidos voláteis (SV). Determine a massa do inóculo e todos os substratos após calcinação da amostra seca a 550 $^\circ$C em triplicata. O SV é determinado a partir da perda de massa.
+\end{enumerate}
+
 \subsection{Configuração e duração do teste}
-\label{sec: setup}
+\label{sec:setup}
 \begin{enumerate}
-  \item Amostras. 
-Todos os ensaios de PBM devem incluir três tipos de amostras: lotes com apenas inóculo (`` brancos ''), com inóculo e celulose microcristalina como controle positivo \nota de rodapé{
-      Outros substratos de controle positivo poderiam ser usados ​​no futuro \citep{kochEvaluationCommonSupermarket2020}, mas apenas a celulose teve testes extensivos que foram usados ​​para desenvolver os critérios de validação descritos abaixo na Seção \ref{sec: crit} \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
+  \item Amostras. 
+Todos os ensaios de PBM devem incluir três tipos de amostras: lotes com apenas inóculo (``brancos''), com inóculo e celulose microcristalina como controle positivo\footnote{
+      Outros substratos de controle positivo poderiam ser usados *** futuro \citep{kochEvaluationCommonSupermarket2020}, mas apenas a celulose teve testes extensivos que foram usados *** para desenvolver os critérios de validação descritos abaixo na Seção \ref{sec:crit} \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
     }, e com inóculo e substrato.
-    \item Replicação. 
-Todos os testes devem incluir pelo menos 3 lotes (frascos) para cada condição \nota de rodapé{
-      Se um frasco é perdido, por exemplo, quebra, resultando em $ n = 2 $ para qualquer condição, os resultados não podem ser validados.
-      Portanto, é prudente incluir 4 réplicas, especialmente para o branco.
-      Os valores discrepantes podem ser eliminados se houver um bom motivo para suspeitar que houve um erro na medição (por exemplo, vazamento), mas o número restante de repetições deve ser pelo menos 3.
-    }
-    O número mínimo de lotes usados ​​em um teste de PBM com um substrato é, portanto, 9 (3 brancos, 3 celulose, 3 substrato).
-  \item Duração. 
-    Encerre os testes de PBM somente após a produção diária de \ce{CH4} dos lotes individuais, em 3 dias consecutivos, ser $ <$ 1,0 \% do volume líquido acumulado de metano do substrato (lote de substrato menos a média de brancos). 
-    Para métodos manuais ou outros onde as medições não são feitas todos os dias, a rescisão pode ocorrer no final do primeiro intervalo de medição de pelo menos 3 dias, onde a taxa de produção cai abaixo do máximo de 1 \% (ou dois ou mais intervalos dessa soma a pelo menos 3 dias, todos com taxas abaixo do máximo de 1 \%).
-    Se substratos diferentes forem testados, cada substrato pode ser encerrado quando o mais lento dos 3 lotes replicados atingir o critério de encerramento.
-    Os brancos devem continuar enquanto for o lote mais lento (mais recente) com substrato.
-    A continuação dos testes além desta duração líquida de 1 \% é aceitável e pode ajudar a garantir que os critérios de validação sejam atendidos (Seção \ref{sec: crit}).
-\end{enumerar}
- 
+  \item Replicação. 
+        Todos os testes devem incluir pelo menos 3 lotes (frascos) para cada condição.\footnote{
+          Se um frasco é perdido, por exemplo, quebra, resultando em $ n = 2 $ para qualquer condição, os resultados não podem ser validados.
+          Portanto, é prudente incluir 4 réplicas, especialmente para o branco.
+          Os valores discrepantes podem ser eliminados se houver um bom motivo para suspeitar que houve um erro na medição (por exemplo, vazamento), mas o número restante de repetições deve ser pelo menos 3.
+        }
+        O número mínimo de lotes usados *** em um teste de PBM com um substrato é, portanto, 9 (3 brancos, 3 celulose, 3 substrato).
+  \item Duração. 
+        Encerre os testes de PBM somente após a produção diária de \ce{CH4} dos lotes individuais, em 3 dias consecutivos, ser $<$ 1,0 \% do volume líquido acumulado de metano do substrato (lote de substrato menos a média de brancos). 
+        Para métodos manuais ou outros onde as medições não são feitas todos os dias, a rescisão pode ocorrer no final do primeiro intervalo de medição de pelo menos 3 dias, onde a taxa de produção cai abaixo do máximo de 1\% (ou dois ou mais intervalos dessa soma a pelo menos 3 dias, todos com taxas abaixo do máximo de 1\%).
+        Se substratos diferentes forem testados, cada substrato pode ser encerrado quando o mais lento dos 3 lotes replicados atingir o critério de encerramento.
+        Os brancos devem continuar enquanto for o lote mais lento (mais recente) com substrato.
+        A continuação dos testes além desta duração líquida de 1\% é aceitável e pode ajudar a garantir que os critérios de validação sejam atendidos (Seção \ref{sec:crit}).
+\end{enumerate}
+
 \section{Cálculos}
-\label{sec: cálculos}
+\label{sec:calculations}
 \begin{enumerate}
-  \item Processamento de dados.
-    O volume \ce{CH4} padronizado (seco, 0 $ ^ \circ $ C, 101,325 kPa) é calculado a partir de dados de laboratório usando métodos padronizados. \Footnote{
-      Descrições detalhadas dos cálculos estão disponíveis para os seguintes métodos de medição na coleção de Métodos PBM Padrão (\url{https://www.dbfz.de/en/PBM}): volumétrico (documento 201) \citep{PBMdoc201vol}, manométrico ( documento 202) \citep{PBMdoc202man}, gravimétrico (documento 203) \citep{PBMdoc203grav}, e densidade do gás (documento 204) \citep{PBMdoc204gasdens}.
+  \item Processamento de dados. 
+        O volume \ce{CH4} padronizado (seco, 0 $^\circ$C, 101,325 kPa) é calculado a partir de dados de laboratório usando métodos padronizados.\footnote{
+          Descrições detalhadas dos cálculos estão disponíveis para os seguintes métodos de medição na coleção de Métodos PBM Padrão (\url{https://www.dbfz.de/en/BMP}): volumétrico (documento 201) \citep{BMPdoc201vol}, manométrico ( documento 202) \citep{BMPdoc202man}, gravimétrico (documento 203) \citep{BMPdoc203grav}, e densidade do gás (documento 204) \citep{BMPdoc204gasdens}.
+        }
+  \item Unidades PBM.
+        PBM é expresso em volume \ce{CH4} padronizado (seco, 0$^\circ$C, 101,325 kPa, referido como volume ``normal'') por unidade de massa de matéria orgânica de substrato adicionada (normalmente SV, mas às vezes demanda química de oxigênio (DQO)) (geralmente escrito como NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{SV}\textsuperscript{-1}).
+  \item Cálculo do PBM.
+        O PBM de todos os substratos (incluindo celulose) é calculado subtraindo a produção de inóculo \ce{CH4} (determinado a partir do branco) da produção bruta (total) de \ce{CH4} do substrato com o inóculo e normalizando pela massa de SV do substrato.
+        Quaisquer diferenças na massa do inóculo ou do substrato, entre os lotes, devem ser refletidas nos cálculos.
+        Os cálculos devem seguir uma abordagem padronizada \footnote{
+        O cálculo do PBM é descrito em detalhes no documento 200 \citep{BMPdoc200BMP}.
     }
-  \item Unidades PBM.
-                PBM é expresso em volume \ce{CH4} padronizado (seco, 0 $ ^ \circ $ C, 101,325 kPa, referido como volume `` normal '') por unidade de massa de matéria orgânica de substrato adicionada (normalmente SV, mas às vezes demanda química de oxigênio (DQO)) (geralmente escrito como NmL \textubscript{CH \textubscript{4}} g \textubscript{SV} \textuperscript{-1}). 
-  \item Cálculo do PBM.
-    O PBM de todos os substratos (incluindo celulose) é calculado subtraindo a produção de inóculo \ce{CH4} (determinado a partir do branco) da produção bruta (total) de \ce{CH4} do substrato com o inóculo e normalizando pela massa de SV do substrato.
-    Quaisquer diferenças na massa do inóculo ou do substrato, entre os lotes, devem ser refletidas nos cálculos.
-    Os cálculos devem seguir uma abordagem padronizada \footnote{
-      O cálculo do PBM é descrito em detalhes no documento 200 \citep{PBMdoc200PBM}.
-    }
-  \item Cálculo do desvio padrão do PBM.
-    O desvio padrão associado a cada valor PBM médio ($ n \ge 3 $) deve incluir a variabilidade de ambos os brancos e lotes (frascos) com substrato e inóculo, junto com a incerteza na massa de SV do substrato adicionado \nota de rodapé{
-      Veja o documento 200 \citep{PBMdoc200PBM}. 
-    }
-\end{enumerar}
+  \item Cálculo do desvio padrão do PBM.
+        O desvio padrão associado a cada valor PBM médio ($n \ge 3$) deve incluir a variabilidade de ambos os brancos e lotes (frascos) com substrato e inóculo, junto com a incerteza na massa de SV do substrato adicionado.\footnote{
+          Veja o documento 200 \citep{BMPdoc200BMP}. 
+        }
+\end{enumerate}
  
 \section{Critérios de validação}
-\label{sec: crit}
-Os resultados do PBM que atendem \textit{todos} os seguintes critérios podem ser descritos como `` validados ''. \Footnote{
-Os critérios listados acima estão duplicados no documento 101 \citep{PBMdoc101val}, que foi desenvolvido para simplificar e facilitar a localização desses critérios necessários.
+\label{sec:crit}
+Os resultados do PBM que atendem \textit{todos} os seguintes critérios podem ser descritos como ``validados''.\footnote{
+Os critérios listados acima estão duplicados no documento 101 \citep{BMPdoc101val}, que foi desenvolvido para simplificar e facilitar a localização desses critérios necessários.
 }
 Caso contrário, os resultados não são validados e os testes devem ser repetidos.
  
 \begin{enumerate}
-  \item Todos os componentes necessários do protocolo de medição do PBM listados acima (Seção \ref{sec: requisitos}) são atendidos (incluindo duração) e os cálculos são feitos conforme descrito acima (Seção \ref{sec: cálculos}).
-  \item A média do PBM da celulose está entre 340 e 395 NmL \textubscript{CH \textubscript{4}} g \textubscript{SV} \textuperscript{-1}.
-  \item O desvio padrão relativo para o PBM de celulose (desvio padrão, incluindo variabilidade nos brancos, nos frascos de substrato e SV do substrato adicionado, dividido pelo PBM médio) não é superior a 6 \%.
-\end{enumerar}
+  \item Todos os componentes necessários do protocolo de medição do PBM listados acima (Seção \ref{sec:requirements}) são atendidos (incluindo duração) e os cálculos são feitos conforme descrito acima (Seção \ref{sec:calculations}).
+  \item A média do PBM da celulose está entre 340 e 395 NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{SV}\textsuperscript{-1}.
+  \item O desvio padrão relativo para o PBM de celulose (desvio padrão, incluindo variabilidade nos brancos, nos frascos de substrato e SV do substrato adicionado, dividido pelo PBM médio) não é superior a 6\%.
+\end{enumerate}
  
 \bibliography{bib}
  
