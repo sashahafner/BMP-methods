@@ -94,21 +94,21 @@ Para obter detalhes sobre o desenvolvimento desses requisitos, consulte os docum
 
 \section{Requisitos para medição do PBM}
 \label{sec:requirements}
-\subsection{Análise de substrato e inóculo}
+\subsection{Análise do substrato e inóculo}
 \label{sec:analysis}
-  O conteúdo de sólidos voláteis (SV) do inóculo e do substrato é necessário para determinar a relação inóculo/substrato (I/S) e para o cálculo de PBM. Para detalhes sobre as medições dos sólidos totais (TS) e SV podem ser encontrados no documento da US EPA (incluindo um documento gratuito detalhado da US EPA \citep{epaMethod1684Total2001}, bem como \citet{strachDeterminationTotalSolids2020} e \citet{bairdStandardMethodsExamination2017}). 
+  O conteúdo de sólidos voláteis (SV) do inóculo e do substrato é necessário para determinar a relação inóculo/substrato (I/S) e para o cálculo do PBM. Para detalhes sobre as medições dos sólidos totais (ST) e SV podem ser encontrados no documento da US EPA (incluindo um documento gratuito detalhado da US EPA \citep{epaMethod1684Total2001}, bem como \citet{strachDeterminationTotalSolids2020} e \citet{bairdStandardMethodsExamination2017}). 
  
 \begin{enumerate}
-    \item Sólidos Totais (ST). Determine a massa do inóculo e todos os substratos após a secagem a 105$^\circ$C em triplicata. O ST é necessário apenas para determinação do conteúdo de sólidos voláteis (SV).
-    \item Sólidos voláteis (SV). Determine a massa do inóculo e todos os substratos após calcinação da amostra seca a 550 $^\circ$C em triplicata. O SV é determinado a partir da perda de massa.
+    \item Sólidos Totais (ST). Determine a massa do inóculo e de todos os substratos após a secagem a 105$^\circ$C em triplicata. O ST é necessário apenas para determinação do conteúdo de sólidos voláteis (SV).
+    \item Sólidos voláteis (SV). Determine a massa do inóculo e de todos os substratos após calcinação da amostra seca a 550 $^\circ$C em triplicata. O SV é determinado a partir da perda de massa.
 \end{enumerate}
 
 \subsection{Configuração e duração do teste}
 \label{sec:setup}
 \begin{enumerate}
   \item Amostras. 
-Todos os ensaios de PBM devem incluir três tipos de amostras: lotes com apenas inóculo (``brancos''), com inóculo e celulose microcristalina como controle positivo\footnote{
-      Outros substratos de controle positivo poderiam ser usados *** futuro \citep{kochEvaluationCommonSupermarket2020}, mas apenas a celulose teve testes extensivos que foram usados *** para desenvolver os critérios de validação descritos abaixo na Seção \ref{sec:crit} \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
+Todos os ensaios do PBM devem incluir três tipos de amostras: lotes com apenas inóculo (``brancos''), com inóculo e celulose microcristalina como controle positivo\footnote{
+      Outros substratos de controle positivo poderiam ser usados no futuro \citep{kochEvaluationCommonSupermarket2020}, mas apenas a celulose teve testes extensivos que foram usados para desenvolver os critérios de validação descritos abaixo na Seção \ref{sec:crit} \citep{hafnerImprovingInterlaboratoryReproducibility2020}.
     }, e com inóculo e substrato.
   \item Replicação. 
         Todos os testes devem incluir pelo menos 3 lotes (frascos) para cada condição.\footnote{
@@ -116,7 +116,7 @@ Todos os ensaios de PBM devem incluir três tipos de amostras: lotes com apenas 
           Portanto, é prudente incluir 4 réplicas, especialmente para o branco.
           Os valores discrepantes podem ser eliminados se houver um bom motivo para suspeitar que houve um erro na medição (por exemplo, vazamento), mas o número restante de repetições deve ser pelo menos 3.
         }
-        O número mínimo de lotes usados *** em um teste de PBM com um substrato é, portanto, 9 (3 brancos, 3 celulose, 3 substrato).
+        O número mínimo de lotes usados em um teste do PBM com um substrato é, portanto, 9 (3 brancos, 3 celulose, 3 substrato).
   \item Duração. 
         Encerre os testes de PBM somente após a produção diária de \ce{CH4} dos lotes individuais, em 3 dias consecutivos, ser $<$ 1,0 \% do volume líquido acumulado de metano do substrato (lote de substrato menos a média de brancos). 
         Para métodos manuais ou outros onde as medições não são feitas todos os dias, a rescisão pode ocorrer no final do primeiro intervalo de medição de pelo menos 3 dias, onde a taxa de produção cai abaixo do máximo de 1\% (ou dois ou mais intervalos dessa soma a pelo menos 3 dias, todos com taxas abaixo do máximo de 1\%).
@@ -133,7 +133,7 @@ Todos os ensaios de PBM devem incluir três tipos de amostras: lotes com apenas 
           Descrições detalhadas dos cálculos estão disponíveis para os seguintes métodos de medição na coleção de Métodos PBM Padrão (\url{https://www.dbfz.de/en/BMP}): volumétrico (documento 201) \citep{BMPdoc201vol}, manométrico ( documento 202) \citep{BMPdoc202man}, gravimétrico (documento 203) \citep{BMPdoc203grav}, e densidade do gás (documento 204) \citep{BMPdoc204gasdens}.
         }
   \item Unidades PBM.
-        PBM é expresso em volume \ce{CH4} padronizado (seco, 0$^\circ$C, 101,325 kPa, referido como volume ``normal'') por unidade de massa de matéria orgânica de substrato adicionada (normalmente SV, mas às vezes demanda química de oxigênio (DQO)) (geralmente escrito como NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{SV}\textsuperscript{-1}).
+        O PBM é expresso em volume \ce{CH4} padronizado (seco, 0$^\circ$C, 101,325 kPa, referido como volume ``normal'') por unidade de massa de matéria orgânica de substrato adicionada (normalmente SV, mas às vezes demanda química de oxigênio (DQO)) (geralmente escrito como NmL\textsubscript{CH\textsubscript{4}} g\textsubscript{SV}\textsuperscript{-1}).
   \item Cálculo do PBM.
         O PBM de todos os substratos (incluindo celulose) é calculado subtraindo a produção de inóculo \ce{CH4} (determinado a partir do branco) da produção bruta (total) de \ce{CH4} do substrato com o inóculo e normalizando pela massa de SV do substrato.
         Quaisquer diferenças na massa do inóculo ou do substrato, entre os lotes, devem ser refletidas nos cálculos.
