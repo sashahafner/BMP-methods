@@ -12,7 +12,7 @@
 
 \title {Gas density-based measurement of biochemical methane potential (BMP)\footnote{
   Recommended citation: 
-Hafner, S.D.; 2021 Gas density-based BMP measurement. Standard BMP Methods document 304, version 2.0. Available online: https://www.dbfz.de/en/BMP (accessed on March XX, 2021).
+Hafner, S.D.; Astals, S.; Holliger, C.; Justesen, C.; Koch, K.; Mortensen, J.R. 2021 Gas density-based BMP measurement. Standard BMP Methods document 304, version 2.0. Available online: https://www.dbfz.de/en/BMP (accessed on March 31, 2021).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }
@@ -36,13 +36,12 @@ Hafner, S.D.; 2021 Gas density-based BMP measurement. Standard BMP Methods docum
 \section{Introduction}
 The gas density BMP (GD-BMP) method is an approach that does not require expensive gas analysis equipment needed for other manual biochemical methane potential (BMP) methods.
 In this method, biogas volume and bottle mass loss are used together to determine biogas density, and from this, biogas composition is calculated.\footnote{Composition can only be determined from density when the a mixture contains two gases, \ce{CH4} and \ce{CO2} here, although the effect of some residual flushing gas can be addressed as described in document 204 \citep{BMPdoc204gasdens}.}
-Together with biogas volume measurements, methane (\ce{CH4}) production and BMP can be determined.
+Together with biogas volume (or mass) measurements, methane (\ce{CH4}) production and BMP can be determined.
 This document describes experimental procedures and laboratory measurements needed for applying the GD-BMP method.
 Development and validation of the method are described in \citet{justesenDevelopmentValidationLowcost2019}.
 For information on GD-BMP calculations, see document 204 from the Standard BMP Methods website \citep{BMPdoc204gasdens}. 
 
-\section{Protocol}
-\subsection{Required equipment and supplies}
+\section{Equipment and supplies}
 For application of the GD-BMP method the following laboratory equipment and supplies are required:
 \begin{itemize}
     \item Electronic scale
@@ -69,9 +68,9 @@ For the highest precision in volume measurements for low or high biogas producti
 Ideally the largest syringe will be large enough to measure the largest volume of biogas produced in a single interval.\footnote{
 \label{fn:cellrate}
   Biogas production rate depends on substrate and inoculum characteristics, and is best estimated from previous experiments.
-  For microcrystalline cellulose plus inoculum, biogas production rate typically peaks at about 200 mL g$^{-1}$ d$^{-1}$ (per g VS) within the first days, with values over 300 mL g$^{-1}$ d$^{-1}$ possible but rare  
+  For microcrystalline cellulose plus inoculum, biogas production rate typically peaks below 200 mL g$^{-1}$ d$^{-1}$ (per g VS) within the first days, with values over 300 mL g$^{-1}$ d$^{-1}$ possible but rare  
   (These values were taken from the data collected in the large IIS-BMP inter-laboratory study \citep{hafnerImprovingInterlaboratoryReproducibility2020}).
-  With 2 g substrate VS then, syringe volume would ideally be more than 600 mL (300 $\times$ 2, perhaps 1 L), but a 150 mL syringe could be sufficient with multiple emptying cycles.
+  With 2 g substrate VS then, syringe volume would ideally be more than 600 mL (300 $\times$ 2, perhaps 1 L), but a 150 mL syringe could be sufficient with multiple emptying cycles (see Section \ref{sec:volmeas}).
 }
 But large syringes are expensive.
 Instead, a single small syringe can be used multiple times to remove the biogas from a single bottle in a single interval.
@@ -84,18 +83,64 @@ Ideally, venting and weighing should be done inside a temperature-controlled roo
 However, the effect of headspace temperature error on accuracy is very small, so this is not required.
 Careful manual mixing at the time of sampling has been found to be sufficient (see Section \ref{sec:incsam}).\footnote{But gentle mechanical mixing could work, as long as the inside of the septum is kept clean.}
 
-\subsection{Setup}
+\section{Inoculum and substrate quantities and bottle size}
+\label{sec:quantities}
+Selecting quantities of inoculum and substrate, as well as bottle size (volume) is typically based on experience.
+Some general guidance is given here; these suggested values can be adjusted depending on results and substrate characteristics.
+
+The GD-BMP method requires determination of small mass losses from a heavy BMP bottle, so in general, maintaining high mass loss should be a goal.
+Therefore, substrate mass should generally be at least 1 g VS.
+Starting with this value as a minimum, inoculum quantity can be determined based on inoculum-to-substrate ratio (ISR), which is expressed on a VS basis and should generally be 2:1.\footnote{See \citet{holligerStandardizationBiomethanePotential2016} for more discussion on this topic.}
+
+With substrate and inoculum quantities, a bottle size can be selected.
+Alternatively, given a bottle size, the largest possible quantities can be selected.
+The accuracy of the GD-BMP method is affected only slightly by variation in headspace pressure, and it is possible to correct for leakage of biogas. 
+However, for safety (to avoid exploding bottles), for maximum precision, and to minimize possible (but perhaps unlikely) effects of high \ce{CO2} dissolution, headspace pressure should be kept below 200 kPa (2 bar) gauge pressure, or even more cautiously, 100 kPa \citep{hafnerSystematicErrorManometric2019}. 
+Bottle pressures can be estimated from headspace volume and expected (or measured) biogas volume.
+The headspace volume can be estimated by assuming a density of 1 mL g$^{-1}$ for the mixture.
+Additionally, to minimize the risk of foaming causing contamination of the septum, bottles are typically not filled beyond 50\%.
+
+Using the information given in note \ref{fn:cellrate} for cellulose (maximum peak biogas production typically around 200 but possibly as high as 300 mL g$^{-1}$ d$^{-1}$) and the maximum recommended headspace pressures given above, headspace volume should between 100 and 300 mL per g substrate VS.
+This target can be adjusted based on expected degradation rate and biogas potential, i.e., slower, faster, or similar biogas production compared to cellulose.
+But error from initial headspace increases with the ratio of headspace volume to total biogas production, and although a correction is available \citep{justesenDevelopmentValidationLowcost2019}, it is less accurate when residual flushing gas remains in the headspace.
+Therefore headspace volumes above 300 mL g$^{-1}$ should be avoided if possible.
+
+The ``planning'' tool in the web app OBA is helpful for quickly calculating substrate and inoculum quantities: \url{https://biotransformers.shinyapps.io/oba1/}.
+This tool also checks values against the recommendations given in \citet{holligerStandardizationBiomethanePotential2016}.
+Three examples for three different bottle sizes that meet the recommendations given in \citet{holligerStandardizationBiomethanePotential2016} in addition to the GD-BMP recommendations given in this section are shown in Table \ref{tab:examples} below.
+
+\begin{table}[h] 
+\caption{Example quantity and volume information for three bottle sizes for GD-BMP method. Note that for example C, it would not be possible to meet all recommendations if the inoculum had a VS concentration below 3.4\%.}
+\label{tab:examples}
+\begin{tabular}{llll}
+\hline
+Parameter                     & A    & B   & C   \\
+\hline
+Total bottle volume (mL)      & 520  & 250 & 160 \\
+Inoculum VS (\% FM)           & 2.0  & 2.0 & 4.0 \\
+Substrate VS (\% FM)          & 99   & 99  & 99  \\
+ISR (VS basis)                & 2.0  & 2.0 & 2.0 \\
+Substrate VS (g)              & 1.50 & 1.0 & 1.0 \\
+Inoculum FM (g)               & 150  & 101 & 50  \\
+Substrate FM (g)              & 1.52 & 1.0 & 1.0 \\
+Mixture FM (g)                & 152  & 101 & 51  \\
+Headspace volume (mL)         & 368  & 149 & 109 \\
+Headspace:substrate VS (mL:g) & 245  & 149 & 109 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\section{Setup}
 During setup, inoculum and substrate are added to bottles, and the headspace of each bottle is flushed to remove \ce{O2} and ensure anaerobic conditions. Bottles are then weighed and placed in an incubator.
 
-\subsubsection{Step-by-step instructions}
+\subsection{Step-by-step instructions}
 \begin{enumerate}
   \item Carefully set up and level the scale on a stable surface (following manufacturer's instructions) and check its accuracy with a weight set. 
       It is particularly important that the actual accuracy is close to reported accuracy when weighing an object with a mass close to the total mass of a BMP bottle and its contents. 
       For a scale with a reported accuracy of 50 mg, for example, this could be checked by taring the scale with a full bottle or equivalent mass, and adding a 50 mg scale calibration weight.
       Problems with accuracy or stability over time could be related to air currents, and can generally be addressed by selecting a proper location or blocking air flow with, e.g., a cardboard box.
-    \item Add the required mass of inoculum and substrate\footnote{
-      See Section \ref{sec:freq}. The ``planning'' tool in the web app OBA can be used to calculate these quantities: \url{https://biotransformers.shinyapps.io/oba1/}. 
-    }, along with any other additions (e.g., a trace element solution \citep{holligerStandardizationBiomethanePotential2016}) to each labeled bottle and seal with a septum and cover. 
+    \item Add the required mass of inoculum and substrate (see Section \ref{sec:quantities}), along with any other additions (e.g., a trace element solution \citep{holligerStandardizationBiomethanePotential2016}) to each labeled bottle and seal with a septum and cover. 
       Determination of the quantity of material added by mass difference is the recommended approach: tare scale with bottle, add approximately the desired quantity, wipe any material from near the mouth of the bottle, and finally determine the actual quantity from the scale reading. 
       Note that the scale used here does not need to be the same scale used for determining mass loss (see ``Incubation and sampling'' in section \ref{sec:incsam}).
     \item Flush the bottle headspace to remove \ce{O2}. 
@@ -119,7 +164,7 @@ During setup, inoculum and substrate are added to bottles, and the headspace of 
     \item Place bottles in the incubator set at the test temperature.
 \end{enumerate}
 
-\subsection{Incubation and sampling}
+\section{Incubation and sampling}
 \label{sec:incsam}
 Bottles are removed from the incubator occasionally to vent and weigh in what is here referred to as a ``sampling event''.
 Details on sampling frequency can be found in Section \ref{sec:freq}.
@@ -133,7 +178,7 @@ Therefore ambient pressure and temperature (room pressure and temperature) must 
 Absolute pressure can now be measured using barometer apps on many smart phones, which can also be used for temperature measurement in conjunction with an external sensor.
 Alternatively, pressure can be determined from public meteorological data (from a nearby weather station), with corrections for elevation if necessary.
 
-\subsubsection{Step-by-step instructions} \label{sec:steps}
+\subsection{Step-by-step instructions} \label{sec:steps}
 \begin{enumerate}
     \item Measure and record the room temperature and pressure at which biogas volume will be determined.
     \item Remove the 3 control bottles from the incubator and weigh them to confirm scale consistency. 
@@ -169,50 +214,32 @@ This sequence of steps is shown in Fig. \ref{fig:steps}.
   \label{fig:steps}
 \end{figure}
 
-\subsection{Quantities and sampling frequency}
+\section{Sampling frequency}
 \label{sec:freq}
-Selecting quantities, of inoculum, substrate, and total bottle volume, is typically based on experience.
-Some general guidance is given here; these suggested values can be adjusted depending on results and substrate characteristics.
 
-The GD-BMP method requires determination of small mass losses from a heavy BMP bottle, so in general, maintaining high mass loss should be a goal.
-Substrate mass should generally be 1 g VS or higher.
-Starting with this value, inoculum quantity can be determined based on inoculum-to-substrate ratio (ISR), which is expressed on a VS basis and should generally be 2:1.\footnote{See \citet{holligerStandardizationBiomethanePotential2016} for more discussion on this topic.}
-With substrate and inoculum quantities, a bottle size can be selected.
-
-The accuracy of the GD-BMP method is affected only slightly by variation in headspace pressure, and it is possible to correct for leakage of biogas. 
-However, for safety (to avoid exploding bottles), for maximum precision, and to minimize possible (but perhaps unlikely) effects of high \ce{CO2} dissolution, total headspace pressure (absolute) should be kept below 200 kPa (2 bar) gauge pressure, or better, 100 kPa \citep{hafnerSystematicErrorManometric2019}. 
-Bottle pressures can be estimated from headspace volume and expected (or measured) biogas volume.
-The headspace volume can be estimated by assuming a density of 1 mL g$^{-1}$ for the mixture.
-Additionally, to minimize the risk of foaming causing contamination of the septum, bottles are typically not filled beyond 50\%.
-
-Using the information given in note \ref{fn:cellrate} for cellulose (maximum peak biogas production of 300 mL g$^{-1}$ d$^{-1}$) and a goal of keeping headspace pressure below 100 kPa (gauge), a headspace of 300 mL per g substrate VS is generally sufficient.
-Larger headspace volume may be acceptable, but error from the flushing gas density increases with headspace volume, so 300 mL g$^{-1}$ is a good starting point, and can be adjusted based on expected degradation rate (slower, faster, or similar to cellulose). An example that meets all these constraints would be: substrate VS 50\% (percentage of fresh mass), inoculum VS 2\%, ISR 2 (2:1), substrate VS mass 2 g, substrate fresh mass 4 g, inoculum fresh mass 200 g, total bottle volume 500 mL, approximate headspace 300 mL.
-
-The ``planning'' tool in the web app OBA is helpful for calculating substrate and inoculum quantities and quickly meeting these and some other constraints through trial-and-error: \url{https://biotransformers.shinyapps.io/oba1/}.
-
-Determining when to sample bottles in manual BMP methods, i.e., remove and measure accumulated biogas, is typically based on experience. 
+Determining when to sample bottles in any manual BMP method, i.e., when to intermittently remove and measure accumulated biogas, is typically based on experience. 
 Some general considerations are:
 \begin{itemize}
-  \item As long as the headspace:VS ratio is sufficiently high (see above in this section), there is no need to sample more than once per day
-  \item Sampling frequency can change over time, and is generally highest at the start (1 d interval) and low at the end (perhaps 7 d interval)
+	\item As long as the headspace:substrate VS ratio is sufficiently high (see Section \ref{sec:quantities}), there is no need to sample more than once per day
+  \item Sampling frequency can change over time, and is generally highest at the start (1 d interval) and low at the end (maximum of perhaps a 7 d interval)
   \item As long as biogas is not lost before or during measurement due to leakage, sampling frequency does not strongly affect accuracy or precision of the GD-BMP method
 \end{itemize}
 
-Based on this information, a good approach is to sample daily from the start, and reduce the sampling frequency as biogas production slows, taking care to avoid high headspace pressure or too much accumulated biogas for the sampling system.
+Following these recommendations, a good approach is to sample daily from the start, and reduce the sampling frequency as biogas production slows, taking care to avoid high headspace pressure or too much accumulated biogas for the sampling system.
 
-\subsection{Volume measurement}
+\section{Biogas volume measurement}
 \label{sec:volmeas}
-Volume measurement in Section \ref{sec:steps} should take place at ambient pressure, in order to later convert the measurement to standardized volume.
+Biogas volume measurement in Section \ref{sec:steps} should take place at ambient pressure, in order to later convert the measurement to standardized volume.
 This task can be done very simply with an inexpensive plastic syringe and a simple U-tube manometer, as long as the capacity of the syringe (maximum volume) is greater than the quantity of biogas produced in any sampling interval.
-Unfortunately, typical plastic syringes are generally not large enough ($\le$ 150 mL), and large glass syringes (e.g., 1 L) are expensive.
+Unfortunately, typical plastic syringes are generally not large enough ($\le$ 150 mL), and large syringes (e.g., 1 L) are expensive.
 There are at least two solutions:
 \begin{itemize}
   \item Use multiple syringes to remove accumulated gas all at one time. %hedgehog hehehe   CAJU: What is this comment? SDH: Sergi's multi-syringe monster :)
-  \item Use a water manometer and a valve to measure accumulated gas in steps. 
+  \item Use a manometer and a valve to measure accumulated gas in steps. 
 \end{itemize}
 
 The first approach is straightforward, but handling three or more syringes with only two hands is challenging.
-The second requires a valve and a manometer, and one implementation is shown in Fig. \ref{fig:utube}.
+The second requires a valve and a manometer, and one possible implementation is shown in Fig. \ref{fig:utube}.
 Its construction and use is described here.
 In this section the capital letters (labeled with A, B, C) and small Greek letters ($\alpha$, $\beta$, ...) refer to the labels in Fig. \ref{fig:utube}.
 A manometer can be made from flexible plastic tubing, large enough to avoid problems due to adhesion.\footnote{Clear polyvinyl chloride (PVC) tubing with a 10 mm (3/8 inch) inner diameter works well.}
@@ -220,15 +247,15 @@ It is filled with water to the level shown by $\beta$, and clamped at location $
 Clamping is essential; an open-tube manometer would lose its water under even moderate pressure.
 Smaller diameter tubing (at $\gamma$) can be used to connect to the three-way valve (A, B, C in Fig. \ref{fig:utube}).\footnote{Plastic valves sometimes called "disposable medical three-way stopcock valves" are inexpensive and work well for this task.}
 When in use, the system is connected to a BMP bottle via a needle ($\delta$).\footnote{21 gauge/0.8 mm works well.}
-A syringe is connected through tubing to the valve ($\epsilon$).
+A syringe is connected through tubing to the valve ($\varepsilon$).
 This connection should be easy to disconnect, in order to vent biogas.
 With this system, the following steps are used for each bottle.
 
 \begin{enumerate}
-  \item With syringe disconnected (around location $\epsilon$), check that water levels at $\beta$ are equal. Equilibrate closed end by removing and replacing clamp at $\alpha$ if necessary.
-  \item Turn valve so connection B-C is open (A closed) and allow accumulated biogas to flow under pressure to no more than ca. 80 or 90\% of syringe capacity.
+  \item With syringe disconnected (around location $\varepsilon$), check that water levels at $\beta$ are equal. Equilibrate closed end by removing and replacing clamp at $\alpha$ if necessary.
+  \item Turn valve so connection B-C is open (A closed) and allow accumulated biogas to flow under pressure to no more than 80\% of syringe capacity.
   \item Turn valve so connection A-C is open (B closed) and adjust syringe plunger position so the water levels at $\beta$ are equal. Read and record volume.
-  \item Disconnect syringe at $\epsilon$, push out biogas, and return to step 1, repeating until all excess accumulated biogas has been removed, i.e., when headspace pressure is equal to atmospheric (determined by opening A-B, or even A-B-C if possible).
+  \item Disconnect syringe at $\varepsilon$, push out biogas, and return to step 1, repeating until all excess accumulated biogas has been removed, i.e., when headspace pressure is equal to atmospheric (determined by opening A-B, or even A-B-C if possible).
 \end{enumerate}
 
 For an even simpler system, a regular (two-way) valve (possibly clamped tubing) could be place between the syringe and bottle (needle), with a manometer attached directly to the syringe.
@@ -239,12 +266,12 @@ For an even simpler system, a regular (two-way) valve (possibly clamped tubing) 
   \label{fig:utube}
 \end{figure}
 
-\subsection{Testing}
+\section{Testing}
 The GD-BMP method requires accurate determination of gas volume and bottle mass loss.
 It is important that any new setup is tested.
 Fortunately, ambient air can be used as a standard.
-To test the system, simply use a syringe to \textit{carefully} force a volume (more than ca. 20\% of a bottle headspace is difficult to add) into an empty bottle, and proceed with the measurement steps given above. 
-Calculate apparent density based on bottle mass loss and volume of gas removed.\footnote{This volume may be smaller than the volume thought to be added because of leakage during addition or removal of the syringe.}
+To test the system, simply use a syringe to \textit{carefully} force a volume (it is difficult to add more than about 20\% of a bottle headspace) into an empty bottle, and proceed with the measurement steps given above. 
+Calculate apparent density based on bottle mass loss and volume of gas removed.\footnote{This volume is typically smaller than the volume thought to be added because of leakage during addition or removal of the syringe.}
 The value should be within 10\% (or better, 5\%) of the density for the known ambient pressure and temperature.\footnote{Air density can be calculated with \url{https://www.density.co.uk/calculators/density-of-air/} or similar tools. Humidity effects are small around room temperature (assuming temperature $\le$ 25$^\circ$C). Density is 1.20 mg mL$^{-1}$ for dry air at 20$^\circ$C and 101.3 kPa, and 1.19 mg mL$^{-1}$ when saturated with water.}
 
 \section{Calculations}
