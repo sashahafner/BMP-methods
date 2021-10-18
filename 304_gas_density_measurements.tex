@@ -12,7 +12,7 @@
 
 \title {Gas Density-Based Measurement of Biochemical Methane Potential (BMP)\footnote{
   Recommended citation: 
-Hafner, S.D.; Astals, S.; Holliger, C.; Justesen, C.; Koch, K.; Mortensen, J.R. 2021 Gas density-based BMP measurement. Standard BMP Methods document 304, version 2.2. Available online: https://www.dbfz.de/en/BMP (accessed on March 31, 2021).
+Hafner, S.D.; Astals, S.; Holliger, C.; Justesen, C.; Koch, K.; Mortensen, J.R. 2021 Gas density-based BMP measurement. Standard BMP Methods document 304, version 2.3. Available online: https://www.dbfz.de/en/BMP (accessed on <date>).
 \newline
   Or see \url{https://www.dbfz.de/en/BMP} for a BibTeX file that can be imported into citation management software.
 }
@@ -23,7 +23,7 @@ Hafner, S.D.; Astals, S.; Holliger, C.; Justesen, C.; Koch, K.; Mortensen, J.R. 
 \bigskip
 \textit{
   Document number 304.
-  File version 2.2. 
+  File version 2.3. 
   This document is from the Standard BMP Methods collection.
     \footnote{For more information and other documents, visit \url{https://www.dbfz.de/en/BMP}. 
     For document version history or to propose changes, visit \url{https://github.com/sashahafner/BMP-methods}.}
@@ -104,6 +104,7 @@ Alternatively, given a bottle size, the largest possible quantities can be selec
 The accuracy of the GD-BMP method is affected only slightly by variation in headspace pressure, and it is possible to correct for leakage of biogas. 
 However, for safety (to avoid exploding bottles), for maximum precision, and to minimize possible (but perhaps unlikely) effects of high \ce{CO2} dissolution, headspace pressure should be kept below 200 kPa (2 bar) gauge pressure, or even more cautiously, 100 kPa \citep{hafnerSystematicErrorManometric2019}. 
 Bottle pressures can be estimated from headspace volume and expected (or measured) biogas volume.
+With some experience, the bulging of septa can be used to identify excessive headspace pressure.
 The headspace volume can be estimated by assuming a density of 1 mL g$^{-1}$ for the mixture.
 Additionally, to minimize the risk of foaming causing contamination of the septum, bottles are typically not filled beyond 50\%.
 
@@ -146,6 +147,7 @@ Headspace:substrate VS (mL:g) & 245  & 149 & 109 \\
       Problems with accuracy or stability over time could be related to air currents, and can generally be addressed by selecting a proper location or blocking air flow with, e.g., a cardboard box.
     \item Add the required mass of inoculum and substrate (see Section \ref{sec:quantities}), along with any other additions (e.g., a trace element solution \citep{holligerStandardizationBiomethanePotential2016}) to each labeled bottle and seal with a septum and cover. 
       Determination of the quantity of material added by mass difference is the recommended approach: tare scale with bottle, add approximately the desired quantity, wipe any material from near the mouth of the bottle, and finally determine the actual quantity from the scale reading. 
+      When filling the bottles, the aim is not to achieve the determined value as closely as possible, but to work in a fast (in order to minimize possible separation of the sample) and careful way (to avoid spills, errors, or safety problems) and to then record the exact mass added.
       Note that the scale used here does not need to be the same scale used for determining mass loss (see Section \ref{sec:incsam}).
     \item Flush the bottle headspace to remove \ce{O2}. 
       A simple approach is to use a needle attached to a flow meter (e.g., a rotameter), a pressure regulator (to ensure low pressure), and a gas cylinder with plastic tubing, along with a separate needle for venting. With the GD-BMP method, pure \ce{N2} is preferred for flushing over \ce{N2}/\ce{CO2} mixtures.\footnote{
@@ -194,6 +196,7 @@ Some general considerations are:
 \end{itemize}
 
 Following these recommendations, a good approach is to sample daily from the start, and reduce the sampling frequency as biogas production slows, taking care to avoid high headspace pressure or too much accumulated biogas for the sampling system.
+As mentioned above (\ref{sec:quantities}), the a bulging septum can be used as an indicator of excessive headspace pressure.
 
 \subsection{Biogas volume measurement}
 \label{sec:volmeas}
@@ -226,7 +229,7 @@ With this system, the following steps are used for each bottle.
   \item Disconnect syringe at $\varepsilon$, push out biogas, and return to step 1, repeating until all excess accumulated biogas has been removed, i.e., when headspace pressure is equal to atmospheric (determined by opening A-B, or even A-B-C if possible).
 \end{enumerate}
 
-For an even simpler system, a regular (two-way) valve (possibly clamped tubing) could be place between the syringe and bottle (needle), with a manometer attached directly to the syringe.
+For an even simpler system, a regular (two-way) valve (possibly clamped tubing) could be place between the syringe and bottle (needle), with a manometer connected to the syringe through tubing and a T-fitting (i.e., replace valve A/B/C with a T-fitting, and add a simple valve or clamp between B and $\delta$).
 
 \begin{figure}
   \includegraphics[]{figs/GD_utube.pdf}
@@ -242,7 +245,7 @@ For an even simpler system, a regular (two-way) valve (possibly clamped tubing) 
       If the results are the same as the initial masses (within the expected accuracy) proceed, otherwise, identify and address the problem with the scale or replace the scale if necessary.
       If the problem cannot be resolved, proceed and later correct mass results for scale drift.\footnote{
         Correction is done by subtracting the average apparent mass gain in the control bottles from all mass measurements made during that particular sampling event. 
-        For example, if both water controls weighed 0.1 g more on day 4 than at the start, the measured masses of \textit{all} bottles from day 4 should be adjusted downward by 0.1 g.
+        For example, if all three water controls weighed 0.1 g more on day 4 than at the start, the measured masses of \textit{all} bottles from day 4 should be adjusted downward by 0.1 g.
       }
     \item Remove a single set of replicates from the incubator (e.g., the three replicates for cellulose).
     \item Always starting with the same replicate (e.g., ``1'' or ``a''),\footnote{
@@ -263,7 +266,7 @@ For an even simpler system, a regular (two-way) valve (possibly clamped tubing) 
     \item Proceed to the next set of replicates (e.g., the three replicates for substrate ``food waste A'') and repeat steps 3 to 9.
 \end{enumerate}
 
-This sequence of steps is shown in Fig. \ref{fig:steps}.
+This sequence of steps is shown in Fig. \ref{fig:steps}.\footnote{It may be helpful to print a copy this figure and post it where measurements are made.}
 
 \begin{figure}[ht]
   \includegraphics[width=\textwidth]{figs/GD_steps.pdf}
